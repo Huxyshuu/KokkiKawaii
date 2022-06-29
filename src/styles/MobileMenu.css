@@ -31,9 +31,81 @@ font-family: 'Coiny', cursive;
     font-family: 'Coiny', cursive, "Times New Roman", serif;
     width: 100vw;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
-#menuSelection {
-    
+#menuSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menuSection p {
+    color: var(--highlightColor);
+    font-size: 2rem;
+    font-family: 'Arimo', sans-serif;
+    margin-top: 2rem;
+}
+
+#menuSection div {
+    display: flex;
+}
+
+#menuSection button {
+    color: var(--highlightColor);
+    font-size: 2rem;
+    font-family: 'Arimo', sans-serif;
+    background: none;
+    border: none;
+    border-bottom: 0.1rem solid var(--highlightColor);
+    width: 100vw;
+    position: absolute;
+    bottom: 5rem;
+}
+
+#menuSection button:hover {
+    color: white;
+    background-color: var(--highlightColor);
+}
+
+#searchIconButton {
+    background-color: var(--highlightColor);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchIconButton:hover {
+    box-shadow: 0 0 0.1rem 0.1rem var(--darkColor);
+}
+
+#menuSearch {
+    font-size: 1.2rem;
+    font-family: 'Arimo', sans-serif;
+    border: 0.1rem solid var(--highlightColor);
+    width: 70vw;
+}
+
+#menuSearch:focus {
+    outline: none;
+    background-color: #f2f2f2;
+}
+
+#menuFooter {
+    position: absolute;
+    background-color: var(--highlightColor);
+    color: white;
+    font-size: 1.1rem;
+    font-family: 'Arimo', sans-serif;
+    align-self: center;
+    text-align: center;
+    width: 100vw;
+    padding-block: 1rem;
+    justify-content: center;
+    bottom: 0;
 }
