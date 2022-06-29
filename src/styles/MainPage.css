@@ -70,17 +70,19 @@ font-family: 'Coiny', cursive;
     color: white;
     margin-bottom: 3rem;
 }
-#categorySection {
+
+.section {
     margin-inline: 1rem;
 }
 
-#categorySection h3 {
+.sectionTitle {
     border-left: 0.3rem solid var(--highlightColor);
     margin-bottom: 0.5rem;
     margin-left: 0.2rem;
     padding-left: 0.3rem;
     font-family: 'Arimo', sans-serif;
     font-weight: 600;
+    font-size: 1rem;
 }
 
 #categoryButtons {

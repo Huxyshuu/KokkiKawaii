@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/MainPage.css';
 import CategoryButtons from '../components/CategoryButtons';
+import RecipeDisplay from '../components/RecipeDisplay';
 
 export default function MainPage() {
   return (
@@ -15,16 +16,19 @@ export default function MainPage() {
         <input id="mainFormSubmit" type="submit" value="SEARCH"/>
       </form>
 
-      <div id="latestSection">
-              
+      <div className="section">
+        <h3 className="sectionTitle">LATEST RECIPE</h3>
+        <div id="latestRecipe">
+          <RecipeDisplay />
+        </div>
       </div>
 
-      <div id="categorySection">
-        <h3>CATEGORIES</h3>
+      {/* <div className="section">
+        <h3 className="sectionTitle">CATEGORIES</h3>
         <div id="categoryButtons">
           <CategoryButtons />
         </div>
-      </div>
+      </div> */}
 
 
     </div>

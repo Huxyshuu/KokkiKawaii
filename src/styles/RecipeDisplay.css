@@ -1,0 +1,35 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
+
+#latestPic {
+    width: 100%;
+    ratio: 1 / 1;
+}
+
+#latestName {
+    font-size: 1.1rem;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    color: var(--highlightColor);
+    margin-top: 0.1rem;
+}
+
+#latestDisplayInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#latestCookTime {
+    display: flex;
+    flex-direction: row;
+}
+
+#latestCookTime p {
+    margin-left: 0.5rem;
+}
