@@ -1,8 +1,13 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from "react-router-dom";
 import '../styles/MobileMenu.css';
 
-export default function MobileMenu() {
+
+export default function MobileMenu(prop) {
+
+  const { menuOpen, setMenuOpen } = prop;
+
   return (
     <div id="dropdownMenu">
       <div id="ddmenu">
@@ -17,7 +22,7 @@ export default function MobileMenu() {
             <Icon icon="bx:search-alt" />
           </div>
         </div>
-        <button>Log In</button>
+        <Link to="/login" className="link" onClick={() => setMenuOpen(false)}><button id="menuLoginButton">Log In</button></Link>
       </div>
       <div id="menuFooter">
         <small>Copyright &copy; 2022 RECLIB. All Right Reserved</small>

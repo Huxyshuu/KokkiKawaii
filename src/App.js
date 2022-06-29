@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        {menuOpen ? <MobileMenu /> 
+        {menuOpen ? <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> 
         : 
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -29,7 +29,7 @@ function App() {
           <>
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/overview" element={<AdminList />} />
-          </> : <Route path="*" element={<Navigate to="/login" />} replace/>
+          </> : <Route path="*" element={<Navigate to="/login" />} replace={true}/>
           }
           
         </Routes>

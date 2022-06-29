@@ -9,7 +9,6 @@ font-family: 'Coiny', cursive;
     padding-top: var(--navBarHeight);
     display: flex;
     flex-direction: column;
-    
 }
 
 #ddmenu {
@@ -52,7 +51,7 @@ font-family: 'Coiny', cursive;
     display: flex;
 }
 
-#menuSection button {
+#menuLoginButton {
     color: var(--highlightColor);
     font-size: 2rem;
     font-family: 'Arimo', sans-serif;
@@ -61,10 +60,11 @@ font-family: 'Coiny', cursive;
     border-bottom: 0.1rem solid var(--highlightColor);
     width: 100vw;
     position: absolute;
+    left: 0;
     bottom: 5rem;
 }
 
-#menuSection button:hover {
+#menuLoginButton:hover {
     color: white;
     background-color: var(--highlightColor);
 }
