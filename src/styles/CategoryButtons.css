@@ -1,0 +1,43 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
+
+.categoryButton {
+    font-family: 'Arimo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    background-color: var(--highlightColor);
+    color: white;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    border: 0.1rem solid var(--highlightColor);
+}
+
+.categoryButton:hover {
+    background-color: white;
+    color: var(--highlightColor);
+    border: 0.1rem solid var(--highlightColor);
+}
+
+.categoryButtonML {
+    font-family: 'Arimo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    background-color: var(--darkColor);
+    color: white;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    border: 0.1rem solid var(--darkColor);
+}
+
+.categoryButtonML:hover {
+    background-color: white;
+    color: var(--highlightColor);
+    border: 0.1rem solid var(--highlightColor);
+}

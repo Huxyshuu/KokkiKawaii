@@ -25,6 +25,7 @@ font-family: 'Coiny', cursive;
     background-color: var(--highlightColor);
     color: white;
     font-family: 'Coiny', cursive, "Times New Roman", serif;
+    font-weight: normal;
     width: 100vw;
     text-align: center;
     font-size: 2.5rem;
@@ -35,6 +36,7 @@ font-family: 'Coiny', cursive;
 #menuMenu {
     color: var(--highlightColor);
     font-family: 'Coiny', cursive, "Times New Roman", serif;
+    font-weight: normal;
     width: 100vw;
     text-align: center;
     font-size: 3rem;

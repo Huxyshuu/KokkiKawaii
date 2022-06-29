@@ -1,3 +1,91 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
 #mainPage {
     padding-top: var(--navBarHeight);
 }
+
+#heroCover {
+    background-color: var(--highlightColor);
+    opacity: 0.25;
+    width: 100vw;
+    height: 5rem;
+    position: absolute;
+}
+
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 5rem;
+    background: url('../images/hero.jpg') no-repeat;
+    background-size: cover;
+    background-position: 100% 10%;
+}
+
+#hero h1 {
+    font-family: 'Coiny', cursive;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: normal;
+    z-index: 9;
+}
+
+#mainForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#mainFormInput {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 0.2rem solid var(--highlightColor);
+    margin: 2rem;
+    color: var(--highlightColor);
+}
+
+#mainFormInput:focus {
+    outline: none;
+}
+
+#mainFormInput::placeholder {
+    color: black;
+    opacity: 0.2;
+}
+
+#mainFormSubmit {
+    align-self: center;
+    font-size: 1.2rem;
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    background-color: var(--highlightColor);
+    color: white;
+    margin-bottom: 3rem;
+}
+#categorySection {
+    margin-inline: 1rem;
+}
+
+#categorySection h3 {
+    border-left: 0.3rem solid var(--highlightColor);
+    margin-bottom: 0.5rem;
+    margin-left: 0.2rem;
+    padding-left: 0.3rem;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+}
+
+#categoryButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

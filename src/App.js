@@ -12,6 +12,7 @@ import AdminList from './components/AdminList';
 function App() {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const adminRoutes = ['/overview', '/addrecipe'];
   const loggedIn = false;
 
   const menuOpener = () => {
@@ -40,8 +41,23 @@ function App() {
           <>
             <Route path="/addrecipe" element={<AddRecipe />} />
             <Route path="/overview" element={<AdminList />} />
-          </> : <Route path="*" element={<Navigate to="/login" />} replace={true}/>
+          </> : 
+          <>
+            {/* <Route path="/addrecipe" element={<Navigate to="/login" />} replace={true}/>
+            <Route path="/overview" element={<Navigate to="/login" />} replace={true}/> */}
+            {
+              adminRoutes.map((path, index) => {
+                return (
+                  <Route path={path} 
+                  element={<Navigate to="/login" />} 
+                  replace={true} 
+                  key={"admin_" + index}/>
+                )
+              })
+            }
+          </>
           }
+          <Route path="*" element={<Navigate to="/" />} replace={true}/>
           
         </Routes>
         
