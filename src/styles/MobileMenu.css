@@ -6,9 +6,15 @@ font-family: 'Coiny', cursive;
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
 
 #dropdownMenu {
-    padding-top: var(--navBarHeight);
     display: flex;
     flex-direction: column;
+    z-index: 99;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    transition: 0.5s ease-in-out;
+    left: -100vw;
 }
 
 #ddmenu {
@@ -23,6 +29,7 @@ font-family: 'Coiny', cursive;
     text-align: center;
     font-size: 2.5rem;
     padding-block: 1rem;
+    margin-top: var(--navBarHeight);
 }
 
 #menuMenu {
@@ -49,6 +56,24 @@ font-family: 'Coiny', cursive;
 
 #menuSection div {
     display: flex;
+}
+
+#menuFrontButton {
+    color: var(--highlightColor);
+    font-size: 2rem;
+    font-family: 'Arimo', sans-serif;
+    background: none;
+    border: none;
+    border-bottom: 0.1rem solid var(--highlightColor);
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    bottom: 10rem;
+}
+
+#menuFrontButton:hover {
+    color: white;
+    background-color: var(--highlightColor);
 }
 
 #menuLoginButton {

@@ -6,7 +6,7 @@ import '../styles/MobileMenu.css';
 
 export default function MobileMenu(prop) {
 
-  const { menuOpen, setMenuOpen } = prop;
+  const { setMenuOpen } = prop;
 
   return (
     <div id="dropdownMenu">
@@ -22,11 +22,13 @@ export default function MobileMenu(prop) {
             <Icon icon="bx:search-alt" />
           </div>
         </div>
+        <Link to="/" className="link" onClick={() => setMenuOpen(false)}><button id="menuFrontButton">Frontpage</button></Link>
         <Link to="/login" className="link" onClick={() => setMenuOpen(false)}><button id="menuLoginButton">Log In</button></Link>
       </div>
       <div id="menuFooter">
         <small>Copyright &copy; 2022 RECLIB. All Right Reserved</small>
       </div>
     </div>
+    
   )
 }

@@ -13,6 +13,7 @@ font-family: 'Arimo', sans-serif;
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 0.1rem solid var(--darkColor);
+    z-index: 100;
 }
 
 #mobileMenuLogo {

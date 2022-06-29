@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import MobileNavBar from './components/MobileNavBar';
 import MobileMenu from './components/MobileMenu';
@@ -12,15 +12,26 @@ import AdminList from './components/AdminList';
 function App() {
 
   const [menuOpen, setMenuOpen] = useState(false);
-
   const loggedIn = false;
+
+  const menuOpener = () => {
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    if(menuOpen) {
+      dropdownMenu.style.left = '0';
+    } else {
+      dropdownMenu.style.left = '-100vw';
+    }
+  }
+
+  useEffect(() => {
+    menuOpener();
+  })
 
   return (
     <Router>
       <div className="App">
         <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        {menuOpen ? <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/> 
-        : 
+        <MobileMenu setMenuOpen={setMenuOpen}/> 
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -33,7 +44,6 @@ function App() {
           }
           
         </Routes>
-        }
         
       </div>
     </Router>
