@@ -1,0 +1,40 @@
+/*
+font-family: 'Arimo', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&display=swap');
+
+#mobileNav {
+    background: white;
+    position: fixed;
+    width: 100vw;
+    height: var(--navBarHeight);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid var(--darkColor);
+}
+
+#mobileMenuLogo {
+    margin: 0.5rem;
+    font-weight: 400;
+}
+
+.mobileMenuButton {
+    margin: 0.4rem;
+    font-size: 200%;
+
+}
+
+#closeMenuButton {
+    margin: 0.5rem;
+    font-size: 170%;
+}
+
+h2 {
+    font-family: 'Arimo', sans-serif;
+}
+
+.tempHidden {
+    display: none;
+}

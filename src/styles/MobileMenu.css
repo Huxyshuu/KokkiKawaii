@@ -1,0 +1,39 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
+#dropdownMenu {
+    padding-top: var(--navBarHeight);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#ddmenu {
+    align-items: center;
+}
+
+#menuTitle {
+    background-color: var(--highlightColor);
+    color: white;
+    font-family: 'Coiny', cursive, "Times New Roman", serif;
+    width: 100vw;
+    text-align: center;
+    font-size: 2.5rem;
+    padding-block: 1rem;
+}
+
+#menuMenu {
+    color: var(--highlightColor);
+    font-family: 'Coiny', cursive, "Times New Roman", serif;
+    width: 100vw;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#menuSelection {
+    
+}
