@@ -16,10 +16,10 @@ export default function Rating(prop) {
     const countStars = (rating) => {
         const starArray = [];
         for (var i = 0; i < rating; i++) {
-            starArray.push(<Icon icon="codicon:star-full" />);
+            starArray.push(<Icon icon="codicon:star-full" key={i}/>);
         }
         while (starArray.length < 5) {
-            starArray.push(<Icon icon="codicon:star-empty" />);
+            starArray.push(<Icon icon="codicon:star-empty" key={starArray.length}/>);
         }
         return starArray;
     }

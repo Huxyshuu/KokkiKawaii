@@ -1,0 +1,24 @@
+#sideDish {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-inline: 1rem;
+}
+
+#sideCategory {
+    align-self: flex-start;
+}
+
+#sideImage {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+#sideTitle {
+    font-size: 1.1rem;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    color: var(--highlightColor);
+    margin-top: 0.1rem;
+}

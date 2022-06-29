@@ -7,26 +7,26 @@ export default function RecipeDisplay() {
 
   const recipes = [
     {
-      image: 'https://i.imgur.com/60NlJft.jpeg',
-      name: 'Pasta Carbonara',
+      picture: 'https://i.imgur.com/60NlJft.jpeg',
+      title: 'Pasta Carbonara',
       rating: 4,
-      cookTimeMinutes: 30
+      time: 30
     }
   ]
-  const { image, name, rating, cookTimeMinutes } = recipes[0];
+  const { picture, title, rating, time } = recipes[0];
 
   return (
     <div>
-        <img id="latestPic" src={image} alt="Carbonara" />
+        <img id="latestPic" src={picture} alt={title} />
         <div id="latestDisplayInfo">
-            <h3 id="latestName">{name.toUpperCase()}</h3>
+            <h3 id="latestName">{title.toUpperCase()}</h3>
             <Rating rating={rating}/>
         </div>
         <div id="latestCookTime">
           <Icon icon="ci:clock" />
           {
-            cookTimeMinutes > 60 ? <p>1 hr {cookTimeMinutes} min</p> 
-            : <p>{cookTimeMinutes} min</p>
+            time > 60 ? <p>1 hr {time} min</p> 
+            : <p>{time} min</p>
           }
         </div>
     </div>

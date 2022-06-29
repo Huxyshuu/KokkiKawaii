@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/MainPage.css';
 import CategoryButtons from '../components/CategoryButtons';
 import RecipeDisplay from '../components/RecipeDisplay';
+import SideDisplay from '../components/SideDisplay';
 
 export default function MainPage() {
   return (
@@ -22,14 +23,22 @@ export default function MainPage() {
           <RecipeDisplay />
         </div>
       </div>
+        
+      <div id="sideDisplay" >
+        <SideDisplay category={'breakfast'}/>
+        <SideDisplay category={'snacks'}/>
+      </div>
 
-      {/* <div className="section">
+      <div className="section">
         <h3 className="sectionTitle">CATEGORIES</h3>
         <div id="categoryButtons">
           <CategoryButtons />
         </div>
-      </div> */}
+      </div>
 
+      <div id="mainSeeMore">
+        <button id="seeMoreButton">SEE MORE</button>
+      </div>
 
     </div>
   )
