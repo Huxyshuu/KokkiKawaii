@@ -1,31 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/CategoryButtons.css";
 
 export default function CategoryButtons() {
   const [showMore, setShowMore] = useState(false);
 
   const categories = [
-    "Breakfast",
-    "Dinner",
-    "Meat",
-    "Snacks",
-    "Dessrts",
+    "Aamupala",
+    "Päivällinen",
+    "Liha",
+    "Herkku",
+    "Jälkiruoka",
     "Pasta",
-    "Supper",
-    "Healthy",
-    "Spicy",
-    "Pastries",
-    "Salty",
-    "Pizza",
-    "Salad",
+    "Iltapala",
+    "Terveellinen",
+    "Tulinen",
+    "Leivonnainen",
+    "Suolainen",
+    "Pitsa",
+    "Salaatti",
   ];
-  const shortCategories = ["Breakfast", "Dinner", "Meat"];
-
-  useEffect(() => {
-    const categoryHeight =
-      document.getElementById("categoryButtons").offsetHeight;
-    console.log(categoryHeight);
-  });
+  const shortCategories = ["Aamupala", "Liha", "Pasta"];
 
   return (
     <div>

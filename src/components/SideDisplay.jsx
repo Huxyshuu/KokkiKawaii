@@ -6,13 +6,13 @@ export default function SideDisplay(prop) {
     const recipes = [
         {
             picture: 'https://i.imgur.com/H1y0hft.png',
-            title: 'French Toast',
-            category: 'breakfast'
+            title: 'Köyhät Ritarit',
+            category: 'aamupala'
         },
         {
             picture: 'https://i.imgur.com/IEDzzSw.png',
             title: 'Vol-Au-Vent',
-            category: 'snacks'
+            category: 'herkut'
         }
     ]
     
@@ -23,8 +23,6 @@ export default function SideDisplay(prop) {
     })
 
     const {picture, title, category} = listOfMatches[0];
-
-    console.log(listOfMatches);
 
 
   return (

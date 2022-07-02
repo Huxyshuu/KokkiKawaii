@@ -12,8 +12,10 @@ import AdminList from './components/AdminList';
 function App() {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isSmall, setIsSmall] = useState();
+  const [loggedIn, setLoggedIn] = useState(false);
+  
   const adminRoutes = ['/overview', '/addrecipe'];
-  const loggedIn = false;
 
   const menuOpener = () => {
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -24,18 +26,40 @@ function App() {
     }
   }
 
+  const menuManager = () => {
+    const checkWindowSize = () => {
+      setIsSmall(window.innerWidth < 1300 ? true : false);
+      if (!isSmall) {
+          setMenuOpen(false);
+      }
+  }
+
+  if (menuOpen) {
+      document.body.style.overflow = "hidden";
+  } else {
+      document.body.style.overflow = "visible";
+  }
+  window.addEventListener('resize', checkWindowSize);
+  checkWindowSize();
+
+  return () => {
+      window.removeEventListener('resize', checkWindowSize);
+  }
+  }
+
   useEffect(() => {
     menuOpener();
+    menuManager();
   })
 
   return (
     <Router>
       <div className="App">
         <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <MobileMenu setMenuOpen={setMenuOpen}/> 
+        <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           {/*Check if the user is logged in or not, render accordingly or redirects to login*/}
           {loggedIn ? 
           <>
@@ -43,8 +67,6 @@ function App() {
             <Route path="/overview" element={<AdminList />} />
           </> : 
           <>
-            {/* <Route path="/addrecipe" element={<Navigate to="/login" />} replace={true}/>
-            <Route path="/overview" element={<Navigate to="/login" />} replace={true}/> */}
             {
               adminRoutes.map((path, index) => {
                 return (

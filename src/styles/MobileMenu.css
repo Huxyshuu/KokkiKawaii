@@ -9,7 +9,7 @@ font-family: 'Coiny', cursive;
     display: flex;
     flex-direction: column;
     z-index: 99;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: white;
@@ -58,6 +58,7 @@ font-family: 'Coiny', cursive;
 
 #menuSection div {
     display: flex;
+    height: 100%;
 }
 
 #menuFrontButton {
@@ -68,9 +69,6 @@ font-family: 'Coiny', cursive;
     border: none;
     border-bottom: 0.1rem solid var(--highlightColor);
     width: 100vw;
-    position: absolute;
-    left: 0;
-    bottom: 10rem;
 }
 
 #menuFrontButton:hover {
@@ -86,14 +84,36 @@ font-family: 'Coiny', cursive;
     border: none;
     border-bottom: 0.1rem solid var(--highlightColor);
     width: 100vw;
-    position: absolute;
-    left: 0;
-    bottom: 5rem;
 }
 
 #menuLoginButton:hover {
     color: white;
     background-color: var(--highlightColor);
+}
+
+#menuOverviewButton {
+    color: var(--highlightColor);
+    font-size: 2rem;
+    font-family: 'Arimo', sans-serif;
+    background: none;
+    border: none;
+    border-bottom: 0.1rem solid var(--highlightColor);
+    width: 100vw;
+}
+
+#menuOverviewButton:hover {
+    color: white;
+    background-color: var(--highlightColor);
+}
+
+.menuButtons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+
+.menuButtons * {
+    margin-top: 0.8rem;
 }
 
 #searchIconButton {

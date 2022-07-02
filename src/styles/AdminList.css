@@ -1,0 +1,158 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
+#adminList {
+    padding: 1rem;
+    padding-top: calc(var(--navBarHeight) + 1rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#addRecipePlus {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    font-size: 5rem;
+    color: var(--darkColor);
+    transition: 0.2s ease-in-out;
+}
+
+#addRecipePlus:hover {
+    font-size: 7rem;
+}
+
+.recipeBox {
+    border: 0.1rem solid var(--darkColor);
+    aspect-ratio: 1 / 1;
+    width: 41vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.recipeBox:hover .recipeHoverMenu {
+    display: block;
+}
+
+.overviewRecipeTitles {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: black 0.05rem 0.05rem;
+}
+
+.recipeHoverMenu {
+    background: linear-gradient(0deg, var(--highlightColor) -20%, rgba(255, 255, 255, 0.2) 50%, var(--highlightColor) 120%);
+    box-shadow: 0 0 0 0.15rem var(--highlightColor);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+.recipeHoverMenu button {
+    margin: 0.6rem;
+    border: none;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: 80%;
+    align-self: center;
+}
+
+.overviewEdit {
+    color: white;
+    background-color: var(--highlightColor);
+    transition: 0.2s ease-in-out;
+}
+
+.overviewDel {
+    color: white;
+    background-color: var(--highlightColor);
+    transition: 0.2s ease-in-out;
+}
+
+.overviewEdit:hover {
+    background-color: white;
+    color: var(--highlightColor);
+    transform: scale(1.1);
+}
+
+.overviewDel:hover {
+    background-color: white;
+    color: var(--highlightColor);
+    transform: scale(1.1);
+}
+
+#promptBox {
+    position: absolute;
+    background-color: white;
+    border: 0.2rem solid var(--highlightColor);
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    z-index: 999;
+}
+
+#promptBox p {
+    margin: 1rem;
+}
+
+#promptBox input {
+    width: 80%;
+    font-size: 1.2rem;
+    margin-block: 1rem;
+}
+
+#promptBox {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+#promptDel {
+    background-color: var(--highlightColor);
+    color: white;
+    border: 0.1rem solid var(--highlightColor);
+    margin: 1rem;
+}
+
+#promptX {
+    color: var(--highlightColor);
+    background-color: white;
+    border: 0.1rem solid var(--highlightColor);
+    margin: 1rem;
+}
+
+#promptButtons {
+    display: flex;
+}
+
+#promptText {
+    color: var(--highlightColor);
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transform: translate(-26%, 160%);
+}
+
+#promptPassword:focus {
+    border: 0.12rem solid var(--highlightColor);
+    outline: none;
+    background-color: #f2f2f2;
+}

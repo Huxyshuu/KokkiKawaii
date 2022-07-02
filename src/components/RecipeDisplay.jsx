@@ -9,7 +9,7 @@ export default function RecipeDisplay() {
     {
       picture: 'https://i.imgur.com/60NlJft.jpeg',
       title: 'Pasta Carbonara',
-      rating: 4,
+      rating: 5,
       time: 30
     }
   ]
@@ -25,7 +25,7 @@ export default function RecipeDisplay() {
         <div id="latestCookTime">
           <Icon icon="ci:clock" />
           {
-            time > 60 ? <p>1 hr {time} min</p> 
+            time > 60 ? <p> { Math.floor(time / 60) }t {time - Math.floor(time / 60) * 60} min</p> 
             : <p>{time} min</p>
           }
         </div>

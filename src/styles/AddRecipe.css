@@ -1,0 +1,105 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
+#addRecipe {
+    padding-top: var(--navBarHeight);
+    width: 100vw;
+}
+
+#addRecipeTitle h3 {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0.5rem;
+}
+
+#addRecipeTitle p {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+#labelSubmitImage {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--highlightColor);
+    background-color: white;
+    border: 0.1rem solid var(--highlightColor);
+    padding: 0.1rem;
+    padding-inline: 0.3rem;
+}
+
+#recipeForm input[type="file"] {
+    display: none;
+}
+
+#submitDisplayImage {
+    aspect-ratio: 1 / 1;
+    width: 40vh;
+    object-fit: cover;
+    display: none;
+}
+
+#recipeForm {
+    margin-inline: 1rem;
+}
+
+#recipeForm div p {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+#recipeForm input {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+.header {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-left: 0.4rem solid var(--highlightColor);
+    padding-left: 0.3rem;
+    margin: 1rem 1rem 0.2rem 0;
+}
+
+#ingAmount {
+    width: 30%;
+}
+
+#ingName {
+    width: 70%;
+}
+
+#addIngButton {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 0.1rem solid var(--highlightColor);
+    color: var(--highlightColor);
+    background-color: white;
+    margin-top: 0.5rem;
+}
+
+.ingredients {
+    display: flex;
+}
+
+#extraInfo {
+    margin-bottom: 1rem;
+}
+
+.addCats {
+    width: 100;
+}
+

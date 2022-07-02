@@ -13,31 +13,31 @@ export default function MainPage() {
       </div>
 
       <form action="#" id="mainForm">
-        <input id="mainFormInput" type="text" placeholder="Search for a recipe" />
-        <input id="mainFormSubmit" type="submit" value="SEARCH"/>
+        <input id="mainFormInput" type="text" placeholder="Etsi reseptiä nimellä" />
+        <input id="mainFormSubmit" type="submit" value="HAE"/>
       </form>
 
       <div className="section">
-        <h3 className="sectionTitle">LATEST RECIPE</h3>
+        <h3 className="sectionTitle">UUSIN RESEPTI</h3>
         <div id="latestRecipe">
           <RecipeDisplay />
         </div>
       </div>
         
       <div id="sideDisplay" >
-        <SideDisplay category={'breakfast'}/>
-        <SideDisplay category={'snacks'}/>
+        <SideDisplay category={'aamupala'}/>
+        <SideDisplay category={'herkut'}/>
       </div>
 
       <div className="section">
-        <h3 className="sectionTitle">CATEGORIES</h3>
+        <h3 className="sectionTitle">KATEGORIAT</h3>
         <div id="categoryButtons">
           <CategoryButtons />
         </div>
       </div>
 
       <div id="mainSeeMore">
-        <button id="seeMoreButton">SEE MORE</button>
+        <button id="seeMoreButton">KATSO LISÄÄ</button>
       </div>
 
     </div>
