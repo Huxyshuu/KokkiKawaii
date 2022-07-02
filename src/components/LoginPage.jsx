@@ -10,7 +10,6 @@ export default function LoginPage(prop) {
     const handleLogin = async e => {
         e.preventDefault();
         if (e.target[0].value === 'admin' && e.target[1].value === 'password') {
-            console.log('Logged in!');
             setLoggedIn(true);
             navigate('/overview', { replace: true});
         }

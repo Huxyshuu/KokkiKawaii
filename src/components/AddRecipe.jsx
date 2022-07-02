@@ -9,57 +9,7 @@ export default function AddRecipe() {
       <input id="ingredientName" type="text" placeholder="Ainesosa"/>
     </div>
   ]);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const ingLength = ingredients.length;
-    console.log(ingLength);
-    const form = e.target
-
-    console.log(form[4].id)
-
-    const ingredientsList = [];
-    let amount = '';
-    let ingredient = '';
-    let time = '';
-    let instructions = '';
-    let extra = '';
-
-    for (var i of form) {
-      if (i.id === 'ingredientAmount') {
-        amount = i.value;
-      }
-      if (i.id === 'ingredientName') {
-        ingredient = i.value;
-        ingredientsList.push(`${ingredient}: ${amount} `);
-      }
-      if (i.id === 'timeEst') {
-        time = i.value;
-      }
-      if (i.id === 'addRecipeInstructions') {
-        instructions = i.value;
-      }
-      if (i.id === 'addRecipeInfo') {
-        extra = i.value;
-      }
-    }
-
-
-
-    console.log(e);
-    const recipe = {
-      title: form[1].value,
-      rating: form[2].value,
-      servings: form[3].value,
-      ingredients: ingredientsList,
-      time: time,
-      instructions: instructions,
-      notes: extra,     
-    }
-
-    console.log(recipe);
-
-  }
+  
 
   // const categories = [
   //   "Aamupala",
@@ -77,6 +27,8 @@ export default function AddRecipe() {
   //   "Salaatti",
   // ];
 
+
+
   // Display the image added to form
   const displayImage = e => {
     const [file] = document.getElementById('recipeSubmitImage').files
@@ -86,6 +38,77 @@ export default function AddRecipe() {
       displayImage.src = URL.createObjectURL(file);
       displayImage.alt = file.name;
     }
+  }
+
+  const convertImage = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      //set the callbacks before reading the object
+      reader.onload = () => resolve(reader.result); 
+      reader.onerror = error => reject(error);
+
+      reader.readAsDataURL(file);
+    }).then(value => {
+      return value;
+    }).catch(e => {
+      console.log(e.message);
+    })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target
+
+    const ingredientsList = [];
+    let amount = '';
+    let ingredient = '';
+    let time = '';
+    let instructions = '';
+    let extra = '';
+    let image = '';
+
+    const [file] = document.getElementById('recipeSubmitImage').files
+    image = convertImage(file);
+    
+    // if (file) {
+    //   var reader = new FileReader();
+    //   reader.onloadend = function() {
+    //     console.log(image);
+    //     image = reader.result;
+    //   }
+    // }
+
+    for (var i of form) {
+      if (i.id === 'ingredientAmount') {
+        amount = i.value;
+      }
+      if (i.id === 'ingredientName') {
+        ingredient = i.value;
+        ingredientsList.push(`${ingredient}: ${amount}`);
+      }
+      if (i.id === 'timeEst') {
+        time = i.value;
+      }
+      if (i.id === 'addRecipeInstructions') {
+        instructions = i.value;
+      }
+      if (i.id === 'addRecipeInfo') {
+        extra = i.value;
+      }
+    }
+
+    const recipe = {
+      picture: image,
+      title: form[1].value,
+      rating: form[2].value,
+      servings: form[3].value,
+      ingredients: ingredientsList,
+      time: time,
+      instructions: instructions,
+      notes: extra,     
+    }
+
   }
 
   const addIngredient = () => {
