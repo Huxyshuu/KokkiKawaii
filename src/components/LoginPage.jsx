@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function LoginPage(prop) {
 
-    const { loggedIn, setLoggedIn } = prop;
+    const { setLoggedIn } = prop;
     const navigate = useNavigate();
 
     const handleLogin = async e => {

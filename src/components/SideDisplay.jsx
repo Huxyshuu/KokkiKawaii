@@ -20,6 +20,7 @@ export default function SideDisplay(prop) {
         if (item.category === prop.category) {
             return item;
         }
+        return undefined;
     })
 
     const {picture, title, category} = listOfMatches[0];

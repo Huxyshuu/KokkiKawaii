@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/AddRecipe.css';
-import CategoryButtons from '../components/CategoryButtons';
 
 export default function AddRecipe() {
 
@@ -19,7 +18,6 @@ export default function AddRecipe() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e);
   }
 
   const categories = [
@@ -136,18 +134,20 @@ export default function AddRecipe() {
           <textarea name="" id="" cols="30" rows="10"></textarea>
         </div>
 
-        <div>
+        {/* <div>
           {
             categories.map((category, index) => {
               return <div>
-                <span>{category}</span>
-                <input type="checkbox" value={category} key={index} className="addCats"/>
+                <label htmlFor={'cats_' + index} className="cats">{category}</label>
+                <input id={'cats_' + index} type="checkbox" value={category} key={index}/>
               </div>
             })
           }
+        </div> */}
+
+        <div id="arsb">
+          <input type="submit" value="Lisää uusi resepti" id="addRecipeSubmit"/>
         </div>
-
-
       </form>
     </div>
   )
