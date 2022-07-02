@@ -5,36 +5,77 @@ export default function AddRecipe() {
 
   const [ingredients, setIngredients] = useState([
     <div className="ingredients">
-      <input id="ingAmount" type="text" placeholder="Määrä"/>
-      <input id="ingName" type="text" placeholder="Ainesosa"/>
-    </div>
-  ]);
-
-  const [instructions, setInstructions] = useState([
-    <div className="instructions">
-      <textarea name="" id="" cols="30" rows="5"></textarea>
+      <input id="ingredientAmount" type="text" placeholder="Määrä"/>
+      <input id="ingredientName" type="text" placeholder="Ainesosa"/>
     </div>
   ]);
 
   const handleSubmit = e => {
     e.preventDefault();
+    const ingLength = ingredients.length;
+    console.log(ingLength);
+    const form = e.target
+
+    console.log(form[4].id)
+
+    const ingredientsList = [];
+    let amount = '';
+    let ingredient = '';
+    let time = '';
+    let instructions = '';
+    let extra = '';
+
+    for (var i of form) {
+      if (i.id === 'ingredientAmount') {
+        amount = i.value;
+      }
+      if (i.id === 'ingredientName') {
+        ingredient = i.value;
+        ingredientsList.push(`${ingredient}: ${amount} `);
+      }
+      if (i.id === 'timeEst') {
+        time = i.value;
+      }
+      if (i.id === 'addRecipeInstructions') {
+        instructions = i.value;
+      }
+      if (i.id === 'addRecipeInfo') {
+        extra = i.value;
+      }
+    }
+
+
+
+    console.log(e);
+    const recipe = {
+      title: form[1].value,
+      rating: form[2].value,
+      servings: form[3].value,
+      ingredients: ingredientsList,
+      time: time,
+      instructions: instructions,
+      notes: extra,     
+    }
+
+    console.log(recipe);
+
   }
 
-  const categories = [
-    "Aamupala",
-    "Päivällinen",
-    "Liha",
-    "Herkku",
-    "Jälkiruoka",
-    "Pasta",
-    "Iltapala",
-    "Terveellinen",
-    "Tulinen",
-    "Leivonnainen",
-    "Suolainen",
-    "Pitsa",
-    "Salaatti",
-  ];
+  // const categories = [
+  //   "Aamupala",
+  //   "Päivällinen",
+  //   "Liha",
+  //   "Herkku",
+  //   "Jälkiruoka",
+  //   "Pasta",
+  //   "Iltapala",
+  //   "Terveellinen",
+  //   "Tulinen",
+  //   "Leivonnainen",
+  //   "Suolainen",
+  //   "Pitsa",
+  //   "Salaatti",
+  // ];
 
   // Display the image added to form
   const displayImage = e => {
@@ -50,17 +91,9 @@ export default function AddRecipe() {
   const addIngredient = () => {
     setIngredients(prev => [...prev, 
     <div className="ingredients">
-      <input id="ingAmount" type="text" placeholder="Määrä"/>
-      <input id="ingName" type="text" placeholder="Ainesosa"/>
+      <input id="ingredientAmount" type="text" placeholder="Määrä"/>
+      <input id="ingredientName" type="text" placeholder="Ainesosa"/>
     </div>
-  ])
-  }
-
-  const addInstructions = () => {
-    setInstructions(prev => [...prev, 
-      <div className="instructions">
-        <textarea name="" id="" cols="30" rows="5"></textarea>
-      </div>
   ])
   }
 
@@ -116,22 +149,19 @@ export default function AddRecipe() {
 
         <div>
           <p>Aika-arvio*</p>
-          <input type="number" placeholder="Syötä numero"/>
+          <input id="timeEst" type="number" placeholder="Syötä numero"/>
         </div>
 
         <div>
           <p>Ohjeet*</p>
-          {
-            instructions.map((e) => {
-              return e
-            })
-          }
-          <input id="addIngButton" type="button" onClick={addInstructions} value="Lisää ohje"/>
+          <div className="instructions">
+            <textarea id="addRecipeInstructions" name="" cols="40" rows="10"></textarea>
+          </div>
         </div>
 
         <div id="extraInfo">
           <p>Lisätietoja</p>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <textarea id="addRecipeInfo" name="" cols="40" rows="5"></textarea>
         </div>
 
         {/* <div>

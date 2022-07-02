@@ -73,11 +73,11 @@ font-family: 'Coiny', cursive;
     margin: 1rem 1rem 0.2rem 0;
 }
 
-#ingAmount {
+#ingredientAmount {
     width: 30%;
 }
 
-#ingName {
+#ingredientName {
     width: 70%;
 }
 
