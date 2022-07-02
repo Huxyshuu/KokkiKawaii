@@ -56,7 +56,7 @@ export default function AddRecipe() {
     })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target
 
@@ -69,7 +69,7 @@ export default function AddRecipe() {
     let image = '';
 
     const [file] = document.getElementById('recipeSubmitImage').files
-    image = convertImage(file);
+    image = await convertImage(file);
     
     // if (file) {
     //   var reader = new FileReader();
@@ -108,6 +108,8 @@ export default function AddRecipe() {
       instructions: instructions,
       notes: extra,     
     }
+
+    console.log(recipe);
 
   }
 
