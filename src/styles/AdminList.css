@@ -40,7 +40,7 @@ font-family: 'Coiny', cursive;
 }
 
 .recipeBox:hover .recipeHoverMenu {
-    display: block;
+    visibility: visible;
 }
 
 .overviewRecipeTitles {
@@ -60,7 +60,7 @@ font-family: 'Coiny', cursive;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    display: none;
+    visibility: hidden;
 }
 
 .recipeHoverMenu button {
@@ -76,7 +76,7 @@ font-family: 'Coiny', cursive;
 .overviewButtons {
     color: white;
     background-color: var(--highlightColor);
-    transition: 0.2s ease-in-out;
+    transition: 1ms ease-in-out;
 }
 
 .overviewButtons:hover {

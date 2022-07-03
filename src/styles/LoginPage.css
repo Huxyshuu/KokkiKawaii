@@ -31,15 +31,14 @@ font-family: 'Coiny', cursive;
 
 #loginTitle div {
     display: flex;
-    align-items: flex-start;
     width: 15rem;
 }
 
 #loginTitle h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 400;
     margin: 0;
-    margin-top: -2rem;
+    margin-top: -12%;
     margin-bottom: 5rem;
     padding: 0;
 }
