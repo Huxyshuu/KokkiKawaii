@@ -60,7 +60,7 @@ function App() {
         <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/recipes/:id" element={<Recipe />} />
+          <Route path="/recipes/:id" element={<Recipe loggedIn={loggedIn}/>} />
           <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           {/*Check if the user is logged in or not, render accordingly or redirects to login*/}
           {loggedIn ? 

@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import '../styles/Recipe.css';
 import Rating from '../components/Rating';
 
-export default function Recipe() {
+export default function Recipe(prop) {
 
+  const { loggedIn } = prop;
   let { id } = useParams();
 
   const recipes = [
@@ -71,6 +72,7 @@ export default function Recipe() {
   return (
     <div id="recipePage">
       <div id="recipeHero" style={{backgroundImage: `url(${Recipe.picture})`}}>
+        { loggedIn && <button id="recipeEditButton">MUOKKAA</button>}
         <h3 id="recipeTitle" >{Recipe.title.toUpperCase()}</h3>
         <div id="recipeShade"></div>
         <div id="recipeRating">

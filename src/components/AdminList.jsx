@@ -85,8 +85,9 @@ export default function AdminList() {
           return <div className="recipeBox" style={{backgroundImage: `url(${e.image})`}} key={"recipe_" + index}>
                   <div className="recipeHoverMenu">
                     <p className="overviewRecipeTitles">{e.title}</p>
-                    <button className="overviewEdit">MUOKKAA</button>
-                    <button className="overviewDel" onClick={() => confirmReq(e)}>POISTA</button>
+                    <button className="overviewButtons">AVAA</button>
+                    <button className="overviewButtons">MUOKKAA</button>
+                    <button className="overviewButtons" onClick={() => confirmReq(e)}>POISTA</button>
                   </div>
                 </div>
         })

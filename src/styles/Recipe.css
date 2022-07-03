@@ -42,6 +42,25 @@ font-family: 'Coiny', cursive;
     height: 30vh;
 }
 
+#recipeEditButton {
+    position: absolute;
+    top: var(--navBarHeight);
+    right: 0;
+    margin: 1rem;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 0.1rem solid var(--highlightColor);
+    color: white;
+    background-color: var(--highlightColor);
+    z-index: 10;
+}
+
+#recipeEditButton:Hover {
+    background-color: white;
+    color: var(--highlightColor);
+}
+
 .recipeSectionTitles {
     font-family: 'Arimo', sans-serif;
     font-weight: 600;

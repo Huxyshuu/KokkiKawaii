@@ -125,7 +125,7 @@ export default function AddRecipe() {
         <h3 className="header">Kuva / Nimi / Arvosana</h3>
 
         <div>
-          <p>Kuva*</p>
+          <p id="addRecipePic">Kuva*</p>
           <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
           <img src="#" alt="" id="submitDisplayImage"/>
           <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage}/>

@@ -10,6 +10,18 @@ font-family: 'Coiny', cursive;
     width: 100vw;
 }
 
+#addRecipe input:focus {
+    outline: none;
+}
+
+#addRecipe textarea {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    outline: none;
+}
+
+
 #addRecipeTitle h3 {
     font-family: 'Arimo', sans-serif;
     font-weight: 600;
@@ -39,11 +51,16 @@ font-family: 'Coiny', cursive;
     display: none;
 }
 
+#addRecipePic {
+    margin-bottom: 0.2rem;
+}
+
 #submitDisplayImage {
     aspect-ratio: 1 / 1;
     width: 40vh;
     object-fit: cover;
     display: none;
+    margin-top: 0.5rem;
 }
 
 #recipeForm {
@@ -75,10 +92,14 @@ font-family: 'Coiny', cursive;
 
 #ingredientAmount {
     width: 30%;
+    border: none;
+    border-bottom: 0.1rem solid var(--highlightColor);
 }
 
 #ingredientName {
     width: 70%;
+    border: none;
+    border-bottom: 0.1rem solid var(--highlightColor);
 }
 
 #addIngButton {
@@ -93,6 +114,11 @@ font-family: 'Coiny', cursive;
 
 .ingredients {
     display: flex;
+    margin-block: 0.4rem;
+}
+
+.ingredients input:focus {
+    outline: none;
 }
 
 #extraInfo {
@@ -127,4 +153,3 @@ font-family: 'Coiny', cursive;
     color: white;
     margin-block: 1rem;
 }
-
