@@ -30,7 +30,7 @@ font-family: 'Coiny', cursive;
     width: 100vw;
     text-align: center;
     font-size: 2.5rem;
-    padding-block: 1rem;
+    padding-block: 5%;
     margin-top: var(--navBarHeight);
 }
 
@@ -154,5 +154,5 @@ font-family: 'Coiny', cursive;
     width: 100vw;
     padding-block: 1rem;
     justify-content: center;
-    bottom: 0;
+    height: 10%;
 }
