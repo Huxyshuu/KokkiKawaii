@@ -173,13 +173,13 @@ export default function AddRecipe() {
         <div>
           <p>Ohjeet*</p>
           <div className="instructions">
-            <textarea id="addRecipeInstructions" name="" cols="40" rows="10"></textarea>
+            <textarea id="addRecipeInstructions" name="" cols="30" rows="10"></textarea>
           </div>
         </div>
 
         <div id="extraInfo">
           <p>Lisätietoja</p>
-          <textarea id="addRecipeInfo" name="" cols="40" rows="5"></textarea>
+          <textarea id="addRecipeInfo" name="" cols="30" rows="5"></textarea>
         </div>
 
         {/* <div>

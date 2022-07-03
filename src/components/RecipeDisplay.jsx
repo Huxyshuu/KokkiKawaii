@@ -9,7 +9,7 @@ export default function RecipeDisplay() {
     {
       picture: 'https://i.imgur.com/60NlJft.jpeg',
       title: 'Pasta Carbonara',
-      rating: 5,
+      rating: 4,
       time: 30
     }
   ]
