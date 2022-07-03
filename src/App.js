@@ -33,29 +33,31 @@ function App() {
       if (!isSmall) {
           setMenuOpen(false);
       }
-    }
+  }
 
-    if (menuOpen) {
-        document.body.style.overflow = "hidden";
-    } else {
-        document.body.style.overflow = "visible";
-    }
-    window.addEventListener('resize', checkWindowSize);
-    checkWindowSize();
+  if (menuOpen) {
+      document.body.style.overflow = "hidden";
+  } else {
+      document.body.style.overflow = "visible";
+  }
+
+  window.addEventListener('resize', checkWindowSize);
+  checkWindowSize();
+
+  return () => {
+      window.removeEventListener('resize', checkWindowSize);
+  }
   }
 
   useEffect(() => {
+    menuOpener();
     menuManager();
-
-    return () => {
-        window.removeEventListener('resize', menuManager);
-    }
-})
+  })
 
   return (
     <Router>
       <div className="App">
-        <MobileNavBar menuOpener={menuOpener} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+        <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
         <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
         <Routes>
           <Route path="/" element={<MainPage />} />
