@@ -34,13 +34,13 @@ function App() {
         setMenuOpen(false);
     }
 
-    if (window.matchMedia("(orientation: landscape)").matches && window.innerHeight < 670) {
+    if (window.screen.orientation.type === 'landscape-primary' || window.screen.orientation.type === 'landscape-secondary') {
       // you're in LANDSCAPE mode
       console.log('Please turn your device upright (portrait)');
       setDisplayBlocked(true);
-   } else {
-      setDisplayBlocked(false);
-   }
+    } else {
+        setDisplayBlocked(false);
+    }; 
   }
 
   const menuManager = () => {

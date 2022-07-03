@@ -49,10 +49,11 @@ h1, h2, h3, h4, h5, h6, p {
 #displayBlocked h2 {
     font-size: 6vw;
     font-family: 'Coiny', cursive;
+    margin-bottom: 2rem;
 }
 
 #displayBlockedThanks {
-    margin-top: 2rem;
+    margin-top: 1rem;
     color: var(--highlightColor);
 }
 
