@@ -15,6 +15,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSmall, setIsSmall] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [displayBlocked, setDisplayBlocked] = useState(false);
   
   const adminRoutes = ['/overview', '/addrecipe'];
 
@@ -27,65 +28,88 @@ function App() {
     }
   }
 
-  const menuManager = () => {
-    const checkWindowSize = () => {
-      setIsSmall(window.innerWidth < 1300 ? true : false);
-      if (!isSmall) {
-          setMenuOpen(false);
-      }
+  const checkWindowSize = () => {
+    setIsSmall(window.innerWidth < 1300 ? true : false);
+    if (!isSmall) {
+        setMenuOpen(false);
+    }
+
+    if (window.matchMedia("(orientation: landscape)").matches && window.innerHeight < 670) {
+      // you're in LANDSCAPE mode
+      console.log('Please turn your device upright (portrait)');
+      setDisplayBlocked(true);
+   } else {
+      setDisplayBlocked(false);
+   }
   }
 
-  if (menuOpen) {
-      document.body.style.overflow = "hidden";
-  } else {
-      document.body.style.overflow = "visible";
-  }
+  const menuManager = () => {
+    checkWindowSize();
+
+    if (menuOpen) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "visible";
+    }
 
   window.addEventListener('resize', checkWindowSize);
   checkWindowSize();
-
-  return () => {
-      window.removeEventListener('resize', checkWindowSize);
-  }
   }
 
   useEffect(() => {
-    menuOpener();
+    if (!displayBlocked) {
+      menuOpener();
+    }
     menuManager();
+
+    return () => {
+      window.removeEventListener('resize', checkWindowSize);
+  }
   })
 
   return (
     <Router>
       <div className="App">
-        <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/recipes/:id" element={<Recipe loggedIn={loggedIn}/>} />
-          <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-          {/*Check if the user is logged in or not, render accordingly or redirects to login*/}
-          {loggedIn ? 
-          <>
-            <Route path="/addrecipe" element={<AddRecipe />} />
-            <Route path="/overview" element={<AdminList />} />
-          </> : 
-          <>
-            {
-              adminRoutes.map((path, index) => {
-                return (
-                  <Route path={path} 
-                  element={<Navigate to="/login" />} 
-                  replace={true} 
-                  key={"admin_" + index}/>
-                )
-              })
-            }
-          </>
+          {
+            displayBlocked ? 
+            <div id="displayBlocked">
+              <h2>REC<span className='highlightColor'>LIB</span></h2>
+              <h3>Please turn your device upright (portrait) to see the site properly.</h3>
+              <h3 id="displayBlockedThanks">Thank you!</h3>
+              <img id="displayBlockImage" src={require('./images/portraitPhone.png')} alt="Holding the phone in portrait"/>
+            </div>
+            :
+            <>
+              <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+              <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/recipes/:id" element={<Recipe loggedIn={loggedIn}/>} />
+                <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+                {/*Check if the user is logged in or not, render accordingly or redirects to login*/}
+                {loggedIn ? 
+                <>
+                  <Route path="/addrecipe" element={<AddRecipe />} />
+                  <Route path="/overview" element={<AdminList />} />
+                </> : 
+                <>
+                  {
+                    adminRoutes.map((path, index) => {
+                      return (
+                        <Route path={path} 
+                        element={<Navigate to="/login" />} 
+                        replace={true} 
+                        key={"admin_" + index}/>
+                      )
+                    })
+                  }
+                </>
+                }
+                <Route path="*" element={<Navigate to="/" />} replace={true}/>
+                
+              </Routes>
+            </>
           }
-          <Route path="*" element={<Navigate to="/" />} replace={true}/>
-          
-        </Routes>
-        
       </div>
     </Router>
   );
