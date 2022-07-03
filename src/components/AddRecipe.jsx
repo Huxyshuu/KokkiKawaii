@@ -70,14 +70,6 @@ export default function AddRecipe() {
 
     const [file] = document.getElementById('recipeSubmitImage').files
     image = await convertImage(file);
-    
-    // if (file) {
-    //   var reader = new FileReader();
-    //   reader.onloadend = function() {
-    //     console.log(image);
-    //     image = reader.result;
-    //   }
-    // }
 
     for (var i of form) {
       if (i.id === 'ingredientAmount') {
@@ -99,6 +91,7 @@ export default function AddRecipe() {
     }
 
     const recipe = {
+      id: Date.now(),
       picture: image,
       title: form[1].value,
       rating: form[2].value,

@@ -7,6 +7,7 @@ import MainPage from './components/MainPage';
 import LoginPage from './components/LoginPage';
 import AddRecipe from './components/AddRecipe';
 import AdminList from './components/AdminList';
+import Recipe from './components/Recipe';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/recipes/:id" element={<Recipe />} />
           <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           {/*Check if the user is logged in or not, render accordingly or redirects to login*/}
           {loggedIn ? 

@@ -4,7 +4,7 @@ import '../styles/Rating.css';
 
 export default function Rating(prop) {
 
-    let { rating } = prop;
+    let { rating, stylingForm } = prop;
 
     if (rating > 5) {
         rating = 5;
@@ -13,13 +13,22 @@ export default function Rating(prop) {
         rating = 0;
     }
 
+    let style = {};
+
+    if (stylingForm === 'RecipePage') {
+        style = {
+            color: 'white'
+        }
+    }
+
+
     const countStars = (rating) => {
         const starArray = [];
         for (var i = 0; i < rating; i++) {
-            starArray.push(<Icon icon="codicon:star-full" key={i}/>);
+            starArray.push(<Icon icon="codicon:star-full" style={style} key={i}/>);
         }
         while (starArray.length < 5) {
-            starArray.push(<Icon icon="codicon:star-empty" key={starArray.length}/>);
+            starArray.push(<Icon icon="codicon:star-empty" style={style} key={starArray.length}/>);
         }
         return starArray;
     }

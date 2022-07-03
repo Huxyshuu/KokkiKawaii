@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/MainPage.css';
-import CategoryButtons from '../components/CategoryButtons';
+// import CategoryButtons from '../components/CategoryButtons';
 import RecipeDisplay from '../components/RecipeDisplay';
 import SideDisplay from '../components/SideDisplay';
 
@@ -29,12 +29,12 @@ export default function MainPage() {
         <SideDisplay category={'herkut'}/>
       </div>
 
-      <div className="section">
+      {/* <div className="section">
         <h3 className="sectionTitle">KATEGORIAT</h3>
         <div id="categoryButtons">
           <CategoryButtons />
         </div>
-      </div>
+      </div> */}
 
       <div id="mainSeeMore">
         <button id="seeMoreButton">KATSO LISÄÄ</button>

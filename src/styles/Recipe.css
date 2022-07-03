@@ -1,0 +1,95 @@
+/*
+font-family: 'Arimo', sans-serif;
+font-family: 'Coiny', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
+
+
+#recipePage {
+    padding-top: var(--navBarHeight);
+}
+
+#recipeHero {
+    width: 100vw;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#recipeTitle {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    color: white;
+    margin: 1rem;
+    z-index: 10;
+}
+
+#recipeRating {
+    color: white;
+    margin: 0.8rem;
+    z-index: 10;
+}
+
+#recipeShade {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+    position: absolute;
+    width: 100vw;
+    height: 30vh;
+}
+
+.recipeSectionTitles {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    border-left: 0.3rem solid var(--highlightColor);
+    padding: 0.3rem;
+    margin: 1rem;
+}
+
+.recipeUnderTitle {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    margin-top: -0.8rem;
+    margin-left: 1rem;
+}
+
+.recipeIngredients {
+    display: grid; 
+    grid-template-columns: 1fr 1.5fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        ". ."; 
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    border-bottom: 0.1rem solid var(--darkColor);
+    width: 90vw;
+    margin: 1rem;
+}
+
+.recipeInstruction {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 400;
+    margin: 1rem;
+}
+
+#recipeInstructionSection {
+    margin-bottom: 2rem;
+}
+
+#recipeFooter {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#recipeFooter h3 {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--highlightColor);
+}
