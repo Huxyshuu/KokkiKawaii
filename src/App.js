@@ -36,7 +36,6 @@ function App() {
 
     if (window.screen.orientation.type === 'landscape-primary' || window.screen.orientation.type === 'landscape-secondary') {
       // you're in LANDSCAPE mode
-      console.log('Please turn your device upright (portrait)');
       setDisplayBlocked(true);
     } else {
         setDisplayBlocked(false);
