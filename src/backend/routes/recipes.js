@@ -8,9 +8,9 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const id = Number(req.body.id);
+    const id = req.body.id;
     const title = req.body.title;
-    const picture = Buffer(req.body.picture)
+    const picture = req.body.picture
     const rating = Number(req.body.rating);
     const servings = Number(req.body.servings);
     const ingredients = req.body.ingredients;
@@ -44,7 +44,7 @@ router.route('/:id').get((req, res) => {
 
 router.route('/:id').delete((req, res) => {
     Recipe.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Exercise deleted'))
+        .then(() => res.json('Recipe deleted'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
