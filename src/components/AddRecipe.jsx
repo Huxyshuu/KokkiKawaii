@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/AddRecipe.css';
+import axios from 'axios';
 
 export default function AddRecipe() {
 
@@ -33,15 +34,15 @@ export default function AddRecipe() {
   const displayImage = e => {
     const [file] = document.getElementById('recipeSubmitImage').files
     const displayImage = document.getElementById('submitDisplayImage');
-    if (file && file.size <= 2000) {
-      displayImage.style.display = 'block';
-      displayImage.src = URL.createObjectURL(file);
-      displayImage.alt = file.name;
-    } else {
+    if (file && file.size / 1024 > 2000) {
       displayImage.style.display = 'hidden';
       displayImage.src = '';
       displayImage.alt = '';
       console.log('File too big')
+    } else {
+      displayImage.style.display = 'block';
+      displayImage.src = URL.createObjectURL(file);
+      displayImage.alt = file.name;
     }
   }
 
@@ -115,6 +116,15 @@ export default function AddRecipe() {
     }
 
     console.log(recipe);
+
+    axios.post('http://localhost:5000/recipes/add', recipe)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(err => {
+        console.error(err.message)
+        console.error(err.response.data);
+      })
 
   }
 
