@@ -33,10 +33,15 @@ export default function AddRecipe() {
   const displayImage = e => {
     const [file] = document.getElementById('recipeSubmitImage').files
     const displayImage = document.getElementById('submitDisplayImage');
-    if (file) {
+    if (file && file.size <= 2000) {
       displayImage.style.display = 'block';
       displayImage.src = URL.createObjectURL(file);
       displayImage.alt = file.name;
+    } else {
+      displayImage.style.display = 'hidden';
+      displayImage.src = '';
+      displayImage.alt = '';
+      console.log('File too big')
     }
   }
 
@@ -69,8 +74,15 @@ export default function AddRecipe() {
     let image = '';
 
     const [file] = document.getElementById('recipeSubmitImage').files
-    image = await convertImage(file);
+    
+    if (file.size / 1024 > 2000) {
+      //OVER 2000kiB
+      return;
+    }  else {
+      image = await convertImage(file);
+    }
 
+    
     for (var i of form) {
       if (i.id === 'ingredientAmount') {
         amount = i.value;
@@ -91,7 +103,7 @@ export default function AddRecipe() {
     }
 
     const recipe = {
-      id: Date.now(),
+      recipeId: Date.now(),
       picture: image,
       title: form[1].value,
       rating: form[2].value,

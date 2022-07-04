@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let Recipe = require('../models/recipe.model');
+let Binary = require('mongodb').Binary;
 
 router.route('/').get((req, res) => {
     Recipe.find()
@@ -8,9 +9,9 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const id = req.body.id;
+    const recipeId = req.body.recipeId;
     const title = req.body.title;
-    const picture = req.body.picture
+    const picture = req.body.picture;
     const rating = Number(req.body.rating);
     const servings = Number(req.body.servings);
     const ingredients = req.body.ingredients;
@@ -20,7 +21,7 @@ router.route('/add').post((req, res) => {
 
 
     const newRecipe = new Recipe({
-        id,
+        recipeId,
         title,
         picture,
         rating,
@@ -37,6 +38,7 @@ router.route('/add').post((req, res) => {
 });
 
 router.route('/:id').get((req, res) => {
+    console.log(req.params);
     Recipe.findById(req.params.id)
         .then(recipe => res.json(recipe))
         .catch(err => res.status(400).json('Error: ' + err));

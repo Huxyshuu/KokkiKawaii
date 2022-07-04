@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
-    id: { type: Number, required: true, unique: true},
+    recipeId: { type: Number, required: true, unique: true},
     title: { type: String, require: true, trim: true, minlength: 3 },
-    picture: { type: String, require: true, unique: true},
+    picture: { type: Buffer, contentType: String, require: true, unique: true},
     rating: { type: Number, require: true },
     servings: { type: Number, require: true },
     ingredients: { type: [String], require: true},

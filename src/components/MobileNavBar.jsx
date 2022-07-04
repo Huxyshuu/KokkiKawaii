@@ -10,7 +10,7 @@ export default function MobileNavBar(prop) {
 
   return (
     <div id="mobileNav">
-        <Link to="/" className="links"><h2 id="mobileMenuLogo">REC<span className="highlightColor">LIB</span></h2></Link>
+        <Link to="/" className="links" onClick={() => setMenuOpen(false)}><h2 id="mobileMenuLogo">REC<span className="highlightColor">LIB</span></h2></Link>
         {!menuOpen ? 
             <Icon icon="ci:menu-alt-01" className="dark mobileMenuButton"  id="openMenuButton" onClick={() => setMenuOpen(true)}/> 
         :   <Icon icon="bi:x-lg" className="dark mobileMenuButton" id="closeMenuButton" onClick={() => setMenuOpen(false)}/>
