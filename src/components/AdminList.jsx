@@ -14,8 +14,6 @@ export default function AdminList() {
 
   const navigate = useNavigate();
 
-  let recipes = []
-
   const confirmReq = (item) => {
     setIsPrompted(true);
     setCurrentDeletion(item)
@@ -39,7 +37,7 @@ export default function AdminList() {
     axios.get('http://localhost:5000/recipes/')
     .then(response => {
       if (response.data.length > 0) {
-
+        console.log(response.data);
         setState(response.data);
       }
     })
@@ -72,7 +70,8 @@ export default function AdminList() {
         <p>Loading...</p> 
         : 
         state.map((e, index) => {
-          return <div className="recipeBox" style={{backgroundImage: `url(${e.picture.toBase64()})`}} key={"recipe_" + index}>
+          console.log(typeof e.picture)
+          return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index}>
                   <div className="recipeHoverMenu">
                     <p className="overviewRecipeTitles">{e.title}</p>
                     <button className="overviewButtons">AVAA</button>
