@@ -8,12 +8,28 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const username = req.body.username;
-    const description = req.body.description;
-    const duration = Number(req.body.duration);
-    const date = Date.parse(req.body.date);
+    const id = Number(req.body.id);
+    const title = req.body.title;
+    const picture = Buffer(req.body.picture)
+    const rating = Number(req.body.rating);
+    const servings = Number(req.body.servings);
+    const ingredients = req.body.ingredients;
+    const time = Number(req.body.time);
+    const instructions = req.body.instructions;
+    const notes = req.body.notes;
 
-    const newRecipe = new Recipe({username, description, duration, date});
+
+    const newRecipe = new Recipe({
+        id,
+        title,
+        picture,
+        rating,
+        servings,
+        ingredients,
+        time,
+        instructions,
+        notes
+    });
 
     newRecipe.save()
         .then(() => res.json('Recipe added!'))
@@ -35,10 +51,15 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Recipe.findById(req.params.id)
         .then(recipe => {
-            recipe.username = req.body.username;
-            recipe.description = req.body.description;
-            recipe.duration = Number(req.body.duration);
-            recipe.date = Date.parse(req.body.date);
+            recipe.id = Number(req.body.id);
+            recipe.title = req.body.title;
+            recipe.picture = Buffer(req.body.picture)
+            recipe.rating = Number(req.body.rating);
+            recipe.servings = Number(req.body.servings);
+            recipe.ingredients = req.body.ingredients;
+            recipe.time = Number(req.body.time);
+            recipe.instructions = req.body.instructions;
+            recipe.notes = req.body.notes;
 
             recipe.save()
                 .then(() => res.json('Recipe updated'))
