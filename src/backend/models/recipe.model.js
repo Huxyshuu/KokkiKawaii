@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
     recipeId: { type: Number, required: true, unique: true},
-    picture: { type: Buffer, contentType: String, require: true, unique: true},
+    picture: { type: Buffer, /*contentType: String,*/ require: true, unique: true},
     title: { type: String, require: true, trim: true, minlength: 3 },
     rating: { type: Number, require: true },
     servings: { type: Number, require: true },

@@ -38,7 +38,6 @@ router.route('/add').post((req, res) => {
 });
 
 router.route('/:id').get((req, res) => {
-    console.log(req.params);
     Recipe.findById(req.params.id)
         .then(recipe => res.json(recipe))
         .catch(err => res.status(400).json('Error: ' + err));
