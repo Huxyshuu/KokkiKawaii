@@ -87,6 +87,7 @@ font-family: 'Coiny', cursive;
 
 #promptBox {
     position: absolute;
+    top: 20%;
     background-color: white;
     border: 0.2rem solid var(--highlightColor);
     font-family: 'Arimo', sans-serif;
@@ -94,10 +95,6 @@ font-family: 'Coiny', cursive;
     font-size: 1.2rem;
     text-align: center;
     z-index: 999;
-}
-
-#promptBox p {
-    margin: 1rem;
 }
 
 #promptBox input {
@@ -120,6 +117,10 @@ font-family: 'Coiny', cursive;
     margin: 1rem;
 }
 
+#askPass {
+    margin: 1rem;
+}
+
 #promptX {
     color: var(--highlightColor);
     background-color: white;
@@ -137,6 +138,8 @@ font-family: 'Coiny', cursive;
     font-weight: 600;
     font-size: 1rem;
     transform: translate(-26%, 160%);
+    margin-inline: 1rem;
+    margin-bottom: 1rem;
 }
 
 #promptPassword:focus {
