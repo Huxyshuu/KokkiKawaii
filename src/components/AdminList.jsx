@@ -9,7 +9,7 @@ export default function AdminList() {
   const [currentDeletion, setCurrentDeletion] = useState();
   const [state, setState] = useState({
     isLoading: true,
-    data: {}
+    data: []
   });
 
   const navigate = useNavigate();
@@ -23,12 +23,24 @@ export default function AdminList() {
     e.preventDefault();
     const text = document.getElementById('promptText');
     if(e.target[0].value === 'password') {
-      console.log(`Reseptti poistettiin: \n${currentDeletion.title} (id:${currentDeletion.id})`)
-      setCurrentDeletion();
-      setIsPrompted(false);
-      text.innerHTML = '0';
+
+    axios.delete('http://localhost:5000/recipes/' + currentDeletion._id)
+      .then(response => {
+        setState(prevState => ({
+          ...prevState,
+          data: state.data.filter(e => e._id !== currentDeletion._id)
+        }));
+        console.log(`Reseptti poistettiin: \n${currentDeletion.title} (id:${currentDeletion._id})`)
+        setCurrentDeletion();
+        setIsPrompted(false);
+        text.innerHTML = '0';
+      })
+      .catch(err => {
+        console.error(err.message)
+      })
+
+      
     } else {
-      console.log('Wrong password!')
       text.innerHTML = 'Väärä salasana!';
     }
   }
@@ -37,21 +49,30 @@ export default function AdminList() {
     axios.get('http://localhost:5000/recipes/')
     .then(response => {
       if (response.data.length > 0) {
-        console.log(response.data);
-        setState(response.data);
+        setState(prevState => ({
+          ...prevState,
+          isLoading: false,
+          data: response.data
+        }));
+      } else {
+        setState(prevState => ({
+          ...prevState,
+          isLoading: false,
+          data: []
+        }));
       }
     })
     .catch(err => {
       console.error(err.message)
     })
-  })
+  },[])
 
   return (
     <div id="adminList">
       {
         isPrompted && 
         <div id="promptBox">
-          <p>Syötä salasana poistakseen reseptti:<br/><span className="highlightColor">{currentDeletion.title}<br />(id: {currentDeletion._id})</span></p>
+          <p id="askPass" >Syötä salasana poistakseen reseptti:<br/><span className="highlightColor">{currentDeletion.title}<br />(id: {currentDeletion._id})</span></p>
           <form action="" onSubmit={deleteItem}>
             <p id="promptText"></p>
             <input type="password" placeholder="Salasana" id="promptPassword"/>
@@ -62,6 +83,7 @@ export default function AdminList() {
           </form>
         </div>
       }
+
       <div className="recipeBox" id="addRecipePlus" onClick={() => {navigate('/addrecipe');}}>
         <p>+</p>
       </div>
@@ -69,12 +91,11 @@ export default function AdminList() {
         state.isLoading ? 
         <p>Loading...</p> 
         : 
-        state.map((e, index) => {
-          console.log(typeof e.picture)
+        state.data.map((e, index) => {
           return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index}>
                   <div className="recipeHoverMenu">
                     <p className="overviewRecipeTitles">{e.title}</p>
-                    <button className="overviewButtons">AVAA</button>
+                    <button className="overviewButtons" onClick={() => {navigate('/recipes/' + e._id);}}>AVAA</button>
                     <button className="overviewButtons">MUOKKAA</button>
                     <button className="overviewButtons" onClick={() => confirmReq(e)}>POISTA</button>
                   </div>

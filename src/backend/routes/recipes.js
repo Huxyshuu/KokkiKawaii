@@ -9,9 +9,8 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const recipeId = req.body.recipeId;
     const title = req.body.title;
-    const picture = Binary(req.body.picture);
+    const picture = req.body.picture;
     const rating = Number(req.body.rating);
     const servings = Number(req.body.servings);
     const ingredients = req.body.ingredients;
@@ -21,7 +20,6 @@ router.route('/add').post((req, res) => {
 
 
     const newRecipe = new Recipe({
-        recipeId,
         title,
         picture,
         rating,

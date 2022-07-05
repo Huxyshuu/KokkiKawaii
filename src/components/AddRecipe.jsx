@@ -39,7 +39,7 @@ export default function AddRecipe() {
       displayImage.src = '';
       displayImage.alt = '';
       console.log('File too big')
-    } else {
+    } else if (file) {
       displayImage.style.display = 'block';
       displayImage.src = URL.createObjectURL(file);
       displayImage.alt = file.name;
@@ -104,7 +104,6 @@ export default function AddRecipe() {
     }
 
     const recipe = {
-      recipeId: Date.now(),
       picture: image,
       title: form[1].value,
       rating: form[2].value,
@@ -115,7 +114,7 @@ export default function AddRecipe() {
       notes: extra,     
     }
 
-    console.log(recipe);
+    // console.log(recipe);
 
     axios.post('http://localhost:5000/recipes/add', recipe)
       .then(response => {
@@ -126,15 +125,15 @@ export default function AddRecipe() {
         console.error(err.response.data);
       })
 
-    axios.get('http://localhost:5000/recipes/')
-      .then(response => {
-        if (response.data.length > 0) {
-          console.log(response);
-        }
-      })
-      .catch(err => {
-        console.error(err.message)
-      })
+    // axios.get('http://localhost:5000/recipes/')
+    //   .then(response => {
+    //     if (response.data.length > 0) {
+    //       console.log(response);
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.error(err.message)
+    //   })
   }
 
   const addIngredient = () => {

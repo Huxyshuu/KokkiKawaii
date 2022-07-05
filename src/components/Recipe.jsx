@@ -1,22 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import '../styles/Recipe.css';
 import Rating from '../components/Rating';
+import axios from 'axios';
 
 export default function Recipe(prop) {
 
   const { loggedIn } = prop;
   let { id } = useParams();
+  const [state, setState] = useState({
+    isLoading: true,
+    data: []
+  });
 
-  const recipes = [
-    {
-      id: 3,
-      title: 'Pasta'
-    },
-  ]
+  console.log(id);
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/recipes/')
+    .then(response => {
+      if (response.data.length > 0) {
+        setState(prevState => ({
+          ...prevState,
+          isLoading: false,
+          data: response.data
+        }));
+      } else {
+        setState(prevState => ({
+          ...prevState,
+          isLoading: false,
+          data: []
+        }));
+      }
+    })
+    .catch(err => {
+      console.error(err.message)
+    })
+  },[])
 
   
-  const Recipe = recipes.find(recipe => parseInt(recipe['id']) === parseInt(id));
+  const Recipe = state.data.find(recipe => recipe['_id'] === id);
 
 
   
@@ -24,6 +46,8 @@ export default function Recipe(prop) {
   if (Recipe) {
     splitInstructions = Recipe.instructions.split("\n\n")
   }
+
+  console.log(Recipe);
 
   if (Recipe) {
     return (
