@@ -125,7 +125,7 @@ export default function AddRecipe() {
         console.error(err.response.data);
       })
 
-    // axios.get('http://localhost:5000/recipes/')
+    // axios.get('https://reclib-backend.vercel.app/recipes/')
     //   .then(response => {
     //     if (response.data.length > 0) {
     //       console.log(response);
