@@ -116,7 +116,7 @@ export default function AddRecipe() {
 
     // console.log(recipe);
 
-    axios.post('http://localhost:5000/recipes/add', recipe)
+    axios.post('https://reclib-backend.vercel.app/recipes/add', recipe)
       .then(response => {
         console.log(response.data);
       })
