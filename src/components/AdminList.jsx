@@ -24,7 +24,7 @@ export default function AdminList() {
     const text = document.getElementById('promptText');
     if(e.target[0].value === 'password') {
 
-    axios.delete('http://localhost:5000/recipes/' + currentDeletion._id)
+    axios.delete('https://reclib-backend.vercel.app/recipes/' + currentDeletion._id)
       .then(response => {
         setState(prevState => ({
           ...prevState,
@@ -46,7 +46,7 @@ export default function AdminList() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/recipes/')
+    axios.get('https://reclib-backend.vercel.app/recipes/')
     .then(response => {
       if (response.data.length > 0) {
         setState(prevState => ({
