@@ -16,7 +16,7 @@ export default function Recipe(prop) {
   console.log(id);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/recipes/')
+    axios.get('https://reclib-backend.vercel.app/recipes/')
     .then(response => {
       if (response.data.length > 0) {
         setState(prevState => ({
