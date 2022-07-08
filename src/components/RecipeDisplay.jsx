@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../styles/RecipeDisplay.css';
 import Rating from '../components/Rating';
 import { Icon } from '@iconify/react';
@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 export default function RecipeDisplay(prop) {
 
   const { recipes, isLoading } = prop;
-
-  console.log(recipes);
   
   const navigate = useNavigate();
 

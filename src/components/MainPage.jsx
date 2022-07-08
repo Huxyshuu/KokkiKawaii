@@ -32,7 +32,7 @@ export default function MainPage(prop) {
       }
     })
     .catch(err => {
-      console.error(err.message)
+      console.error(err)
     })
   }, [backendURL])
 
@@ -54,11 +54,16 @@ export default function MainPage(prop) {
           <RecipeDisplay recipes={state.data} isLoading={state.isLoading} />
         </div>
       </div>
-        
-      <div id="sideDisplay" >
-        <SideDisplay category={'aamupala'}/>
-        <SideDisplay category={'herkut'}/>
+
+      <div className="section">
+        <h3 className="sectionTitle">MUUT</h3>
+          <div id="sideDisplay" >
+            <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
+            <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
+          </div>
       </div>
+        
+      
 
       {/* <div className="section">
         <h3 className="sectionTitle">KATEGORIAT</h3>

@@ -22,3 +22,15 @@
     color: var(--highlightColor);
     margin-top: 0.1rem;
 }
+
+#loadingSide {
+    width: 5rem;
+    aspect-ratio: 1 / 1;
+    background-color: #e9e9e9;
+}
+
+#loadingSideTitle {
+    background-color: #e9e9e9;
+    margin-top: 0.5rem;
+    color: transparent;
+}

@@ -1,36 +1,29 @@
 import React from 'react';
 import '../styles/SideDisplay.css';
+import { useNavigate } from "react-router-dom";
 
 export default function SideDisplay(prop) {
 
-    const recipes = [
-        {
-            picture: 'https://i.imgur.com/H1y0hft.png',
-            title: 'Köyhät Ritarit',
-            category: 'aamupala'
-        },
-        {
-            picture: 'https://i.imgur.com/IEDzzSw.png',
-            title: 'Vol-Au-Vent',
-            category: 'herkut'
-        }
-    ]
-    
-    const listOfMatches = recipes.filter((item, index) => {
-        if (item.category === prop.category) {
-            return item;
-        }
-        return undefined;
-    })
+    const { recipes, isLoading } = prop;
+  
+    const navigate = useNavigate();
 
-    const {picture, title, category} = listOfMatches[0];
+    if (isLoading) {
+        return (
+            <div id="sideDish">
+                <div id="loadingSide"></div>
+                <h3 id="loadingSideTitle">Loading...</h3>
+            </div>
+        )
+    } else {
 
+        const { picture, title, _id } = recipes[recipes.length - 1];
 
-  return (
-    <div id="sideDish">
-        <h3 className="sectionTitle" id="sideCategory">{category.toUpperCase()}</h3>
-        <img id="sideImage" src={picture} alt={title} />
-        <h3 id="sideTitle">{title.toUpperCase()}</h3>
-    </div>
-  )
+        return (
+            <div id="sideDish" onClick={() => navigate('/recipes/' + _id,{ replace: true})}>
+                <img id="sideImage" src={picture} alt={title} />
+                <h3 id="sideTitle">{title.toUpperCase()}</h3>
+            </div>
+        )
+    }
 }

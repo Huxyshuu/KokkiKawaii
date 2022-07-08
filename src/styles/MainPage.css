@@ -76,6 +76,7 @@ font-family: 'Coiny', cursive;
 
 .section {
     margin-inline: 1rem;
+    margin-top: 2rem;
 }
 
 .sectionTitle {
@@ -95,7 +96,6 @@ font-family: 'Coiny', cursive;
 }
 
 #sideDisplay {
-    margin-block: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -115,5 +115,6 @@ font-family: 'Coiny', cursive;
     border: none;
     background-color: var(--highlightColor);
     color: white;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 }
