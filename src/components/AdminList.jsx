@@ -3,7 +3,7 @@ import '../styles/AdminList.css';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export default function AdminList() {
+export default function AdminList(prop) {
 
   const [isPrompted, setIsPrompted] = useState(false);
   const [currentDeletion, setCurrentDeletion] = useState();
@@ -11,6 +11,8 @@ export default function AdminList() {
     isLoading: true,
     data: []
   });
+
+  const { backendURL } = prop;
 
   const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ export default function AdminList() {
     const text = document.getElementById('promptText');
     if(e.target[0].value === 'password') {
 
-    axios.delete('https://reclib-backend.vercel.app/recipes/' + currentDeletion._id)
+    axios.delete(backendURL + currentDeletion._id)
       .then(response => {
         setState(prevState => ({
           ...prevState,
@@ -46,7 +48,7 @@ export default function AdminList() {
   }
 
   useEffect(() => {
-    axios.get('https://reclib-backend.vercel.app/recipes/')
+    axios.get(backendURL)
     .then(response => {
       if (response.data.length > 0) {
         setState(prevState => ({
@@ -65,7 +67,7 @@ export default function AdminList() {
     .catch(err => {
       console.error(err.message)
     })
-  },[])
+  },[backendURL])
 
   return (
     <div id="adminList">
@@ -83,24 +85,31 @@ export default function AdminList() {
           </form>
         </div>
       }
-
-      <div className="recipeBox" id="addRecipePlus" onClick={() => {navigate('/addrecipe');}}>
-        <p>+</p>
-      </div>
       {
         state.isLoading ? 
-        <p>Loading...</p> 
+        <div id="adminlistLoader">
+          <div id="adminlistLoadingSpinner">
+          </div> 
+          <h3>Loading...</h3>
+        </div>
         : 
-        state.data.map((e, index) => {
-          return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index}>
-                  <div className="recipeHoverMenu">
-                    <p className="overviewRecipeTitles">{e.title}</p>
-                    <button className="overviewButtons" onClick={() => {navigate('/recipes/' + e._id);}}>AVAA</button>
-                    <button className="overviewButtons">MUOKKAA</button>
-                    <button className="overviewButtons" onClick={() => confirmReq(e)}>POISTA</button>
-                  </div>
-                </div>
-        })
+        <>
+          <div className="recipeBox" id="addRecipePlus" onClick={() => {navigate('/addrecipe');}}>
+            <p>+</p>
+          </div>
+          {
+            state.data.map((e, index) => {
+              return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index}>
+                      <div className="recipeHoverMenu">
+                        <p className="overviewRecipeTitles">{e.title}</p>
+                        <button className="overviewButtons" onClick={() => {navigate('/recipes/' + e._id);}}>AVAA</button>
+                        <button className="overviewButtons">MUOKKAA</button>
+                        <button className="overviewButtons" onClick={() => confirmReq(e)}>POISTA</button>
+                      </div>
+                    </div>
+            })
+          }
+        </>
       }
     </div>
   )

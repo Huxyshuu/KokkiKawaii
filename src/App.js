@@ -9,6 +9,8 @@ import AddRecipe from './components/AddRecipe';
 import AdminList from './components/AdminList';
 import Recipe from './components/Recipe';
 
+const backendURL = "https://reclib-backend.vercel.app/recipes/";
+
 
 function App() {
 
@@ -84,13 +86,13 @@ function App() {
               <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
               <Routes>
                 <Route path="/" element={<MainPage />} />
-                <Route path="/recipes/:id" element={<Recipe loggedIn={loggedIn}/>} />
+                <Route path="/recipes/:id" element={<Recipe loggedIn={loggedIn} backendURL={backendURL}/>} />
                 <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
                 {/*Check if the user is logged in or not, render accordingly or redirects to login*/}
                 {loggedIn ? 
                 <>
-                  <Route path="/addrecipe" element={<AddRecipe />} />
-                  <Route path="/overview" element={<AdminList />} />
+                  <Route path="/addrecipe" element={<AddRecipe backendURL={backendURL}/>} />
+                  <Route path="/overview" element={<AdminList backendURL={backendURL}/>} />
                 </> : 
                 <>
                   {

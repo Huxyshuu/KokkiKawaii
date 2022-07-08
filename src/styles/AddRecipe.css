@@ -153,3 +153,62 @@ font-family: 'Coiny', cursive;
     color: white;
     margin-block: 1rem;
 }
+
+#successRecipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: var(--navBarHeight);
+}
+
+#successRecipe h2 {
+    font-size: 8vh;
+    font-family: 'Coiny', cursive;
+    margin-bottom: 2rem;
+}
+
+#successRecipe h3 {
+    font-size: 5vh;
+}
+
+
+#successRecipeThanks {
+    color: var(--highlightColor);
+}
+
+#failedRecipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: var(--navBarHeight);
+}
+
+#failedRecipe h2 {
+    font-size: 8vh;
+    font-family: 'Coiny', cursive;
+    margin-bottom: 2rem;
+}
+
+#failedRecipe h3 {
+    font-size: 5vh;
+    text-align: center;
+}
+
+
+#failedRecipeThanks {
+    color: var(--highlightColor);
+}
+
+#failedRecipe p {
+    width: 90%;
+    color: var(--darkColor);
+    font: 1rem;
+    word-wrap: break-word;
+    margin-top: 2rem;
+}

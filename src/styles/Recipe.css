@@ -147,3 +147,46 @@ font-family: 'Coiny', cursive;
     height: 40vh;
     aspect-ratio: 1 / 1;
 }
+
+#loadingRecipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#loadingRecipe h2 {
+    font-size: 8vh;
+    font-family: 'Coiny', cursive;
+    margin-bottom: 2rem;
+}
+
+#loadingRecipe h3 {
+    font-size: 5vh;
+}
+
+
+#loadingRecipeThanks {
+    color: var(--highlightColor);
+}
+
+#loadingSpinner {
+    margin-top: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border: 1rem solid #f2f2f2; /* Light grey */
+    border-top: 1rem solid var(--darkColor);
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
