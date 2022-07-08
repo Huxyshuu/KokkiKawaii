@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/AddRecipe.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
@@ -17,8 +17,6 @@ export default function AddRecipe(prop) {
   const [ recipeSuccess, setRecipeSuccess ] = useState(false);
 
   const { backendURL } = prop;
-
-  let postMessage = "";
   
 
   // const categories = [

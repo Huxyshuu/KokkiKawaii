@@ -8,7 +8,6 @@ font-family: 'Coiny', cursive;
 
 #latestPic {
     width: 100%;
-    ratio: 1 / 1;
 }
 
 #latestName {
@@ -32,4 +31,39 @@ font-family: 'Coiny', cursive;
 
 #latestCookTime p {
     margin-left: 0.5rem;
+}
+
+#loadingPic {
+    width: 100%;
+    height: 14rem;
+    background-color: #e9e9e9;
+}
+
+#loadingDisplayInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+#loadingDisplayInfo h3 {
+    font-size: 1.1rem;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    margin-top: 0.1rem;
+    color: transparent;
+    background-color: #e9e9e9;
+}
+
+#loadingCookTime {
+    display: inline-block;
+    color: transparent;
+    background-color: #e9e9e9;
+    margin-top: 0.5rem;
+}
+
+#loadingCookTime p {
+    margin-left: 0.5rem;
+    color: transparent;
+    background-color: #e9e9e9;
 }

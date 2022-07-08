@@ -86,7 +86,7 @@ font-family: 'Coiny', cursive;
 }
 
 #promptBox {
-    position: absolute;
+    position: fixed;
     top: 20%;
     background-color: white;
     border: 0.2rem solid var(--highlightColor);

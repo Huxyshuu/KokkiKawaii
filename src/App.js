@@ -85,7 +85,7 @@ function App() {
               <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
               <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
               <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<MainPage backendURL={backendURL}/>} />
                 <Route path="/recipes/:id" element={<Recipe loggedIn={loggedIn} backendURL={backendURL}/>} />
                 <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
                 {/*Check if the user is logged in or not, render accordingly or redirects to login*/}

@@ -9,23 +9,24 @@ font-family: 'Coiny', cursive;
     padding-top: var(--navBarHeight);
 }
 
-#heroCover {
+/* #heroCover {
     background-color: var(--highlightColor);
     opacity: 0.25;
     width: 100vw;
-    height: 5rem;
+    height: 6rem;
     position: absolute;
-}
+} */
 
 #hero {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 5rem;
-    background: url('../images/hero.jpg') no-repeat;
+    height: 5.9rem;
+    /* background: url('../images/hero.jpg') no-repeat; */
     background-size: cover;
     background-position: 100% 10%;
+    background-color: var(--highlightColor);
 }
 
 #hero h1 {
