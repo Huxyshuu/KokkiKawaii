@@ -15,7 +15,12 @@ export default function MainPage(prop) {
   const { backendURL } = prop;
 
   useEffect(() => {
-    axios.get(backendURL)
+    axios.get(backendURL, {
+      headers: {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      }
+    })
     .then(response => {
       if (response.data.length > 0) {
         setState(prevState => ({
