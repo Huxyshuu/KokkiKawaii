@@ -107,6 +107,14 @@ font-family: 'Coiny', cursive;
     align-items: center;   
 }
 
+#showAllSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
 #seeMoreButton {
     align-self: center;
     font-size: 1.2rem;

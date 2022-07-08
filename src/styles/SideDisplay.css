@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin-inline: 1rem;
+    margin-inline: 0.5rem;
 }
 
 #sideCategory {
@@ -16,7 +16,7 @@
 }
 
 #sideTitle {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-family: 'Arimo', sans-serif;
     font-weight: 600;
     color: var(--highlightColor);
@@ -24,7 +24,7 @@
 }
 
 #loadingSide {
-    width: 5rem;
+    width: 100%;
     aspect-ratio: 1 / 1;
     background-color: #e9e9e9;
 }
@@ -32,5 +32,6 @@
 #loadingSideTitle {
     background-color: #e9e9e9;
     margin-top: 0.5rem;
+    width: 70%;
     color: transparent;
 }

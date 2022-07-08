@@ -3,6 +3,7 @@ import '../styles/MainPage.css';
 // import CategoryButtons from '../components/CategoryButtons';
 import RecipeDisplay from '../components/RecipeDisplay';
 import SideDisplay from '../components/SideDisplay';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function MainPage(prop) {
@@ -12,6 +13,9 @@ export default function MainPage(prop) {
     data: []
   });
 
+  const [showAll, setShowAll] = useState(false);
+
+  const navigate = useNavigate();
   const { backendURL } = prop;
 
   useEffect(() => {
@@ -64,11 +68,8 @@ export default function MainPage(prop) {
         <h3 className="sectionTitle">MUUT</h3>
           <div id="sideDisplay" >
             <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
-            <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
           </div>
       </div>
-        
-      
 
       {/* <div className="section">
         <h3 className="sectionTitle">KATEGORIAT</h3>
@@ -77,9 +78,26 @@ export default function MainPage(prop) {
         </div>
       </div> */}
 
-      <div id="mainSeeMore">
-        <button id="seeMoreButton">KATSO LISÄÄ</button>
-      </div>
+      {
+        showAll ? 
+        <div className="section">
+          <h3 className="sectionTitle">KAIKKI RESEPTIT</h3>
+            <div id="showAllSection">
+            {
+              state.data.map((e, index) => {
+                return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index} onClick={() => {navigate('/recipes/' + e._id);}}></div>
+              })
+            }
+          </div>
+        </div>
+        
+        :
+        <>
+          <div id="mainSeeMore">
+            <button id="seeMoreButton" onClick={() => setShowAll(true)}>KATSO LISÄÄ</button>
+          </div>
+        </>
+      }
 
     </div>
   )
