@@ -34,7 +34,7 @@ export default function AddRecipe() {
   const displayImage = e => {
     const [file] = document.getElementById('recipeSubmitImage').files
     const displayImage = document.getElementById('submitDisplayImage');
-    if (file && file.size / 1024 > 2000) {
+    if (file && file.size / 1024 > 5000) {
       displayImage.style.display = 'hidden';
       displayImage.src = '';
       displayImage.alt = '';
@@ -76,7 +76,7 @@ export default function AddRecipe() {
 
     const [file] = document.getElementById('recipeSubmitImage').files
     
-    if (file.size / 1024 > 2000) {
+    if (file.size / 1024 > 5000) {
       //OVER 2000kiB
       return;
     }  else {
