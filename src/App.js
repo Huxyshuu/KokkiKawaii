@@ -59,6 +59,7 @@ function App() {
   }
 
   useEffect(() => {
+
     if (!displayBlocked) {
       menuOpener();
     }
@@ -67,7 +68,7 @@ function App() {
     return () => {
       window.removeEventListener('resize', checkWindowSize);
   }
-  })
+  }, )
 
   return (
     <Router>

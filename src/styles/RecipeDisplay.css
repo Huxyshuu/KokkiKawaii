@@ -8,6 +8,8 @@ font-family: 'Coiny', cursive;
 
 #latestPic {
     width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
 }
 
 #latestName {
