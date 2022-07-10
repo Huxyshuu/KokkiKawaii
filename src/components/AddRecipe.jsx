@@ -44,7 +44,7 @@ export default function AddRecipe(prop) {
     if (file) {
       const formdata = new FormData()
       formdata.append("image", file[0])
-      fetch("https://api.imgur.com/3/image/", {
+      fetch("https://api.imgur.com/3/upload", {
                 method: "post",
                 headers: {
                     Authorization: "Client-ID b20538bc76d688c"
