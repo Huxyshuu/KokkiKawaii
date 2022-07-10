@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../styles/AddRecipe.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
 export default function AddRecipe(prop) {
 
   const [ingredients, setIngredients] = useState([
@@ -33,20 +32,28 @@ export default function AddRecipe(prop) {
   //   "Suolainen",
   //   "Pitsa",
   //   "Salaatti",
-  // ];
+  // ]; 
 
-
-
+  const imageURL = "";
   // Display the image added to form
   const displayImage = e => {
+    console.log(e.target.files[0]);
     const [file] = document.getElementById('recipeSubmitImage').files
     const displayImage = document.getElementById('submitDisplayImage');
-    if (file && file.size / 1024 > 5000) {
-      displayImage.style.display = 'hidden';
-      displayImage.src = '';
-      displayImage.alt = '';
-      console.log('File too big')
-    } else if (file) {
+    console.log(file);
+    if (file) {
+      const formdata = new FormData()
+      formdata.append("image", file[0])
+      fetch("https://api.imgur.com/3/image/", {
+                method: "post",
+                headers: {
+                    Authorization: "Client-ID b20538bc76d688c"
+                },
+                body: formdata
+            }).then(response => {
+              console.log(response);
+            });
+
       displayImage.style.display = 'block';
       displayImage.src = URL.createObjectURL(file);
       displayImage.alt = file.name;
@@ -83,12 +90,12 @@ export default function AddRecipe(prop) {
 
     const [file] = document.getElementById('recipeSubmitImage').files
     
-    if (file.size / 1024 > 5000) {
-      //OVER 2000kiB
-      return;
-    }  else {
-      image = await convertImage(file);
-    }
+    // if (file.size / 1024 > 5000) {
+    //   //OVER 2000kiB
+    //   return;
+    // }  else {
+    //   image = await convertImage(file);
+    // }
 
     
     for (var i of form) {
@@ -178,7 +185,7 @@ export default function AddRecipe(prop) {
   
           <div>
             <p>Nimi*</p>
-            <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minlength="3" required/>
+            <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" required/>
           </div>
   
           <div>

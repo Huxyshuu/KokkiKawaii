@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function SideDisplay(prop) {
 
-    const { recipes, isLoading, order } = prop;
+    const { recipes, isLoading } = prop;
   
     const navigate = useNavigate();
 
