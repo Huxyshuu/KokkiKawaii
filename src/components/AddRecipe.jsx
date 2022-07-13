@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/AddRecipe.css';
 import axios from 'axios';
+import FormData from 'form-data';
 import { useNavigate } from "react-router-dom";
+
 export default function AddRecipe(prop) {
 
   const [ingredients, setIngredients] = useState([
@@ -34,46 +36,16 @@ export default function AddRecipe(prop) {
   //   "Salaatti",
   // ]; 
 
-  const imageURL = "";
-  // Display the image added to form
   const displayImage = e => {
-    console.log(e.target.files[0]);
     const [file] = document.getElementById('recipeSubmitImage').files
     const displayImage = document.getElementById('submitDisplayImage');
-    console.log(file);
+    const displayImageName = document.getElementById('imageNameDisplay');
     if (file) {
-      const formdata = new FormData()
-      formdata.append("image", file[0])
-      fetch("https://api.imgur.com/3/upload", {
-                method: "post",
-                headers: {
-                    Authorization: "Client-ID b20538bc76d688c"
-                },
-                body: formdata
-            }).then(response => {
-              console.log(response);
-            });
-
       displayImage.style.display = 'block';
       displayImage.src = URL.createObjectURL(file);
       displayImage.alt = file.name;
+      displayImageName.innerHTML = file.name;
     }
-  }
-
-  const convertImage = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-
-      //set the callbacks before reading the object
-      reader.onload = () => resolve(reader.result); 
-      reader.onerror = error => reject(error);
-
-      reader.readAsDataURL(file);
-    }).then(value => {
-      return value;
-    }).catch(e => {
-      console.log(e.message);
-    })
   }
 
   const handleSubmit = async e => {
@@ -87,16 +59,6 @@ export default function AddRecipe(prop) {
     let instructions = '';
     let extra = '';
     let image = '';
-
-    const [file] = document.getElementById('recipeSubmitImage').files
-    
-    // if (file.size / 1024 > 5000) {
-    //   //OVER 2000kiB
-    //   return;
-    // }  else {
-    //   image = await convertImage(file);
-    // }
-
     
     for (var i of form) {
       if (i.id === 'ingredientAmount') {
@@ -117,6 +79,21 @@ export default function AddRecipe(prop) {
       }
     }
 
+    const uploadImage = async () => {
+      const [file] = document.getElementById('recipeSubmitImage').files
+      const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "reclibimages");
+
+        await axios.post("https://api.cloudinary.com/v1_1/hugotamm/upload", formData)
+        .then(response => {
+          image = response.data.secure_url;
+        })
+        .catch(error => console.log(error));
+    }
+
+    await uploadImage();
+
     const recipe = {
       picture: image,
       title: form[1].value,
@@ -127,8 +104,6 @@ export default function AddRecipe(prop) {
       instructions: instructions,
       notes: extra,     
     }
-
-    // console.log(recipe);
   
     axios.post(backendURL + 'add', recipe)
       .then(response => {
@@ -139,22 +114,13 @@ export default function AddRecipe(prop) {
         }, 3000)
       })
       .catch(err => {
+        console.error(err);
         setRecipeSent(true);
         setRecipeSuccess(false);
         setTimeout(() => {
           setRecipeSent(false);
         }, 3000)
       })
-
-    // axios.get('https://reclib-backend.vercel.app/recipes/')
-    //   .then(response => {
-    //     if (response.data.length > 0) {
-    //       console.log(response);
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.error(err.message)
-    //   })
   }
 
   const addIngredient = () => {
@@ -179,8 +145,9 @@ export default function AddRecipe(prop) {
           <div>
             <p id="addRecipePic">Kuva*</p>
             <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
-            <img src="#" alt="" id="submitDisplayImage"/>
             <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage} required/>
+            <p id="imageNameDisplay"></p>
+            <img src="#" alt="" id="submitDisplayImage"/>
           </div>
   
           <div>

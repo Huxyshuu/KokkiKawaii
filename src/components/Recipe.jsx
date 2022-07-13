@@ -13,8 +13,6 @@ export default function Recipe(prop) {
     data: []
   });
 
-  console.log(id);
-
   useEffect(() => {
     axios.get(backendURL)
     .then(response => {
@@ -46,8 +44,6 @@ export default function Recipe(prop) {
   if (Recipe) {
     splitInstructions = Recipe.instructions.split("\n\n")
   }
-
-  console.log(Recipe);
 
   if (state.isLoading) {
     return (
