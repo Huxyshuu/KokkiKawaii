@@ -74,7 +74,7 @@ export default function AdminList(prop) {
       {
         isPrompted && 
         <div id="promptBox">
-          <p id="askPass" >Syötä salasana poistakseen reseptti:<br/><span className="highlightColor">{currentDeletion.title}<br />(id: {currentDeletion._id})</span></p>
+          <p id="askPass" >Syötä salasana poistaakseen reseptti:<br/><span className="highlightColor">{currentDeletion.title}<br />(id: {currentDeletion._id})</span></p>
           <form action="" onSubmit={deleteItem}>
             <p id="promptText"></p>
             <input type="password" placeholder="Salasana" id="promptPassword"/>
@@ -90,7 +90,7 @@ export default function AdminList(prop) {
         <div id="adminlistLoader">
           <div id="adminlistLoadingSpinner">
           </div> 
-          <h3>Loading...</h3>
+          <h3>Ladataan...</h3>
         </div>
         : 
         <>

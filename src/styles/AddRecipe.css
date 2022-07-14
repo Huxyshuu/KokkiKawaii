@@ -238,8 +238,12 @@ font-family: 'Coiny', cursive;
 
 #failedRecipe p {
     width: 90%;
-    color: var(--darkColor);
-    font: 1rem;
     word-wrap: break-word;
     margin-top: 2rem;
+    text-align: center;
+}
+
+#failInfo {
+    color: var(--highlightColor);
+    font-size: 1.5rem;
 }

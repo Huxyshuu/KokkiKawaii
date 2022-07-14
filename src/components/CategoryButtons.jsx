@@ -41,7 +41,7 @@ export default function CategoryButtons() {
             key={"short_more"}
             className="categoryButtonML"
             onClick={() => setShowMore(true)}
-          >MORE</button>
+          >LISÄÄ</button>
         </>
       ) : (
         <>
@@ -61,7 +61,7 @@ export default function CategoryButtons() {
             key={"short_less"}
             className="categoryButtonML"
             onClick={() => setShowMore(false)}
-          >LESS</button>
+          >X</button>
         </>
       )}
     </div>

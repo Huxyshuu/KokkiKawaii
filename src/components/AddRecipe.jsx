@@ -120,7 +120,7 @@ export default function AddRecipe(prop) {
         setRecipeSuccess(true);
         setTimeout(() => {
           navigate('/overview', { replace: true});
-        }, 4000)
+        }, 5000)
       })
       .catch(err => {
         console.error(err);
@@ -128,7 +128,7 @@ export default function AddRecipe(prop) {
         setRecipeSuccess(false);
         setTimeout(() => {
           setRecipeSent(false);
-        }, 6000)
+        }, 10000)
       })
   }
 
@@ -147,7 +147,7 @@ export default function AddRecipe(prop) {
         <div id="addRecipeLoader">
           <div id="addRecipeLoadingSpinner">
           </div> 
-          <h3>Uploading recipe...</h3>
+          <h3>Julkaistaan reseptiä...</h3>
         </div>
       )
     } else {
@@ -245,7 +245,7 @@ export default function AddRecipe(prop) {
   } else if (recipeSuccess) {
     return (
       <div id="successRecipe">
-        <h2>REC<span className='highlightColor'>LIB</span></h2>
+        <h2>Kokki<span className='highlightColor'>K</span></h2>
         <h3>Resepti lisätty</h3>
         <h3 id="successRecipeThanks">Kiitos!</h3>
       </div>
@@ -253,10 +253,11 @@ export default function AddRecipe(prop) {
   } else {
     return (
       <div id="failedRecipe">
-        <h2>REC<span className='highlightColor'>LIB</span></h2>
+        <h2>Kokki<span className='highlightColor'>K</span></h2>
         <h3>Reseptin lisäys epäonnistui</h3>
         <h3 id="failedRecipeThanks">Yritä uudelleen...</h3>
-        <p>Tarkista, että samalla kuvalla olevaa reseptiä ei ole vielä lisätty!</p>
+        <p>Tarkista, että kaikki tiedot ovat oikein!<br/>Jos ongelma jatkuu, ota yhteyttä ylläpitäjään.</p>
+        <p id="failInfo" onClick={() => window.location = "mailto:hugotamm@hotmail.com?subject=Problem adding a recipe - KawaiiKokki"}>@: <span style={{textDecoration: "underline"}}>hugotamm@hotmail.com</span></p>
       </div>
     )
   }

@@ -57,7 +57,7 @@ export default function LoginPage(prop) {
     return (
     <div id="loginPage">
         <div id="loginTitle">
-            <h1>REC<span className="highlightColor">LIB</span></h1>
+            <h1>Kokki<span className="highlightColor">K</span></h1>
             <div>
                 <h2>Kirjautuminen</h2>  
             </div>
@@ -67,7 +67,7 @@ export default function LoginPage(prop) {
             <div id="loginLoader">
                 <div id="loginLoadingSpinner">
                 </div> 
-                <h3>Logging in...</h3>
+                <h3>Kirjaudutaan...</h3>
             </div>
             :
             <>
