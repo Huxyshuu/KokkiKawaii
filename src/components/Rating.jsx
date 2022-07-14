@@ -9,8 +9,8 @@ export default function Rating(prop) {
     if (rating > 5) {
         rating = 5;
     }
-    if (rating < 0) {
-        rating = 0;
+    if (rating < 1) {
+        rating = 1;
     }
 
     let style = {};
@@ -24,7 +24,7 @@ export default function Rating(prop) {
 
     const countStars = (rating) => {
         const starArray = [];
-        for (var i = 0; i < rating; i++) {
+        for (var i = 1; i < rating; i++) {
             starArray.push(<Icon icon="codicon:star-full" style={style} key={i}/>);
         }
         while (starArray.length < 5) {

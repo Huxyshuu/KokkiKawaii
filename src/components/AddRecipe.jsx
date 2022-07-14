@@ -16,6 +16,7 @@ export default function AddRecipe(prop) {
   const navigate = useNavigate();
   const [ recipeSent, setRecipeSent ] = useState(false);
   const [ recipeSuccess, setRecipeSuccess ] = useState(false);
+  const [ loading, setLoading ] = useState(false);
 
   const { backendURL } = prop;
   
@@ -50,6 +51,7 @@ export default function AddRecipe(prop) {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target
 
     const ingredientsList = [];
@@ -107,11 +109,12 @@ export default function AddRecipe(prop) {
   
     axios.post(backendURL + 'add', recipe)
       .then(response => {
+        setLoading(false);
         setRecipeSent(true);
         setRecipeSuccess(true);
         setTimeout(() => {
           navigate('/overview', { replace: true});
-        }, 3000)
+        }, 4000)
       })
       .catch(err => {
         console.error(err);
@@ -119,7 +122,7 @@ export default function AddRecipe(prop) {
         setRecipeSuccess(false);
         setTimeout(() => {
           setRecipeSent(false);
-        }, 3000)
+        }, 6000)
       })
   }
 
@@ -133,92 +136,103 @@ export default function AddRecipe(prop) {
   }
 
   if (!recipeSent) {
-    return (
-      <div id="addRecipe">
-        <div id="addRecipeTitle">
-          <h3 className="header">Lisää uusi resepti</h3>
-          <p>Syötä tarvittavat tiedot alle</p>
+    if (loading) {
+      return (
+        <div id="addRecipeLoader">
+          <div id="addRecipeLoadingSpinner">
+          </div> 
+          <h3>Uploading recipe...</h3>
         </div>
-        <form action="" onSubmit={handleSubmit} id="recipeForm">
-          <h3 className="header">Kuva / Nimi / Arvosana</h3>
-  
-          <div>
-            <p id="addRecipePic">Kuva*</p>
-            <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
-            <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage} required/>
-            <p id="imageNameDisplay"></p>
-            <img src="#" alt="" id="submitDisplayImage"/>
+      )
+    } else {
+      return (
+        <div id="addRecipe">
+          <div id="addRecipeTitle">
+            <h3 className="header">Lisää uusi resepti</h3>
+            <p>Syötä tarvittavat tiedot alle</p>
           </div>
-  
-          <div>
-            <p>Nimi*</p>
-            <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" required/>
-          </div>
-  
-          <div>
-            <p>Arvosana*</p>
-            <input id="submitRecipeRating" 
-            type="range"
-            max="5"
-            step="1"
-            required/>
-          </div>
-  
-  
-          <h3 className="header">Ainesosat / Annokset</h3>
-  
-          <div>
-            <p>Annosten määrä*</p>
-            <input type="number" placeholder="Syötä numero" required/>
-          </div>
-  
-          <div>
-            <p>Ainesosat*</p>
-            {
-              ingredients.map((e) => {
-                return e
-              })
-            }
-            <input id="addIngButton" type="button" onClick={addIngredient} value="Lisää ainesosa"/>
-          </div>
-  
-  
-          <h3 className="header">Ohjeet / Aika / Lisätiedot</h3>
-  
-          <div>
-            <p>Aika-arvio*</p>
-            <input id="timeEst" type="number" placeholder="Syötä numero" required/>
-          </div>
-  
-          <div>
-            <p>Ohjeet*</p>
-            <div className="instructions">
-              <textarea id="addRecipeInstructions" name="" cols="30" rows="10" required></textarea>
+          <form action="" onSubmit={handleSubmit} id="recipeForm">
+            <h3 className="header">Kuva / Nimi / Arvosana</h3>
+    
+            <div>
+              <p id="addRecipePic">Kuva*</p>
+              <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
+              <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage} required/>
+              <p id="imageNameDisplay"></p>
+              <img src="#" alt="" id="submitDisplayImage"/>
             </div>
-          </div>
-  
-          <div id="extraInfo">
-            <p>Lisätietoja</p>
-            <textarea id="addRecipeInfo" name="" cols="30" rows="5"></textarea>
-          </div>
-  
-          {/* <div>
-            {
-              categories.map((category, index) => {
-                return <div>
-                  <label htmlFor={'cats_' + index} className="cats">{category}</label>
-                  <input id={'cats_' + index} type="checkbox" value={category} key={index}/>
-                </div>
-              })
-            }
-          </div> */}
-  
-          <div id="arsb">
-            <input type="submit" value="Lisää uusi resepti" id="addRecipeSubmit"/>
-          </div>
-        </form>
-      </div>
-    )
+    
+            <div>
+              <p>Nimi*</p>
+              <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" required/>
+            </div>
+    
+            <div>
+              <p>Arvosana*</p>
+              <input id="submitRecipeRating" 
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+              required/>
+            </div>
+    
+    
+            <h3 className="header">Ainesosat / Annokset</h3>
+    
+            <div>
+              <p>Annosten määrä*</p>
+              <input type="number" placeholder="Syötä numero" required/>
+            </div>
+    
+            <div>
+              <p>Ainesosat*</p>
+              {
+                ingredients.map((e) => {
+                  return e
+                })
+              }
+              <input id="addIngButton" type="button" onClick={addIngredient} value="Lisää ainesosa"/>
+            </div>
+    
+    
+            <h3 className="header">Ohjeet / Aika / Lisätiedot</h3>
+    
+            <div>
+              <p>Aika-arvio*</p>
+              <input id="timeEst" type="number" placeholder="Syötä numero" required/>
+            </div>
+    
+            <div>
+              <p>Ohjeet*</p>
+              <div className="instructions">
+                <textarea id="addRecipeInstructions" name="" cols="30" rows="10" required></textarea>
+              </div>
+            </div>
+    
+            <div id="extraInfo">
+              <p>Lisätietoja</p>
+              <textarea id="addRecipeInfo" name="" cols="30" rows="5"></textarea>
+            </div>
+    
+            {/* <div>
+              {
+                categories.map((category, index) => {
+                  return <div>
+                    <label htmlFor={'cats_' + index} className="cats">{category}</label>
+                    <input id={'cats_' + index} type="checkbox" value={category} key={index}/>
+                  </div>
+                })
+              }
+            </div> */}
+    
+            <div id="arsb">
+              <input type="submit" value="Lisää uusi resepti" id="addRecipeSubmit"/>
+            </div>
+          </form>
+        </div>
+      )
+    }
   } else if (recipeSuccess) {
     return (
       <div id="successRecipe">

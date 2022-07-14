@@ -48,7 +48,7 @@ export default function MainPage(prop) {
   return (
     <div id="mainPage">
       <div id="hero">
-        <h1>Recipe Library</h1>
+        <h1>Yhdessä kokataan!</h1>
         <div id="heroCover"></div>
       </div>
 
@@ -62,13 +62,6 @@ export default function MainPage(prop) {
         <div id="latestRecipe">
           <RecipeDisplay recipes={state.data} isLoading={state.isLoading} />
         </div>
-      </div>
-
-      <div className="section">
-        <h3 className="sectionTitle">MUUT</h3>
-          <div id="sideDisplay" >
-            <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
-          </div>
       </div>
 
       {/* <div className="section">
@@ -93,6 +86,12 @@ export default function MainPage(prop) {
         
         :
         <>
+          <div className="section">
+            <h3 className="sectionTitle">MUUT</h3>
+              <div id="sideDisplay" >
+                <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
+              </div>
+          </div>
           <div id="mainSeeMore">
             <button id="seeMoreButton" onClick={() => setShowAll(true)}>KATSO LISÄÄ</button>
           </div>
