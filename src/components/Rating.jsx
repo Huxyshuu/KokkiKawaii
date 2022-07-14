@@ -24,11 +24,11 @@ export default function Rating(prop) {
 
     const countStars = (rating) => {
         const starArray = [];
-        for (var i = 1; i < rating; i++) {
-            starArray.push(<Icon icon="codicon:star-full" style={style} key={i}/>);
+        for (var i = 0; i < rating; i++) {
+            starArray.push(<Icon icon="codicon:star-full" style={style} key={"recipe_star_rating_" + i}/>);
         }
         while (starArray.length < 5) {
-            starArray.push(<Icon icon="codicon:star-empty" style={style} key={starArray.length}/>);
+            starArray.push(<Icon icon="codicon:star-empty" style={style} key={"recipe_star_rating_" + starArray.length}/>);
         }
         return starArray;
     }

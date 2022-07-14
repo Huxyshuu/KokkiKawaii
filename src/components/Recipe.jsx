@@ -67,16 +67,16 @@ export default function Recipe(prop) {
             </div>
           </div>
     
-          <div>
+          <div id="servingDiv">
             <h3 className="recipeSectionTitles">AINESOSAT</h3>
             <p className="recipeUnderTitle">{Recipe.servings} annosta</p>
           </div>
     
           <div>
             {
-              Recipe.ingredients.map(ingredient => {
+              Recipe.ingredients.map((ingredient, index) => {
                 const splitIng  = ingredient.split(": ");
-                return <div className="recipeIngredients">
+                return <div className="recipeIngredients" key={`ingredient_` + index}>
                   <p>{splitIng[1]}</p>
                   <p>{splitIng[0]}</p>
                 </div>
@@ -95,7 +95,7 @@ export default function Recipe(prop) {
           <div id="recipeInstructionSection">
             {
               splitInstructions.map((instruction, index) => {
-                return <p className="recipeInstruction" key={index}>{instruction}</p>
+                return <p className="recipeInstruction" key={`instruction_` + index}>{instruction}</p>
               })
             }
           </div>

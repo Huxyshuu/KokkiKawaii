@@ -48,7 +48,7 @@ export default function MainPage(prop) {
   return (
     <div id="mainPage">
       <div id="hero">
-        <h1>Yhdessä kokataan!</h1>
+        <h1>KokkiKawaii</h1>
         <div id="heroCover"></div>
       </div>
 

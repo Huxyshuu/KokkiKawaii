@@ -3,11 +3,12 @@ import '../styles/AddRecipe.css';
 import axios from 'axios';
 import FormData from 'form-data';
 import { useNavigate } from "react-router-dom";
+import AddRating from './AddRating';
 
 export default function AddRecipe(prop) {
 
   const [ingredients, setIngredients] = useState([
-    <div className="ingredients">
+    <div className="ingredients" key="ingredient_0">
       <input id="ingredientAmount" type="text" placeholder="Määrä"/>
       <input id="ingredientName" type="text" placeholder="Ainesosa"/>
     </div>
@@ -17,6 +18,8 @@ export default function AddRecipe(prop) {
   const [ recipeSent, setRecipeSent ] = useState(false);
   const [ recipeSuccess, setRecipeSuccess ] = useState(false);
   const [ loading, setLoading ] = useState(false);
+
+  const [ starRating, setStarRating ] = useState(1);
 
   const { backendURL } = prop;
   
@@ -106,9 +109,12 @@ export default function AddRecipe(prop) {
       instructions: instructions,
       notes: extra,     
     }
+
+    console.log(recipe);
   
     axios.post(backendURL + 'add', recipe)
       .then(response => {
+        console.log(response);
         setLoading(false);
         setRecipeSent(true);
         setRecipeSuccess(true);
@@ -128,7 +134,7 @@ export default function AddRecipe(prop) {
 
   const addIngredient = () => {
     setIngredients(prev => [...prev, 
-      <div className="ingredients">
+      <div className="ingredients" key={"ingredient_" + ingredients.length}>
         <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
         <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
       </div>
@@ -169,11 +175,14 @@ export default function AddRecipe(prop) {
     
             <div>
               <p>Arvosana*</p>
+              <AddRating setStarRating={setStarRating}/>
               <input id="submitRecipeRating" 
               type="range"
               min="1"
               max="5"
               step="1"
+              value={starRating}
+              readOnly
               required/>
             </div>
     
