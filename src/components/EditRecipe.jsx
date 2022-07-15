@@ -22,7 +22,6 @@ export default function AddRecipe(prop) {
     .then(response => {
       if (response.data.length > 0) {
         const recipe = response.data.filter(recipe => recipe._id === id);
-        console.log(recipe);
         setState(prevState => ({
           ...prevState,
           isLoading: false,
@@ -52,9 +51,12 @@ export default function AddRecipe(prop) {
 
   const [ingredients, setIngredients] = useState([
     <div className="ingredients" key="ingredient_0">
-      <input id="ingredientAmount" type="text" placeholder="Määrä" />
-      <input id="ingredientName" type="text" placeholder="Ainesosa" />
-    </div>,
+      <div id="ingredientDiv">
+        <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
+        <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
+      </div>
+      <input id="ingredientDelete" type="button" value=" "/>
+    </div>
   ]);
 
   
@@ -167,19 +169,24 @@ export default function AddRecipe(prop) {
   };
 
   const addIngredient = () => {
-    setIngredients((prev) => [
-      ...prev,
-      <div className="ingredients" key={"ingredient_" + ingredients.length}>
-        <input id="ingredientAmount" type="text" placeholder="Määrä" required />
-        <input
-          id="ingredientName"
-          type="text"
-          placeholder="Ainesosa"
-          required
-        />
-      </div>,
-    ]);
-  };
+    const key = Date.now();
+    setIngredients(prev => [...prev, 
+      <div className="ingredients" key={"ingredient_" + key}>
+        <div id="ingredientDiv">
+          <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
+          <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
+        </div>
+        <input id="ingredientDelete" type="button" onClick={() => {deleteIngredient("ingredient_" + key)}} value="X"/>
+      </div>
+    ])
+  }
+
+  const deleteIngredient = (key) => {
+    setIngredients(ings => ings.filter(ing => ing.key !== key));
+  }
+
+  useEffect(() => {
+  }, [ingredients])
 
   if (!recipeSent) {
     if (loading) {
@@ -236,7 +243,7 @@ export default function AddRecipe(prop) {
                 min="1"
                 max="5"
                 step="1"
-                value={starRating}
+                defaultValue={starRating}
                 readOnly
                 required
               />

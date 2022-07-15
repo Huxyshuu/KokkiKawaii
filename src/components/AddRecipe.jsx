@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/AddRecipe.css';
 import axios from 'axios';
 import FormData from 'form-data';
@@ -134,20 +134,24 @@ export default function AddRecipe(prop) {
   }
 
   const addIngredient = () => {
+    const key = Date.now();
     setIngredients(prev => [...prev, 
-      <div className="ingredients" key={"ingredient_" + ingredients.length}>
+      <div className="ingredients" key={"ingredient_" + key}>
         <div id="ingredientDiv">
           <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
           <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
         </div>
-        <input id="ingredientDelete" type="button" onClick={() => {deleteIngredient("ingredient_" + ingredients.length)}} value="X"/>
+        <input id="ingredientDelete" type="button" onClick={() => {deleteIngredient("ingredient_" + key)}} value="X"/>
       </div>
     ])
   }
 
   const deleteIngredient = (key) => {
-    console.log(`${key}: deleted`)
+    setIngredients(ings => ings.filter(ing => ing.key !== key));
   }
+
+  useEffect(() => {
+  }, [ingredients])
 
   if (!recipeSent) {
     if (loading) {
