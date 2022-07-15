@@ -3,7 +3,9 @@ import '../styles/MainPage.css';
 // import CategoryButtons from '../components/CategoryButtons';
 import RecipeDisplay from '../components/RecipeDisplay';
 import SideDisplay from '../components/SideDisplay';
+import Rating from '../components/Rating';
 import { useNavigate } from "react-router-dom";
+import { Icon } from '@iconify/react';
 import axios from 'axios';
 
 export default function MainPage(prop) {
@@ -75,12 +77,44 @@ export default function MainPage(prop) {
         showAll ? 
         <div className="section">
           <h3 className="sectionTitle">KAIKKI RESEPTIT</h3>
-            <div id="showAllSection">
-            {
-              state.data.map((e, index) => {
-                return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index} onClick={() => {navigate('/recipes/' + e._id);}}></div>
-              })
-            }
+          {/* <div id="showAllSection">
+          {
+            state.data.map((e, index) => {
+              return (
+              <div className="recipeBox" 
+              style={{backgroundImage: `url(${e.picture})`}} 
+              key={"recipe_" + index} 
+              onClick={() => {navigate('/recipes/' + e._id);}}></div>
+              )
+            })
+          }
+          </div> */}
+
+          <div id="showAllSectionRow">
+          {
+            state.data.map((e, index) => {
+              return (
+              <div id="allRecipesContainer" key={"recipe_" + index} onClick={() => {navigate('/recipes/' + e._id)}}>
+                <div className="mainAllRecipeBox" 
+                style={{backgroundImage: `url(${e.picture})`}}>
+                </div>
+                <div id="allRecipeInfo">
+                  <h3>{e.title}</h3>
+                  <div id="allRecipeStats">
+                    <Rating rating={e.rating} stylingForm={"allRecipes"} id="allStars"/>
+                    <div id="allRecipesTime">
+                      <Icon icon="ci:clock" className="iconClock" id="allRecipesClock"/>
+                      {
+                        e.time > 60 ? <p>{ Math.floor(e.time / 60) }t {e.time - Math.floor(e.time / 60) * 60} min</p> 
+                        : <p>{e.time} min</p>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+              )
+            })
+          }
           </div>
         </div>
         

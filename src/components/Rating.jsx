@@ -21,6 +21,12 @@ export default function Rating(prop) {
         }
     }
 
+    if (stylingForm === 'allRecipes') {
+        style = {
+            fontSize: '1rem'
+        }
+    }
+
 
     const countStars = (rating) => {
         const starArray = [];

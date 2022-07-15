@@ -35,7 +35,7 @@ export default function RecipeDisplay(prop) {
               <Rating rating={rating}/>
           </div>
           <div id="latestCookTime">
-            <Icon icon="ci:clock" />
+            <Icon icon="ci:clock" className="iconClock"/>
             {
               time > 60 ? <p> { Math.floor(time / 60) }t {time - Math.floor(time / 60) * 60} min</p> 
               : <p>{time} min</p>

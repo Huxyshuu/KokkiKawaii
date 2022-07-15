@@ -126,3 +126,52 @@ font-family: 'Coiny', cursive;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+#showAllSectionRow {
+    margin-bottom: 1rem;
+}
+
+.iconClock {
+    color: var(--darkColor);
+}
+
+.mainAllRecipeBox {
+    border: 0.1rem solid var(--darkColor);
+    aspect-ratio: 2 / 1;
+    width: 40vw;
+    background-size: cover;
+    background-position: center;
+}
+
+#allRecipeInfo {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#allRecipeInfo h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#allRecipeStats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#allRecipesContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#allRecipesTime {
+    display: flex;
+    flex-direction: row;
+}
+
+#allRecipesClock {
+    margin-right: 0.2rem;
+}
