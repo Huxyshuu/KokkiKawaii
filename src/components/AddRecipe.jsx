@@ -109,8 +109,6 @@ export default function AddRecipe(prop) {
       instructions: instructions,
       notes: extra,     
     }
-
-    console.log(recipe);
   
     axios.post(backendURL + 'add', recipe)
       .then(response => {

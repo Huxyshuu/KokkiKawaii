@@ -190,7 +190,7 @@ font-family: 'Coiny', cursive;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - var(--navBarHeight));
     width: 100vw;
     padding-top: var(--navBarHeight);
 }
@@ -215,7 +215,7 @@ font-family: 'Coiny', cursive;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - var(--navBarHeight));
     width: 100vw;
     padding-top: var(--navBarHeight);
 }

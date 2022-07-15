@@ -142,7 +142,7 @@ export default function AdminList(prop) {
         </div>
         : 
         <>
-          <div className="recipeBox" id="addRecipePlus" onClick={() => {navigate('/addrecipe');}}>
+          <div className="recipeBox" id="addRecipePlus" onClick={() => {navigate('/addrecipe')}}>
             <p>+</p>
           </div>
           {
@@ -150,8 +150,8 @@ export default function AdminList(prop) {
               return <div className="recipeBox" style={{backgroundImage: `url(${e.picture})`}} key={"recipe_" + index}>
                       <div className="recipeHoverMenu">
                         <p className="overviewRecipeTitles">{e.title}</p>
-                        <button className="overviewButtons" onClick={() => {navigate('/recipes/' + e._id);}}>AVAA</button>
-                        <button className="overviewButtons">MUOKKAA</button>
+                        <button className="overviewButtons" onClick={() => {navigate('/recipes/' + e._id)}}>AVAA</button>
+                        <button className="overviewButtons" onClick={() => {navigate('/editrecipe/' + e._id)}}>MUOKKAA</button>
                         <button className="overviewButtons" onClick={() => confirmReq(e)}>POISTA</button>
                       </div>
                     </div>

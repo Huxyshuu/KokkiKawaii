@@ -6,6 +6,7 @@ import MobileMenu from './components/MobileMenu';
 import MainPage from './components/MainPage';
 import LoginPage from './components/LoginPage';
 import AddRecipe from './components/AddRecipe';
+import EditRecipe from './components/EditRecipe';
 import AdminList from './components/AdminList';
 import Recipe from './components/Recipe';
 
@@ -19,7 +20,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [displayBlocked, setDisplayBlocked] = useState(false);
   
-  const adminRoutes = ['/overview', '/addrecipe'];
+  const adminRoutes = ['/overview', '/addrecipe', '/editrecipe'];
 
   const menuOpener = () => {
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -93,6 +94,7 @@ function App() {
                 {loggedIn ? 
                 <>
                   <Route path="/addrecipe" element={<AddRecipe backendURL={backendURL}/>} />
+                  <Route path="/editrecipe/:id" element={<EditRecipe backendURL={backendURL}/>} />
                   <Route path="/overview" element={<AdminList backendURL={backendURL}/>} />
                 </> : 
                 <>

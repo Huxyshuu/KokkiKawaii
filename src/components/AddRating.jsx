@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/AddRating.css'
 import { Icon } from '@iconify/react';
 
@@ -10,7 +10,7 @@ export default function AddRating(props) {
     const [ currentValue, setCurrentValue ] = useState([0,0,0,0,0]);
     const [ hoverValue, setHoverValue ] = useState(undefined);
 
-    const { setStarRating } = props;
+    const { setStarRating, value } = props;
 
 
     const starArray = value => {
@@ -35,6 +35,13 @@ export default function AddRating(props) {
             )
         }
     }
+
+    useEffect(() => {
+        if (value) {
+            setCurrentValue(starArray(value));
+            setStarRating(value);
+        }
+    }, [value])
 
     const handleClick = value => {
         setCurrentValue(starArray(value));
