@@ -106,6 +106,19 @@ font-family: 'Coiny', cursive;
     border-bottom: 0.1rem solid var(--highlightColor);
 }
 
+#ingredientDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#ingredientDelete {
+    border: none;
+    background-color: white;
+    width: 10%;
+    color: var(--highlightColor);
+}
+
 #addIngButton {
     font-family: 'Arimo', sans-serif;
     font-weight: 600;

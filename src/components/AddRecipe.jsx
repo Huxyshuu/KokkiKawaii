@@ -9,8 +9,11 @@ export default function AddRecipe(prop) {
 
   const [ingredients, setIngredients] = useState([
     <div className="ingredients" key="ingredient_0">
-      <input id="ingredientAmount" type="text" placeholder="Määrä"/>
-      <input id="ingredientName" type="text" placeholder="Ainesosa"/>
+      <div id="ingredientDiv">
+        <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
+        <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
+      </div>
+      <input id="ingredientDelete" type="button" value=" "/>
     </div>
   ]);
 
@@ -133,10 +136,17 @@ export default function AddRecipe(prop) {
   const addIngredient = () => {
     setIngredients(prev => [...prev, 
       <div className="ingredients" key={"ingredient_" + ingredients.length}>
-        <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
-        <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
+        <div id="ingredientDiv">
+          <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
+          <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
+        </div>
+        <input id="ingredientDelete" type="button" onClick={() => {deleteIngredient("ingredient_" + ingredients.length)}} value="X"/>
       </div>
     ])
+  }
+
+  const deleteIngredient = (key) => {
+    console.log(`${key}: deleted`)
   }
 
   if (!recipeSent) {

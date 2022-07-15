@@ -271,6 +271,7 @@ export default function AddRecipe(prop) {
                 type="number"
                 placeholder="Syötä numero"
                 required
+                defaultValue={state.recipe.time}
               />
             </div>
 
@@ -283,6 +284,7 @@ export default function AddRecipe(prop) {
                   cols="30"
                   rows="10"
                   required
+                  defaultValue={state.recipe.instructions}
                 ></textarea>
               </div>
             </div>
@@ -294,24 +296,14 @@ export default function AddRecipe(prop) {
                 name=""
                 cols="30"
                 rows="5"
+                defaultValue={state.recipe.notes}
               ></textarea>
             </div>
-
-            {/* <div>
-              {
-                categories.map((category, index) => {
-                  return <div>
-                    <label htmlFor={'cats_' + index} className="cats">{category}</label>
-                    <input id={'cats_' + index} type="checkbox" value={category} key={index}/>
-                  </div>
-                })
-              }
-            </div> */}
 
             <div id="arsb">
               <input
                 type="submit"
-                value="Lisää uusi resepti"
+                value="Muokkaa reseptiä"
                 id="addRecipeSubmit"
               />
             </div>
@@ -325,7 +317,7 @@ export default function AddRecipe(prop) {
         <h2>
           Kokki<span className="highlightColor">K</span>
         </h2>
-        <h3>Resepti lisätty</h3>
+        <h3>Resepti muokattu</h3>
         <h3 id="successRecipeThanks">Kiitos!</h3>
       </div>
     );
@@ -335,7 +327,7 @@ export default function AddRecipe(prop) {
         <h2>
           Kokki<span className="highlightColor">K</span>
         </h2>
-        <h3>Reseptin lisäys epäonnistui</h3>
+        <h3>Reseptin muokkaus epäonnistui</h3>
         <h3 id="failedRecipeThanks">Yritä uudelleen...</h3>
         <p>
           Tarkista, että kaikki tiedot ovat oikein!
