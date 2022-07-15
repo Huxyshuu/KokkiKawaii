@@ -108,6 +108,7 @@ font-family: 'Coiny', cursive;
     font-weight: 600;
     font-size: 1.2rem;
     margin: 1rem;
+    width: 90%;
 }
 
 #promptDel {
@@ -155,8 +156,13 @@ font-family: 'Coiny', cursive;
     justify-content: center;
 }
 
+#adminlistLoader h3 {
+    margin-bottom: 1rem;
+}
+
 #adminlistLoadingSpinner {
     margin-top: 2rem;
+    margin-bottom: 1rem;
     width: 4rem;
     height: 4rem;
     border: 1rem solid #f2f2f2; /* Light grey */
