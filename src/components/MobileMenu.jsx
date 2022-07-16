@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import { Icon } from '@iconify/react';
 import { Link } from "react-router-dom";
 import '../styles/MobileMenu.css';
 
@@ -28,14 +27,6 @@ export default function MobileMenu(prop) {
           <h2 id="menuMenu">MENU</h2>
         </div>
         <div id="menuSection">
-          <p>Haku</p>
-          <div>
-            <input id="menuSearch" type="text" placeholder="Etsi reseptiä nimellä"/>
-            <div id="searchIconButton">
-              <Icon icon="bx:search-alt" />
-            </div>
-          </div>
-
           <div className="menuButtons">
             <Link to="/" className="link" onClick={() => setMenuOpen(false)}><button id="menuFrontButton">Etusivu</button></Link>
             {loggedIn && <Link to="/overview" className="link" onClick={() => setMenuOpen(false)}><button id="menuOverviewButton">Hallinta</button></Link>}

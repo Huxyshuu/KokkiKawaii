@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Searchbar.css';
 import { useNavigate } from "react-router-dom";
+import { Icon } from '@iconify/react';
 
 export default function Searchbar(props) {
 
@@ -9,9 +10,11 @@ export default function Searchbar(props) {
     let highlightColor = getComputedStyle(document.body).getPropertyValue('--highlightColor');
 
     const [filteredData, setFilteredData] = useState([]);
+    const [enteredWord, setEnteredWord] = useState("");
 
     const handleFilter = e => {
         const searchInput = e.target.value;
+        setEnteredWord(searchInput);
         if (searchInput) {
             const newFilter = data.filter(value => {
                 return value.title.toLowerCase().includes(searchInput.toLowerCase());
@@ -20,13 +23,20 @@ export default function Searchbar(props) {
         } else {
             setFilteredData([]);
         }
-        
+    }
+
+    const clearInput = () => {
+        setFilteredData([]);
+        setEnteredWord("");
     }
 
   return (
     <div>
         <div id="searchDiv">
-            <input id="searchInput" type="text" placeholder="Etsi reseptiä nimellä" onChange={handleFilter}/>
+            <input id="searchInput" type="text" placeholder="Etsi reseptiä nimellä" value={enteredWord} onChange={handleFilter}/>
+            {
+                enteredWord.length === 0 ? <Icon id="searchIcon" icon="bx:search-alt-2" /> : <Icon id="searchIcon" icon="ci:close-big" onClick={clearInput}/>
+            }
         </div>
         {
             filteredData.length !== 0 && 
