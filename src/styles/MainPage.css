@@ -37,43 +37,6 @@ font-family: 'Coiny', cursive;
     z-index: 9;
 }
 
-#mainForm {
-    display: flex;
-    flex-direction: column;
-}
-
-#mainFormInput {
-    font-family: 'Arimo', sans-serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    border: none;
-    border-bottom: 0.2rem solid var(--highlightColor);
-    margin: 2rem;
-    color: var(--highlightColor);
-    height: 2rem;
-}
-
-#mainFormInput:focus {
-    outline: none;
-    background-color: #f2f2f2;
-}
-
-#mainFormInput::placeholder {
-    color: black;
-    opacity: 0.2;
-}
-
-#mainFormSubmit {
-    align-self: center;
-    font-size: 1.2rem;
-    width: 10rem;
-    height: 2rem;
-    border: none;
-    background-color: var(--highlightColor);
-    color: white;
-    margin-bottom: 3rem;
-}
-
 .section {
     margin-inline: 1rem;
     margin-top: 2rem;

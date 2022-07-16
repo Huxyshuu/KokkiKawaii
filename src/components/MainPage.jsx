@@ -4,6 +4,7 @@ import '../styles/MainPage.css';
 import RecipeDisplay from '../components/RecipeDisplay';
 import SideDisplay from '../components/SideDisplay';
 import Rating from '../components/Rating';
+import Searchbar from '../components/Searchbar';
 import { useNavigate } from "react-router-dom";
 import { Icon } from '@iconify/react';
 import axios from 'axios';
@@ -54,10 +55,7 @@ export default function MainPage(prop) {
         <div id="heroCover"></div>
       </div>
 
-      <form action="#" id="mainForm">
-        <input id="mainFormInput" type="text" placeholder="Etsi reseptiä nimellä" />
-        <input id="mainFormSubmit" type="submit" value="HAE"/>
-      </form>
+      <Searchbar data={state.data}/>
 
       <div className="section">
         <h3 className="sectionTitle">UUSIN RESEPTI</h3>

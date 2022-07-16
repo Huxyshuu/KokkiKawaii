@@ -177,7 +177,7 @@ export default function AddRecipe(prop) {
         setRecipeSuccess(true);
         setTimeout(() => {
           navigate("/overview", { replace: true });
-        }, 5000);
+        }, 4000);
       })
       .catch((err) => {
         console.error(err);
@@ -185,7 +185,7 @@ export default function AddRecipe(prop) {
         setRecipeSuccess(false);
         setTimeout(() => {
           setRecipeSent(false);
-        }, 10000);
+        }, 8000);
       });
   };
 
