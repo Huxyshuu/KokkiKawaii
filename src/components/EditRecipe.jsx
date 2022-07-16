@@ -166,12 +166,8 @@ export default function AddRecipe(prop) {
       notes: extra,
     };
 
-    console.log(recipe);
-
-    axios
-      .post(backendURL + "add", recipe)
+    axios.post(backendURL + "update/" + id, recipe)
       .then((response) => {
-        console.log(response);
         setLoading(false);
         setRecipeSent(true);
         setRecipeSuccess(true);
@@ -310,7 +306,7 @@ export default function AddRecipe(prop) {
                   id="addRecipeInstructions"
                   name=""
                   cols="30"
-                  rows="20"
+                  rows="10"
                   required
                   defaultValue={state.recipe.instructions}
                 ></textarea>

@@ -115,7 +115,6 @@ export default function AddRecipe(prop) {
   
     axios.post(backendURL + 'add', recipe)
       .then(response => {
-        console.log(response);
         setLoading(false);
         setRecipeSent(true);
         setRecipeSuccess(true);

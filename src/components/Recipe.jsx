@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Recipe.css';
 import Rating from '../components/Rating';
 import axios from 'axios';
@@ -12,6 +12,8 @@ export default function Recipe(prop) {
     isLoading: true,
     data: []
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(backendURL)
@@ -59,7 +61,7 @@ export default function Recipe(prop) {
       return (
         <div id="recipePage">
           <div id="recipeHero" style={{backgroundImage: `url(${Recipe.picture})`}}>
-            { loggedIn && <button id="recipeEditButton">MUOKKAA</button>}
+            { loggedIn && <button id="recipeEditButton" onClick={() => {navigate('/editrecipe/' + Recipe._id)}}>MUOKKAA</button>}
             <h3 id="recipeTitle" >{Recipe.title.toUpperCase()}</h3>
             <div id="recipeShade"></div>
             <div id="recipeRating">
