@@ -17,6 +17,8 @@ export default function AddRecipe(prop) {
     recipe: []
   });
 
+  
+
   useEffect(() => {
     axios.get(backendURL)
     .then(response => {
@@ -27,6 +29,40 @@ export default function AddRecipe(prop) {
           isLoading: false,
           recipe: recipe[0]
         }));
+
+        const ingList = recipe[0].ingredients.map(ing => {
+          const splitIng  = ing.split(": ");
+          return splitIng;
+        });
+
+        const defaultIngs = ingList.map((ing, index) => {
+          if (index === 0) {
+            return (
+              <div className="ingredients" key={"ingredient_" + index}>
+              <div id="ingredientDiv">
+                <input id="ingredientAmount" className="editIng" type="text" placeholder="Määrä" defaultValue={ing[1]} required/>
+                <input id="ingredientName" className="editIng" type="text" placeholder="Ainesosa" defaultValue={ing[0]} required/>
+              </div>
+              <input id="ingredientDelete" type="button" value=""/>
+            </div>
+            )
+          } else {
+            return (
+              <div className="ingredients" key={"ingredient_" + index}>
+                <div id="ingredientDiv">
+                  <input id="ingredientAmount" className="editIng" type="text" placeholder="Määrä" defaultValue={ing[1]} required/>
+                  <input id="ingredientName" className="editIng" type="text" placeholder="Ainesosa" defaultValue={ing[0]} required/>
+                </div>
+                <input id="ingredientDelete" type="button" value="X" onClick={() => {deleteIngredient("ingredient_" + index)}}/>
+              </div>
+            )
+          }
+        })
+        
+        setIngredients(defaultIngs);
+        
+        displayImage(recipe[0]);
+        setStarRating(state.recipe.rating);
       } else {
         setState(prevState => ({
           ...prevState,
@@ -40,24 +76,9 @@ export default function AddRecipe(prop) {
     })
 
     //Set the values from data
-  },[backendURL, id])
+  }, [backendURL, id, state.recipe.rating])
 
-  useEffect(() => {
-    if (state.recipe) {
-        displayImage();
-        setStarRating(state.recipe.rating);
-    }
-  })
-
-  const [ingredients, setIngredients] = useState([
-    <div className="ingredients" key="ingredient_0">
-      <div id="ingredientDiv">
-        <input id="ingredientAmount" type="text" placeholder="Määrä" required/>
-        <input id="ingredientName" type="text" placeholder="Ainesosa" required/>
-      </div>
-      <input id="ingredientDelete" type="button" value=" "/>
-    </div>
-  ]);
+  const [ingredients, setIngredients] = useState([]);
 
   
 
@@ -67,10 +88,8 @@ export default function AddRecipe(prop) {
   const [loading, setLoading] = useState(false);
 
   const [starRating, setStarRating] = useState(1);
-  
-  
 
-  const displayImage = (e) => {
+  const displayImage = (recipe) => {
     const [file] = document.getElementById("recipeSubmitImage").files;
     const displayImage = document.getElementById("submitDisplayImage");
     const displayImageName = document.getElementById("imageNameDisplay");
@@ -79,10 +98,10 @@ export default function AddRecipe(prop) {
       displayImage.src = URL.createObjectURL(file);
       displayImage.alt = file.name;
       displayImageName.innerHTML = file.name;
-    } else if (state.recipe) {
+    } else if (recipe) {
         displayImage.style.display = "block";
-        displayImage.src = state.recipe.picture;
-        displayImage.alt = state.recipe.title;
+        displayImage.src = recipe.picture;
+        displayImage.alt = recipe.title;
     }
   };
 
@@ -146,6 +165,8 @@ export default function AddRecipe(prop) {
       instructions: instructions,
       notes: extra,
     };
+
+    console.log(recipe);
 
     axios
       .post(backendURL + "add", recipe)
@@ -216,7 +237,7 @@ export default function AddRecipe(prop) {
                 type="file"
                 id="recipeSubmitImage"
                 onChange={displayImage}
-                required
+                defaultValue={state.recipe.picture}
               />
               <p id="imageNameDisplay"></p>
               <img src="#" alt="" id="submitDisplayImage" />
@@ -289,7 +310,7 @@ export default function AddRecipe(prop) {
                   id="addRecipeInstructions"
                   name=""
                   cols="30"
-                  rows="10"
+                  rows="20"
                   required
                   defaultValue={state.recipe.instructions}
                 ></textarea>
@@ -297,7 +318,7 @@ export default function AddRecipe(prop) {
             </div>
 
             <div id="extraInfo">
-              <p>Lisätietoja</p>
+              <p>Lisätiedot</p>
               <textarea
                 id="addRecipeInfo"
                 name=""

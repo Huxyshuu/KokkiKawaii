@@ -175,7 +175,7 @@ export default function AddRecipe(prop) {
             <div>
               <p id="addRecipePic">Kuva*</p>
               <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
-              <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage} required/>
+              <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage}/>
               <p id="imageNameDisplay"></p>
               <img src="#" alt="" id="submitDisplayImage"/>
             </div>
@@ -232,7 +232,7 @@ export default function AddRecipe(prop) {
             </div>
     
             <div id="extraInfo">
-              <p>Lisätietoja</p>
+              <p>Lisätiedot</p>
               <textarea id="addRecipeInfo" name="" cols="30" rows="5"></textarea>
             </div>
     
