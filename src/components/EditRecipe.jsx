@@ -141,16 +141,20 @@ export default function AddRecipe(prop) {
 
     const uploadImage = async () => {
       const [file] = document.getElementById("recipeSubmitImage").files;
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", "reclibimages");
-
-      await axios
-        .post("https://api.cloudinary.com/v1_1/hugotamm/upload", formData)
-        .then((response) => {
-          image = response.data.secure_url;
-        })
-        .catch((error) => console.log(error));
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "reclibimages");
+  
+        await axios
+          .post("https://api.cloudinary.com/v1_1/hugotamm/upload", formData)
+          .then((response) => {
+            image = response.data.secure_url;
+          })
+          .catch((error) => console.log(error));
+      } else {
+        image = state.recipe.picture;
+      }
     };
 
     await uploadImage();
@@ -158,7 +162,7 @@ export default function AddRecipe(prop) {
     const recipe = {
       picture: image,
       title: form[1].value,
-      rating: form[2].value,
+      rating: form[2].defaultValue,
       servings: form[3].value,
       ingredients: ingredientsList,
       time: time,
