@@ -8,7 +8,7 @@ export default function LoginPage(prop) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] =  useState(false);
-    const [loginFailed, setLoginFailed] = useState(true);
+    const [loginFailed, setLoginFailed] = useState(false);
 
     const { setLoggedIn } = prop;
     const navigate = useNavigate();
