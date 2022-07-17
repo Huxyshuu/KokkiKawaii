@@ -19,7 +19,6 @@ function App() {
   const [isSmall, setIsSmall] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
   const [displayBlocked, setDisplayBlocked] = useState(false);
-  const [searchData, setSearchData] = useState([]);
   
   const adminRoutes = ['/overview', '/addrecipe', '/editrecipe'];
 
