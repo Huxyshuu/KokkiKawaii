@@ -65,86 +65,40 @@ font-family: 'Coiny', cursive;
     height: 100%;
 }
 
-#menuFrontButton {
-    color: var(--highlightColor);
-    font-size: 2rem;
-    font-family: 'Arimo', sans-serif;
-    background: none;
-    border: none;
-    border-bottom: 0.1rem solid var(--highlightColor);
-    width: 100vw;
-}
-
-#menuFrontButton:hover {
-    color: white;
-    background-color: var(--highlightColor);
-}
-
-#menuLoginButton {
-    color: var(--highlightColor);
-    font-size: 2rem;
-    font-family: 'Arimo', sans-serif;
-    background: none;
-    border: none;
-    border-bottom: 0.1rem solid var(--highlightColor);
-    width: 100vw;
-}
-
-#menuLoginButton:hover {
-    color: white;
-    background-color: var(--highlightColor);
-}
-
-#menuOverviewButton {
-    color: var(--highlightColor);
-    font-size: 2rem;
-    font-family: 'Arimo', sans-serif;
-    background: none;
-    border: none;
-    border-bottom: 0.1rem solid var(--highlightColor);
-    width: 100vw;
-}
-
-#menuOverviewButton:hover {
-    color: white;
-    background-color: var(--highlightColor);
-}
-
 .menuButtons {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
 }
 
-.menuButtons * {
-    margin-top: 0.8rem;
-}
-
-#searchIconButton {
-    background-color: var(--highlightColor);
-    color: white;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 2.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#searchIconButton:hover {
-    box-shadow: 0 0 0.1rem 0.1rem var(--darkColor);
-}
-
-#menuSearch {
-    font-size: 1.2rem;
+.menuButtons button {
+    color: var(--highlightColor);
+    font-size: 2rem;
     font-family: 'Arimo', sans-serif;
+    background: none;
+    border: none;
     border: 0.1rem solid var(--highlightColor);
-    width: 70vw;
+    align-self: center;
+    width: 15rem;
+    margin-top: 3rem;
 }
 
-#menuSearch:focus {
-    outline: none;
-    background-color: #f2f2f2;
+.menuButtons button:hover {
+    color: white;
+    background-color: var(--highlightColor);
+}
+
+#menuImage {
+    background: url('../images/bruh.png');
+    background-size: cover;
+    width: 15rem;
+    aspect-ratio: 1 / 1;
+    transform: rotate(-10deg);
+    position: absolute;
+    bottom: 0;
+    margin: 8rem 2rem; 
 }
 
 #menuFooter {
@@ -156,4 +110,32 @@ font-family: 'Coiny', cursive;
     text-align: center;
     width: 100vw;
     padding-block: 1rem;
+    height: 4rem;
+}
+
+
+@media screen and (min-width: 800px) {
+    #menuTitle {
+        font-size: 3rem;
+        padding-block: 3%;
+    }
+    
+    #menuMenu {
+        margin-top: 1rem;
+        font-size: 3rem;
+    }
+    
+    #menuFooter {
+        font-size: 1.5rem;
+    }
+
+    #menuImage {
+        background-size: cover;
+        width: 18rem;
+        aspect-ratio: 1 / 1;
+        transform: rotate(-10deg);
+        position: absolute;
+        bottom: 0;
+        margin: 8rem 3rem;
+    }
 }

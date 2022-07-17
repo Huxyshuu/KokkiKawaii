@@ -32,8 +32,9 @@ export default function MobileMenu(prop) {
             {loggedIn && <Link to="/overview" className="link" onClick={() => setMenuOpen(false)}><button id="menuOverviewButton">Hallinta</button></Link>}
             <Link to={loggedIn ? '/' : '/login'} className="link" onClick={() => {setMenuOpen(false); if(loggedIn){logOut()}}}><button id="menuLoginButton">{loggedIn ? 'Kirjaudu ulos' : 'Kirjaudu'}</button></Link>
           </div>
-          
         </div>
+        
+        <div id="menuImage"></div>
       </div>
       <div id="menuFooter">
         <small>Copyright &copy; 2022 KokkiKawaii. All Right Reserved</small>
