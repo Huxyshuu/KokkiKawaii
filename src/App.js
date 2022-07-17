@@ -19,6 +19,7 @@ function App() {
   const [isSmall, setIsSmall] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
   const [displayBlocked, setDisplayBlocked] = useState(false);
+  const [searchData, setSearchData] = useState([]);
   
   const adminRoutes = ['/overview', '/addrecipe', '/editrecipe'];
 
@@ -84,7 +85,7 @@ function App() {
             </div>
             :
             <>
-              <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+              <MobileNavBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} isSmall={isSmall} setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
               <MobileMenu setMenuOpen={setMenuOpen} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> 
               <Routes>
                 <Route path="/" element={<MainPage backendURL={backendURL}/>} />

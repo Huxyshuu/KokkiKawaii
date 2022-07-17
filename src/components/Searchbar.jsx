@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react';
 export default function Searchbar(props) {
 
     const navigate = useNavigate();
-    const { data } = props;
+    const { data, style } = props;
     let highlightColor = getComputedStyle(document.body).getPropertyValue('--highlightColor');
 
     const [filteredData, setFilteredData] = useState([]);
@@ -32,7 +32,7 @@ export default function Searchbar(props) {
 
   return (
     <div>
-        <div id="searchDiv">
+        <div id="searchDiv" style={style}>
             <input id="searchInput" type="text" placeholder="Etsi reseptiä nimellä" value={enteredWord} onChange={handleFilter}/>
             {
                 enteredWord.length === 0 ? <Icon id="searchIcon" icon="bx:search-alt-2" /> : <Icon id="searchIcon" icon="ci:close-big" onClick={clearInput}/>

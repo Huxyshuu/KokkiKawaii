@@ -69,6 +69,6 @@ h1, h2, h3, h4, h5, h6, p {
 
 @media screen and (min-width: 1000px) {
     :root {
-        --navBarHeight: 3rem;
+        --navBarHeight: 3.2rem;
     }
 }

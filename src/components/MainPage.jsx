@@ -16,6 +16,8 @@ export default function MainPage(prop) {
     data: []
   });
 
+  
+
   const [showAll, setShowAll] = useState(false);
 
   const navigate = useNavigate();
@@ -55,7 +57,7 @@ export default function MainPage(prop) {
         <div id="heroCover"></div>
       </div>
 
-      <Searchbar data={state.data}/>
+      <Searchbar data={state.data} style={{margin: "2rem 2rem 0 2rem"}}/>
 
       <div className="section">
         <h3 className="sectionTitle">UUSIN RESEPTI</h3>
