@@ -36,6 +36,25 @@ h2 {
     font-family: 'Arimo', sans-serif;
 }
 
-.tempHidden {
-    display: none;
+@media screen and (min-width: 1000px) {
+    #mobileNav {
+        height: var(--navBarHeight);
+        border-bottom: 0.15rem solid var(--darkColor);
+    }
+    
+    #mobileMenuLogo {
+        font-weight: 600;
+    }
+    
+    .mobileMenuButton {
+        font-size: 250%;
+    }
+    
+    #closeMenuButton {
+        font-size: 220%;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
 }

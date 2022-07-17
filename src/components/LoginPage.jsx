@@ -8,7 +8,7 @@ export default function LoginPage(prop) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] =  useState(false);
-    const [loginFailed, setLoginFailed] = useState(false);
+    const [loginFailed, setLoginFailed] = useState(true);
 
     const { setLoggedIn } = prop;
     const navigate = useNavigate();
@@ -56,40 +56,43 @@ export default function LoginPage(prop) {
 
     return (
     <div id="loginPage">
-        <div id="loginTitle">
-            <h1>Kokki<span className="highlightColor">K</span></h1>
-            <div>
-                <h2>Kirjautuminen</h2>  
+        <div id="loginOverlay"></div>
+        <div id="loginStuff">
+            <div id="loginTitle">
+                <h1>Kokki<span className="highlightColor">K</span></h1>
+                <div>
+                    <h2>Kirjautuminen</h2>  
+                </div>
             </div>
-        </div>
-        {
-            loading ? 
-            <div id="loginLoader">
-                <div id="loginLoadingSpinner">
-                </div> 
-                <h3>Kirjaudutaan...</h3>
-            </div>
-            :
-            <>
             {
-                loginFailed && 
-                <div id="loginFailed">
-                    <p>Kirjautuminen epäonnistui</p>
+                loading ? 
+                <div id="loginLoader">
+                    <div id="loginLoadingSpinner">
+                    </div> 
+                    <h3>Kirjaudutaan...</h3>
                 </div>
+                :
+                <>
+                <form action="#" id="loginForm" onSubmit={handleLogin}>
+                    <div>
+                        <p>Käyttäjänimi</p>
+                        <input type="text" id="loginUsername" value={username} autoComplete="off" onChange={({ target }) => setUsername(target.value)} required minLength="3" />
+                    </div>
+                    <div>
+                        <p>Salasana</p>
+                        <input type="password" id="loginPassword" value={password} autoComplete="off" onChange={({ target }) => setPassword(target.value)} required minLength="3" />
+                    </div>
+                    {
+                        loginFailed && 
+                        <div id="loginFailed">
+                            <p>Kirjautuminen epäonnistui</p>
+                        </div>
+                    }
+                    <input type="submit" id="loginSubmit" value="Kirjaudu"/>
+                </form>
+                </>
             }
-            <form action="#" id="loginForm" onSubmit={handleLogin}>
-                <div>
-                    <p>Käyttäjänimi</p>
-                    <input type="text" id="loginUsername" value={username} autoComplete="off" onChange={({ target }) => setUsername(target.value)} required minLength="3" />
-                </div>
-                <div>
-                    <p>Salasana</p>
-                    <input type="password" id="loginPassword" value={password} autoComplete="off" onChange={({ target }) => setPassword(target.value)} required minLength="3" />
-                </div>
-                <input type="submit" id="loginSubmit" value="Kirjaudu"/>
-            </form>
-            </>
-        }
+        </div>
     </div>
   )
 }
