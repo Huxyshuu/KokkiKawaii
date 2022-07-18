@@ -308,6 +308,7 @@ font-family: 'Coiny', cursive;
         display: flex;
         flex-wrap: wrap;
         column-gap: 2.3rem;
+        justify-content: space-between;
     }
 
     #allRecipesContainer {
@@ -325,9 +326,9 @@ font-family: 'Coiny', cursive;
     }
 
     #sideBySide {
-        max-width: 77rem;
+        max-width: 60rem;
         margin: 0;
-        margin-block: 2rem;
+        margin-block: 5rem 2rem;
     }
 
     #sideBySide > .section {
@@ -347,7 +348,7 @@ font-family: 'Coiny', cursive;
     }
 
     #showAllRecipesSection {
-        max-width: 77rem;
+        max-width: 65rem;
     } 
 
     #allRecipeTitle {

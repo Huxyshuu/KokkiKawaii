@@ -25,6 +25,7 @@ font-family: 'Coiny', cursive;
 
 #addRecipePlus:hover {
     font-size: 7rem;
+    cursor: pointer;
 }
 
 .recipeBox {
@@ -63,7 +64,10 @@ font-family: 'Coiny', cursive;
     visibility: hidden;
 }
 
-.recipeHoverMenu button {
+.overviewButtons {
+    background-color: white;
+    color: var(--highlightColor);
+    transition: 1ms ease-in-out;
     margin: 0.3rem;
     border: none;
     font-family: 'Arimo', sans-serif;
@@ -74,16 +78,10 @@ font-family: 'Coiny', cursive;
     border: 0.1rem solid var(--highlightColor);
 }
 
-.overviewButtons {
-    background-color: white;
-    color: var(--highlightColor);
-    transition: 1ms ease-in-out;
-    
-}
-
 .overviewButtons:hover {
     color: white;
     background-color: var(--highlightColor);
+    cursor: pointer;
 }
 
 #promptBox {

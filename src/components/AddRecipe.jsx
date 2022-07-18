@@ -169,70 +169,76 @@ export default function AddRecipe(prop) {
             <p>Syötä tarvittavat tiedot alle</p>
           </div>
           <form action="" onSubmit={handleSubmit} id="recipeForm">
-            <h3 className="header">Kuva / Nimi / Arvosana</h3>
-    
-            <div>
-              <p id="addRecipePic">Kuva*</p>
-              <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
-              <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage}/>
-              <p id="imageNameDisplay"></p>
-              <img src="#" alt="" id="submitDisplayImage"/>
-            </div>
-    
-            <div>
-              <p>Nimi*</p>
-              <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" required/>
-            </div>
-    
-            <div>
-              <p>Arvosana*</p>
-              <AddRating setStarRating={setStarRating}/>
-              <input id="submitRecipeRating" 
-              type="range"
-              min="1"
-              max="5"
-              step="1"
-              value={starRating}
-              readOnly
-              required/>
-            </div>
-    
-    
-            <h3 className="header">Ainesosat / Annokset</h3>
-    
-            <div>
-              <p>Annosten määrä*</p>
-              <input type="number" placeholder="Syötä numero" required/>
-            </div>
-    
-            <div>
-              <p>Ainesosat*</p>
-              {
-                ingredients.map((e) => {
-                  return e
-                })
-              }
-              <input id="addIngButton" type="button" onClick={addIngredient} value="Lisää ainesosa"/>
-            </div>
-    
-    
-            <h3 className="header">Ohjeet / Aika / Lisätiedot</h3>
-    
-            <div>
-              <p>Aika-arvio*</p>
-              <input id="timeEst" type="number" placeholder="Syötä numero" required/>
-            </div>
-    
-            <div>
-              <p>Ohjeet*</p>
-              <div className="instructions">
-                <textarea id="addRecipeInstructions" name="" cols="30" rows="10" required></textarea>
+            <div id="addRecipeLeftRight">
+              <div id="addRecipeLeft">
+                <h3 className="header">Kuva / Nimi / Arvosana</h3>
+      
+                <div>
+                  <p id="addRecipePic">Kuva*</p>
+                  <label htmlFor="recipeSubmitImage" id="labelSubmitImage">Valitse kuva</label>
+                  <input accept="image/*" type="file" id="recipeSubmitImage" onChange={displayImage}/>
+                  <p id="imageNameDisplay"></p>
+                  <img src="#" alt="" id="submitDisplayImage"/>
+                </div>
+        
+                <div>
+                  <p>Nimi*</p>
+                  <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" required/>
+                </div>
+        
+                <div>
+                  <p>Arvosana*</p>
+                  <AddRating setStarRating={setStarRating}/>
+                  <input id="submitRecipeRating" 
+                  type="range"
+                  min="1"
+                  max="5"
+                  step="1"
+                  value={starRating}
+                  readOnly
+                  required/>
+                </div>
+        
+        
+                <h3 className="header">Ainesosat / Annokset</h3>
+        
+                <div>
+                  <p>Annosten määrä*</p>
+                  <input type="number" placeholder="Syötä numero" required/>
+                </div>
+        
+                <div id="ingDiv">
+                  <p>Ainesosat*</p>
+                  {
+                    ingredients.map((e) => {
+                      return e
+                    })
+                  }
+                  <input id="addIngButton" type="button" onClick={addIngredient} value="Lisää ainesosa"/>
+                </div>
               </div>
-            </div>
-    
-            <div id="extraInfo">
-              <p>Lisätiedot</p>
-              <textarea id="addRecipeInfo" name="" cols="30" rows="5"></textarea>
+      
+      
+              <div id="addRecipeRight">
+                <h3 className="header">Ohjeet / Aika / Lisätiedot</h3>
+      
+                <div>
+                  <p>Aika-arvio*</p>
+                  <input id="timeEst" type="number" placeholder="Syötä numero" required/>
+                </div>
+        
+                <div>
+                  <p>Ohjeet*</p>
+                  <div className="instructions">
+                    <textarea id="addRecipeInstructions" name="" cols="30" rows="10" required></textarea>
+                  </div>
+                </div>
+        
+                <div id="extraInfo">
+                  <p>Lisätiedot</p>
+                  <textarea id="addRecipeInfo" name="" cols="30" rows="5"></textarea>
+                </div>
+              </div>
             </div>
     
             {/* <div>

@@ -6,12 +6,17 @@ font-family: 'Coiny', cursive;
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Coiny&display=swap');
 
 #addRecipe {
-    padding-top: var(--navBarHeight);
-    width: 100vw;
+    padding-top: calc(var(--navBarHeight) + 7rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #addRecipe input:focus {
     outline: none;
+    background-color: #f2f2f2;
 }
 
 #addRecipe textarea {
@@ -19,6 +24,18 @@ font-family: 'Coiny', cursive;
     font-weight: 400;
     font-size: 1rem;
     outline: none;
+}
+
+#addRecipe textarea:focus {
+    background-color: #f2f2f2;
+}
+
+#addRecipeTitle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 4rem;
+    padding-left: 0rem;
 }
 
 
@@ -45,6 +62,10 @@ font-family: 'Coiny', cursive;
     border: 0.1rem solid var(--highlightColor);
     padding: 0.1rem;
     padding-inline: 0.3rem;
+}
+
+#labelSubmitImage:hover {
+    cursor: pointer;
 }
 
 #recipeForm input[type="file"] {
@@ -76,6 +97,7 @@ font-family: 'Coiny', cursive;
     font-weight: 400;
     font-size: 1rem;
     margin-top: 1rem;
+    color: var(--darkColor);
 }
 
 #recipeForm input {
@@ -97,12 +119,14 @@ font-family: 'Coiny', cursive;
 #ingredientAmount {
     width: 30%;
     border: none;
+    padding-bottom: 0.4rem;
     border-bottom: 0.1rem solid var(--highlightColor);
 }
 
 #ingredientName {
     width: 70%;
     border: none;
+    padding-bottom: 0.4rem;
     border-bottom: 0.1rem solid var(--highlightColor);
 }
 
@@ -112,11 +136,19 @@ font-family: 'Coiny', cursive;
     justify-content: space-between;
 }
 
+#ingDiv {
+    margin-bottom: 2rem;
+}
+
 #ingredientDelete {
     border: none;
     background-color: white;
     width: 10%;
     color: var(--highlightColor);
+}
+
+#ingredientDelete:hover {
+    cursor: pointer;
 }
 
 #addIngButton {
@@ -127,6 +159,10 @@ font-family: 'Coiny', cursive;
     color: var(--highlightColor);
     background-color: white;
     margin-top: 0.5rem;
+}
+
+#addIngButton:hover {
+    cursor: pointer;
 }
 
 .ingredients {
@@ -171,12 +207,20 @@ font-family: 'Coiny', cursive;
     margin-block: 1rem;
 }
 
+#addRecipeSubmit:hover {
+    cursor: pointer;
+}
+
 #addRecipeLoader {
     padding-top: calc(var(--navBarHeight) + 10vh);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#addRecipeLoader h3 {
+    margin-top: 1rem;
 }
 
 #addRecipeLoadingSpinner {
@@ -259,4 +303,113 @@ font-family: 'Coiny', cursive;
 #failInfo {
     color: var(--highlightColor);
     font-size: 1.5rem;
+}
+
+#failInfo:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 516px) {
+
+    #addRecipeTitle {
+        padding-left: 2rem;
+    }
+
+    #recipeForm {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #addRecipe {
+        padding-top: calc(var(--navBarHeight) + 8rem);
+        overflow: hidden;
+    }
+
+    #recipeForm {
+        width: auto;
+    }
+
+    #recipeForm div p {
+        font-size: 1.5rem;
+        margin-top: 0rem;
+    }
+    
+    #recipeForm input {
+        font-size: 1.2rem;
+    }
+
+    #addRecipeLeftRight {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10rem;
+    }
+
+    #addRecipeRight {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #addRecipeTitle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 5rem;
+        padding-left: 4rem;
+    }
+
+    .header {
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    #addRecipeLeftRight > div > div {
+        margin-bottom: 2rem;
+    }
+
+    #labelSubmitImage {
+        font-size: 1.2rem;
+    }
+
+    #ingredientAmount {
+        width: 50%;
+    }
+    
+    #ingredientName {
+        width: 80%;
+    }
+
+    #addRecipeSubmit {
+        font-size: 1.8rem !important;
+        margin-block: 4rem 2rem;
+    }
+    
+    #addRecipe textarea {
+        font-size: 1.2rem;
+    }
+
+    #addRecipeLoader {
+        padding-top: calc(var(--navBarHeight) + 10vh);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #addRecipeLoader h3 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    #addRecipeLoadingSpinner {
+        margin-top: 0rem;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    #failedRecipe p {
+        font-size: 1.5rem;
+    }    
 }

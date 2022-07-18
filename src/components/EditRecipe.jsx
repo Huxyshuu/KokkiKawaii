@@ -1,8 +1,7 @@
 /*COPY OF ADDRECIPE*/
 
 import React, { useState, useEffect } from "react";
-import "../styles/AddRecipe.css";
-import "../styles/EditRecipe.css";
+import '../styles/AddRecipe.css';
 import axios from "axios";
 import FormData from "form-data";
 import { useNavigate, useParams } from "react-router-dom";
@@ -40,8 +39,8 @@ export default function AddRecipe(prop) {
             return (
               <div className="ingredients" key={"ingredient_" + index}>
               <div id="ingredientDiv">
-                <input id="ingredientAmount" className="editIng" type="text" placeholder="Määrä" defaultValue={ing[1]} required/>
-                <input id="ingredientName" className="editIng" type="text" placeholder="Ainesosa" defaultValue={ing[0]} required/>
+                <input id="ingredientAmount" type="text" placeholder="Määrä" defaultValue={ing[1]} required/>
+                <input id="ingredientName" type="text" placeholder="Ainesosa" defaultValue={ing[0]} required/>
               </div>
               <input id="ingredientDelete" type="button" value=""/>
             </div>
@@ -50,8 +49,8 @@ export default function AddRecipe(prop) {
             return (
               <div className="ingredients" key={"ingredient_" + index}>
                 <div id="ingredientDiv">
-                  <input id="ingredientAmount" className="editIng" type="text" placeholder="Määrä" defaultValue={ing[1]} required/>
-                  <input id="ingredientName" className="editIng" type="text" placeholder="Ainesosa" defaultValue={ing[0]} required/>
+                  <input id="ingredientAmount" type="text" placeholder="Määrä" defaultValue={ing[1]} required/>
+                  <input id="ingredientName" type="text" placeholder="Ainesosa" defaultValue={ing[0]} required/>
                 </div>
                 <input id="ingredientDelete" type="button" value="X" onClick={() => {deleteIngredient("ingredient_" + index)}}/>
               </div>
@@ -225,107 +224,112 @@ export default function AddRecipe(prop) {
             <p>{`ID: ` + id}</p>
           </div>
           <form action="" onSubmit={handleSubmit} id="recipeForm">
-            <h3 className="header">Kuva / Nimi / Arvosana</h3>
+            <div id="addRecipeLeftRight">
+                <div id="addRecipeLeft">
+                  <h3 className="header">Kuva / Nimi / Arvosana</h3>
 
-            <div>
-              <p id="addRecipePic">Kuva*</p>
-              <label htmlFor="recipeSubmitImage" id="labelSubmitImage">
-                Valitse kuva
-              </label>
-              <input
-                accept="image/*"
-                type="file"
-                id="recipeSubmitImage"
-                onChange={displayImage}
-                defaultValue={state.recipe.picture}
-              />
-              <p id="imageNameDisplay"></p>
-              <img src="#" alt="" id="submitDisplayImage" />
-            </div>
+                  <div>
+                    <p id="addRecipePic">Kuva*</p>
+                    <label htmlFor="recipeSubmitImage" id="labelSubmitImage">
+                      Valitse kuva
+                    </label>
+                    <input
+                      accept="image/*"
+                      type="file"
+                      id="recipeSubmitImage"
+                      onChange={displayImage}
+                      defaultValue={state.recipe.picture}
+                    />
+                    <p id="imageNameDisplay"></p>
+                    <img src="#" alt="" id="submitDisplayImage" />
+                  </div>
 
-            <div>
-              <p>Nimi*</p>
-              <input
-                id="submitRecipeName"
-                type="text"
-                placeholder="Reseptin nimi"
-                minLength="3"
-                defaultValue={state.recipe.title}
-                required
-              />
-            </div>
+                  <div>
+                    <p>Nimi*</p>
+                    <input
+                      id="submitRecipeName"
+                      type="text"
+                      placeholder="Reseptin nimi"
+                      minLength="3"
+                      defaultValue={state.recipe.title}
+                      required
+                    />
+                  </div>
 
-            <div>
-              <p>Arvosana*</p>
-              <AddRating setStarRating={setStarRating} value={state.recipe.rating}/>
-              <input
-                id="submitRecipeRating"
-                type="range"
-                min="1"
-                max="5"
-                step="1"
-                defaultValue={starRating}
-                readOnly
-                required
-              />
-            </div>
+                  <div>
+                    <p>Arvosana*</p>
+                    <AddRating setStarRating={setStarRating} value={state.recipe.rating}/>
+                    <input
+                      id="submitRecipeRating"
+                      type="range"
+                      min="1"
+                      max="5"
+                      step="1"
+                      defaultValue={starRating}
+                      readOnly
+                      required
+                    />
+                  </div>
 
-            <h3 className="header">Ainesosat / Annokset</h3>
+                  <h3 className="header">Ainesosat / Annokset</h3>
 
-            <div>
-              <p>Annosten määrä*</p>
-              <input type="number" placeholder="Syötä numero" required defaultValue={state.recipe.servings}/>
-            </div>
+                  <div>
+                    <p>Annosten määrä*</p>
+                    <input type="number" placeholder="Syötä numero" required defaultValue={state.recipe.servings}/>
+                  </div>
 
-            <div>
-              <p>Ainesosat*</p>
-              {ingredients.map((e) => {
-                return e;
-              })}
-              <input
-                id="addIngButton"
-                type="button"
-                onClick={addIngredient}
-                value="Lisää ainesosa"
-              />
-            </div>
+                  <div>
+                    <p>Ainesosat*</p>
+                    {ingredients.map((e) => {
+                      return e;
+                    })}
+                    <input
+                      id="addIngButton"
+                      type="button"
+                      onClick={addIngredient}
+                      value="Lisää ainesosa"
+                    />
+                  </div>
+                </div>
+                <div id="addRecipeRight">
+                  <h3 className="header">Ohjeet / Aika / Lisätiedot</h3>
 
-            <h3 className="header">Ohjeet / Aika / Lisätiedot</h3>
+                  <div>
+                    <p>Aika-arvio*</p>
+                    <input
+                      id="timeEst"
+                      type="number"
+                      placeholder="Syötä numero"
+                      required
+                      defaultValue={state.recipe.time}
+                    />
+                  </div>
 
-            <div>
-              <p>Aika-arvio*</p>
-              <input
-                id="timeEst"
-                type="number"
-                placeholder="Syötä numero"
-                required
-                defaultValue={state.recipe.time}
-              />
-            </div>
+                  <div>
+                    <p>Ohjeet*</p>
+                    <div className="instructions">
+                      <textarea
+                        id="addRecipeInstructions"
+                        name=""
+                        cols="30"
+                        rows="10"
+                        required
+                        defaultValue={state.recipe.instructions}
+                      ></textarea>
+                    </div>
+                  </div>
 
-            <div>
-              <p>Ohjeet*</p>
-              <div className="instructions">
-                <textarea
-                  id="addRecipeInstructions"
-                  name=""
-                  cols="30"
-                  rows="10"
-                  required
-                  defaultValue={state.recipe.instructions}
-                ></textarea>
-              </div>
-            </div>
-
-            <div id="extraInfo">
-              <p>Lisätiedot</p>
-              <textarea
-                id="addRecipeInfo"
-                name=""
-                cols="30"
-                rows="5"
-                defaultValue={state.recipe.notes}
-              ></textarea>
+                  <div id="extraInfo">
+                    <p>Lisätiedot</p>
+                    <textarea
+                      id="addRecipeInfo"
+                      name=""
+                      cols="30"
+                      rows="5"
+                      defaultValue={state.recipe.notes}
+                    ></textarea>
+                  </div>
+                </div>
             </div>
 
             <div id="arsb">

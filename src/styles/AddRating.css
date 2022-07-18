@@ -2,3 +2,13 @@
     color: var(--highlightColor);
     font-size: 1.8rem;
 }
+
+#addRecipeStar:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+    #addRecipeStar {
+        font-size: 2.2rem;
+    }
+}

@@ -40,8 +40,11 @@ export default function AddRating(props) {
         if (value) {
             setCurrentValue(starArray(value));
             setStarRating(value);
+        } else {
+            setCurrentValue(starArray(1));
+            setStarRating(1);
         }
-    }, [value])
+    }, [value, setStarRating])
 
     const handleClick = value => {
         setCurrentValue(starArray(value));
