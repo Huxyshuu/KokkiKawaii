@@ -4,6 +4,7 @@
     border-bottom: 0.2rem solid var(--highlightColor);
     justify-content: space-between;
     align-items: center;
+    margin: 2rem 2rem 0 2rem;
 }
 
 #searchInput {
@@ -50,7 +51,63 @@
 }
 
 @media screen and (min-width: 1250px) {
+
     #searchDiv {
         width: 40rem;
+    }
+    
+    #searchInput {
+        font-family: 'Arimo', sans-serif;
+        font-weight: 600;
+        font-size: 1.8rem;
+        border: none;
+        color: var(--highlightColor);
+        height: 2rem;
+        width: 100%;
+    }
+    
+    .searchIcon {
+        font-size: 2rem;
+        color: var(--highlightColor);
+        padding-inline: 0.5rem;
+        transition: 0.2s ease-in-out;
+    }
+
+    #closeSearchIcon:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+    
+    #searchInput:focus {
+        outline: none;
+        background-color: #f2f2f2;
+    }
+    
+    #searchInput::placeholder {
+        color: black;
+        opacity: 0.2;
+    }
+    
+    #searchResult {
+        margin-inline: 2rem;
+        border-inline: 0.2rem solid var(--highlightColor);
+        border-bottom: 0.2rem solid var(--highlightColor);
+        padding: 0.3rem 1rem 0 1rem;
+        max-height: 6.7rem;
+        box-shadow: 0 0 0.2rem 0.1rem rgba(0,0,0,0.5);
+        overflow: hidden;
+        overflow-y: auto;
+        background-color: white;
+        font-size: 1.2rem;
+    }
+
+    #searchResult * {
+        transition: 0.2s ease-in-out;
+    }
+    
+    #searchResult *:hover {
+        background-color: #f2f2f2;
+        cursor: pointer;
+        transform: scale(1.01);
     }
 }

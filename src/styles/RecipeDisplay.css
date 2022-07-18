@@ -10,6 +10,12 @@ font-family: 'Coiny', cursive;
     width: 100%;
     aspect-ratio: 5 / 4;
     object-fit: cover;
+    transition: 0.2s ease-in-out;
+}
+
+#latestPic:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 0.5rem 0.1rem var(--highlightColor);
 }
 
 #latestName {

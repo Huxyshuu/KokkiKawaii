@@ -114,6 +114,13 @@ font-family: 'Coiny', cursive;
     width: 40vw;
     background-size: cover;
     background-position: center;
+    transition: 0.2s ease-in-out;
+}
+
+.mainAllRecipeBox:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0.5rem 0.2rem var(--highlightColor);
+    border: 0.1rem solid transparent;
 }
 
 #allRecipeInfo {

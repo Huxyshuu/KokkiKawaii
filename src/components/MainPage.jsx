@@ -79,7 +79,7 @@ export default function MainPage(prop) {
         <div id="heroCover"></div>
       </div>
 
-      <Searchbar data={state.data} style={{margin: "2rem 2rem 0 2rem"}}/>
+      <Searchbar data={state.data}/>
 
       <div id="sideBySide">
         <div className="section" id="latestSection">
