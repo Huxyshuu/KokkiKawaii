@@ -29,10 +29,13 @@ export default function SideDisplay(prop) {
 
         let first = pickRandomRecipe();
         let second;
-        do {
+        if (recipes.length < 3) {
             second = pickRandomRecipe();
-        } while (first._id === second._id);
-        
+        } else {
+            do {
+                second = pickRandomRecipe();
+            } while (first._id === second._id);
+        }
         
 
         return (
