@@ -12,29 +12,25 @@ export default function Rating(prop) {
     if (rating < 1) {
         rating = 1;
     }
-
-    let style = {};
+    let starClass
 
     if (stylingForm === 'RecipePage') {
-        style = {
-            color: 'white'
-        }
+        starClass = 'recipePage'
     }
 
     if (stylingForm === 'allRecipes') {
-        style = {
-            fontSize: '1rem'
-        }
+        starClass = 'allRecipes'
     }
+
 
 
     const countStars = (rating) => {
         const starArray = [];
         for (var i = 0; i < rating; i++) {
-            starArray.push(<Icon icon="codicon:star-full" style={style} key={"recipe_star_rating_" + i}/>);
+            starArray.push(<Icon icon="codicon:star-full" className={stylingForm && starClass} key={"recipe_star_rating_" + i}/>);
         }
         while (starArray.length < 5) {
-            starArray.push(<Icon icon="codicon:star-empty" style={style} key={"recipe_star_rating_" + starArray.length}/>);
+            starArray.push(<Icon icon="codicon:star-empty" className={stylingForm && starClass} key={"recipe_star_rating_" + starArray.length}/>);
         }
         return starArray;
     }

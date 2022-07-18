@@ -34,7 +34,7 @@ export default function MobileMenu(prop) {
           </div>
         </div>
         
-        <div id="menuImage"></div>
+        {/* <div id="menuImage"></div> */}
       </div>
       <div id="menuFooter">
         <small>Copyright &copy; 2022 KokkiKawaii. All Right Reserved</small>

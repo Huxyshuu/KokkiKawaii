@@ -16,9 +16,9 @@ export default function MainPage(prop) {
     data: []
   });
 
-  
-
+  const [isSideBy, setIsSideBy] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const [isWanted, setIsWanted] = useState(false);
 
   const navigate = useNavigate();
   const { backendURL } = prop;
@@ -50,6 +50,28 @@ export default function MainPage(prop) {
     })
   }, [backendURL])
 
+  const checkWindowSize = () => {
+    setIsSideBy(window.innerWidth >= 700 ? true : false);
+    if (isSideBy) {
+      setShowAll(true);
+    } else if (isWanted) {
+      setShowAll(true);
+    } else {
+      setShowAll(false);
+    }
+  }
+
+  useEffect(() => {
+    checkWindowSize();
+
+    window.addEventListener('resize', checkWindowSize);
+    checkWindowSize();
+
+    return () => {
+      window.removeEventListener('resize', checkWindowSize);
+  }
+  }, )
+
   return (
     <div id="mainPage">
       <div id="hero">
@@ -59,12 +81,24 @@ export default function MainPage(prop) {
 
       <Searchbar data={state.data} style={{margin: "2rem 2rem 0 2rem"}}/>
 
-      <div className="section">
-        <h3 className="sectionTitle">UUSIN RESEPTI</h3>
-        <div id="latestRecipe">
-          <RecipeDisplay recipes={state.data} isLoading={state.isLoading} />
+      <div id="sideBySide">
+        <div className="section" id="latestSection">
+          <h3 className="sectionTitle">UUSIN RESEPTI</h3>
+          <div id="latestRecipe">
+            <RecipeDisplay recipes={state.data} isLoading={state.isLoading} />
+          </div>
         </div>
+        {
+          isSideBy &&
+          <div className="section" id="otherSection">
+            <h3 className="sectionTitle">MUUT</h3>
+            <div id="sideDisplay" >
+              <SideDisplay recipes={state.data} isLoading={state.isLoading}/>
+            </div>
+          </div>
+        }
       </div>
+      
 
       {/* <div className="section">
         <h3 className="sectionTitle">KATEGORIAT</h3>
@@ -75,8 +109,8 @@ export default function MainPage(prop) {
 
       {
         showAll ? 
-        <div className="section">
-          <h3 className="sectionTitle">KAIKKI RESEPTIT</h3>
+        <div className="section" id="showAllRecipesSection">
+          <h3 className="sectionTitle" id="allRecipeTitle">KAIKKI RESEPTIT</h3>
           {/* <div id="showAllSection">
           {
             state.data.map((e, index) => {
@@ -127,7 +161,7 @@ export default function MainPage(prop) {
               </div>
           </div>
           <div id="mainSeeMore">
-            <button id="seeMoreButton" onClick={() => setShowAll(true)}>KATSO LISÄÄ</button>
+            <button id="seeMoreButton" onClick={() => {setShowAll(true); setIsWanted(true)}}>KATSO LISÄÄ</button>
           </div>
         </>
       }

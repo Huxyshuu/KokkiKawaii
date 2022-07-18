@@ -41,7 +41,7 @@ h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-right: 1rem;
+    color: var(--darkColor);
 }
 
 #bigMenuButtons div {
@@ -65,6 +65,7 @@ h2 {
     font-size: 1.3rem;
     border: none;
     background-color: transparent;
+    color: var(--darkColor);
 }
 
 #bigMenuButtons div:hover {

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin-inline: 0.5rem;
 }
 
 #sideCategory {
@@ -34,4 +33,34 @@
     margin-top: 0.5rem;
     width: 70%;
     color: transparent;
+}
+
+@media screen and (min-width: 700px) {
+    #sideDish {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    #sideTitle {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    #sideDish {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+
+    #sideTitle {
+        font-size: 1.2rem;
+    }
+    
+    #sideImage {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
 }
