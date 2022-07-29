@@ -7,7 +7,7 @@ font-family: 'Arimo', sans-serif;
 #mobileNav {
     background: white;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: var(--navBarHeight);
     display: flex;
     flex-direction: row;
@@ -19,6 +19,7 @@ font-family: 'Arimo', sans-serif;
 #mobileMenuLogo {
     margin: 0.5rem;
     font-weight: 400;
+    font-family: 'Arimo', sans-serif;
 }
 
 .mobileMenuButton {
@@ -30,10 +31,6 @@ font-family: 'Arimo', sans-serif;
 #closeMenuButton {
     margin: 0.5rem;
     font-size: 170%;
-}
-
-h2 {
-    font-family: 'Arimo', sans-serif;
 }
 
 #bigMenuButtons {
@@ -99,5 +96,15 @@ h2 {
     
     h2 {
         font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #mobileMenuLogo {
+        margin-inline: 7rem;
+    }
+
+    #bigMenuButtons {
+        margin-inline: 5rem;
     }
 }

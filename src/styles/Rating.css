@@ -28,3 +28,14 @@
     }
 }
 
+@media screen and (min-width: 1250px) {
+    .allRecipes {
+        font-size: 1.5rem;
+    }
+
+    #displayRatingStars {
+        color: var(--highlightColor);
+        font-size: 1.5rem;
+    }
+}
+

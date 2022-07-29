@@ -50,7 +50,7 @@ export default function Recipe(prop) {
   if (state.isLoading) {
     return (
       <div id="loadingRecipe">
-        <h2>REC<span className='highlightColor'>LIB</span></h2>
+        <h2>Kokki<span className='highlightColor'>K</span></h2>
         <h3>Resepti latautuu</h3>
         <h3 id="loadingRecipeThanks">odota hetki...</h3>
         <div id="loadingSpinner"></div>
@@ -68,56 +68,61 @@ export default function Recipe(prop) {
               <Rating rating={Recipe.rating} stylingForm={'RecipePage'}/> 
             </div>
           </div>
-    
-          <div id="servingDiv">
-            <h3 className="recipeSectionTitles">AINESOSAT</h3>
-            <p className="recipeUnderTitle">{Recipe.servings} annosta</p>
-          </div>
-    
-          <div>
-            {
-              Recipe.ingredients.map((ingredient, index) => {
-                const splitIng  = ingredient.split(": ");
-                return <div className="recipeIngredients" key={`ingredient_` + index}>
-                  <p>{splitIng[1]}</p>
-                  <p>{splitIng[0]}</p>
-                </div>
-              })
-            }
-          </div>
-    
-          <div>
-            <h3 className="recipeSectionTitles">OHJEET</h3>
-            {
-              Recipe.time > 60 ? <p className="recipeUnderTitle">{ Math.floor(Recipe.time / 60) }t {Recipe.time - Math.floor(Recipe.time / 60) * 60} min</p> 
-              : <p className="recipeUnderTitle">{Recipe.time} min</p>
-            }
-          </div>
-    
-          <div id="recipeInstructionSection">
-            {
-              splitInstructions.map((instruction, index) => {
-                return <p className="recipeInstruction" key={`instruction_` + index}>{instruction}</p>
-              })
-            }
-          </div>
-  
-          {
-            Recipe.notes && 
-            <>
-              <div>
-                <h3 className="recipeSectionTitles">LISÄTIEDOT</h3>
+
+          <div id="recipeInfoBoxes">
+            <div id="recipeLeftInfo">
+              <div className="servingDiv">
+                <h3 className="recipeSectionTitles">AINESOSAT</h3>
+                <p className="recipeUnderTitle">{Recipe.servings} annosta</p>
               </div>
-              
+        
+              <div className="servingDiv">
+                {
+                  Recipe.ingredients.map((ingredient, index) => {
+                    const splitIng  = ingredient.split(": ");
+                    return <div className="recipeIngredients" key={`ingredient_` + index}>
+                      <p>{splitIng[1]}</p>
+                      <p>{splitIng[0]}</p>
+                    </div>
+                  })
+                }
+              </div>
+            </div>
+
+            <div id="recipeRightInfo">
+              <div id="recipeST">
+                <h3 className="recipeSectionTitles">OHJEET</h3>
+                {
+                  Recipe.time > 60 ? <p className="recipeUnderTitle">{ Math.floor(Recipe.time / 60) }t {Recipe.time - Math.floor(Recipe.time / 60) * 60} min</p> 
+                  : <p className="recipeUnderTitle">{Recipe.time} min</p>
+                }
+              </div>
+        
               <div id="recipeInstructionSection">
-                <p id="recipeNotes">{Recipe.notes}</p>
+                {
+                  splitInstructions.map((instruction, index) => {
+                    return <p className="recipeInstruction" key={`instruction_` + index}>{instruction}</p>
+                  })
+                }
               </div>
-            </>
-            
-          }
-    
+      
+              {
+                Recipe.notes && 
+                <>
+                  <div>
+                    <h3 className="recipeSectionTitles">LISÄTIEDOT</h3>
+                  </div>
+                  
+                  <div>
+                    <p id="recipeNotes">{Recipe.notes}</p>
+                  </div>
+                </>
+                
+              }
+            </div>
+          </div>
           
-    
+
           {/* <div id="recipeFooter">
             <h3>Hyviä ruokahetkiä!</h3>
           </div> */}
@@ -126,7 +131,7 @@ export default function Recipe(prop) {
     } else {
       return (
         <div id="invalidRecipe">
-          <h2>REC<span className='highlightColor'>LIB</span></h2>
+          <h2>Kokki<span className='highlightColor'>K</span></h2>
           <h3>Reseptiä ei löytynyt!</h3>
           <h3 id="invalidRecipeThanks">404</h3>
           <img id="invalidRecipeImage" src={require('../images/invalidRecipe.png')} alt="Exclamation mark"/>

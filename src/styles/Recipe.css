@@ -94,6 +94,7 @@ font-family: 'Coiny', cursive;
     font-family: 'Arimo', sans-serif;
     font-weight: 400;
     margin: 1rem;
+    line-height: 1.2;
 }
 
 #recipeNotes {
@@ -188,5 +189,118 @@ font-family: 'Coiny', cursive;
     }
     100% {
       transform: rotate(360deg);
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #recipeHero {
+        height: 35vw;
+        max-height: 20rem;
+    }
+    
+    #recipeShade {
+        height: 35vw;
+        max-height: 20rem;
+    }
+
+    .recipeSectionTitles {
+        max-width: 42rem;
+        margin: 1rem auto;
+    }
+    
+    .recipeUnderTitle {
+        max-width: 43rem;
+        margin: -0.5rem auto 1rem auto;
+    }
+    
+    .recipeIngredients {
+        max-width: 40rem;
+        margin: 1rem auto;
+    }
+    
+    .recipeInstruction {
+        max-width: 40rem;
+        margin: 1.5rem auto;
+        line-height: 1.5;
+    }
+
+    #recipeST {
+        margin-top: 2rem;
+    }
+    
+    #recipeNotes {
+        max-width: 40rem;
+        margin: 1.5rem auto;
+    }
+    
+    #recipeInstructionSection {
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    #recipeHero {
+        max-width: 80rem;
+        height: 35vw;
+        max-height: 20rem;
+        margin: auto;
+    }
+    
+    #recipeTitle {
+        margin: 1rem;
+        margin-inline: 5rem;
+        font-size: 1.8rem;
+    }
+    
+    #recipeRating {
+        color: white;
+        margin: 1rem;
+        margin-inline: 6rem;
+        transform: scale(1.4);
+    }
+    
+    #recipeShade {
+        max-width: 80rem;
+        height: 35vw;
+        max-height: 20rem;
+        margin: auto;
+    }
+
+    #recipeEditButton {
+        right: auto;
+        margin: 2rem;
+        font-size: 1.2rem;
+        padding: 0.3rem;
+        transform: translate(68rem, 0rem)
+    }
+
+    #recipeInfoBoxes {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .recipeSectionTitles {
+        max-width: 42rem;
+        font-size: 1.5rem;
+    }
+    
+    .recipeUnderTitle {
+        font-size: 1.2rem;
+    }
+    
+    .recipeIngredients {
+        max-width: 39rem;
+        font-size: 1.2rem;
+    }
+    
+    .recipeInstruction {
+        max-width: 39rem;
+        font-size: 1.2rem;
+    }
+
+    #recipeNotes {
+        max-width: 39rem;
+        font-size: 1.2rem;
     }
 }
