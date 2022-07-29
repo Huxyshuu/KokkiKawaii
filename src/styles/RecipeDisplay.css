@@ -90,4 +90,30 @@ font-family: 'Coiny', cursive;
     #latestCookTime {
         font-size: 1.2rem;
     }
+
+    #loadingDiv {
+        max-width: 28rem;
+    }
+    
+    #loadingPic {
+        width: 28rem;
+        height: 21rem;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+
+    #loadingDiv {
+        max-width: 60rem;
+        margin-right: 15vw;
+    }
+    
+    #loadingPic {
+        width: 40rem;
+        height: 32.5rem;
+    }
+    
+    #loadingDisplayInfo {
+        width: 40rem;
+    }
 }

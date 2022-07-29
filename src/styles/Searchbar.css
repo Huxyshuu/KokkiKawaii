@@ -17,7 +17,7 @@
     width: 100%;
 }
 
-#searchIcon {
+.searchIcon {
     font-size: 2rem;
     color: var(--highlightColor);
     padding-inline: 0.5rem;

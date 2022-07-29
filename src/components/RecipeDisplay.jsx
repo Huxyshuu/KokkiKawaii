@@ -12,7 +12,7 @@ export default function RecipeDisplay(prop) {
 
   if (isLoading) {
     return (
-      <div>
+      <div id="loadingDiv">
           <div id="loadingPic"></div>
           <div id="loadingDisplayInfo">
               <h3>Loading... ...</h3>

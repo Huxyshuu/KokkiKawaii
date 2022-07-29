@@ -11,11 +11,11 @@ export default function SideDisplay(prop) {
     if (isLoading) {
         return (
             <>
-                <div id="sideDish">
+                <div id="loadingSideDish">
                     <div id="loadingSide"></div>
                     <h3 id="loadingSideTitle">Loading...</h3>
                 </div>
-                <div id="sideDish">
+                <div id="loadingSideDish">
                     <div id="loadingSide"></div>
                     <h3 id="loadingSideTitle">Loading...</h3>
                 </div>

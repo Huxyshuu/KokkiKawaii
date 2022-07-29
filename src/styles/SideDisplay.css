@@ -4,6 +4,12 @@
     width: 50%;
 }
 
+#loadingSideDish {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
 #sideCategory {
     align-self: flex-start;
 }
@@ -50,6 +56,11 @@
 
     #sideTitle {
         font-size: 1rem;
+    }
+
+    #loadingSideDish {
+        width: 10rem;
+        margin-right: 1vw;
     }
 }
 
