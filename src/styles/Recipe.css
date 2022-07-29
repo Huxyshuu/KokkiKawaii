@@ -242,7 +242,7 @@ font-family: 'Coiny', cursive;
     #recipeHero {
         max-width: 80rem;
         height: 35vw;
-        max-height: 20rem;
+        max-height: 25rem;
         margin: auto;
     }
     
@@ -262,7 +262,7 @@ font-family: 'Coiny', cursive;
     #recipeShade {
         max-width: 80rem;
         height: 35vw;
-        max-height: 20rem;
+        max-height: 25rem;
         margin: auto;
     }
 
