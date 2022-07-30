@@ -18,8 +18,6 @@ export default function LoginPage(prop) {
         const user = { username, password };
         await axios.post("https://reclib-backend.vercel.app/login/authorize", user)
             .then(response => {
-                // console.log(response);
-
                 setUsername('');
                 setPassword('');
                 setLoading(true);
@@ -35,14 +33,6 @@ export default function LoginPage(prop) {
                 setUsername('');
                 setPassword('');
             });
-
-        
-
-
-        // if (e.target[0].value === 'admin' && e.target[1].value === 'password') {
-        //     setLoggedIn(true);
-        //     navigate('/overview', { replace: true});
-        // }
     }
 
     useEffect(() => {
