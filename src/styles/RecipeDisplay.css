@@ -24,6 +24,7 @@ font-family: 'Coiny', cursive;
     font-weight: 600;
     color: var(--highlightColor);
     margin-top: 0.1rem;
+    width: 60%;
 }
 
 #latestDisplayInfo {

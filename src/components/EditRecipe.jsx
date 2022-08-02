@@ -251,6 +251,7 @@ export default function AddRecipe(prop) {
                       type="text"
                       placeholder="Reseptin nimi"
                       minLength="3"
+                      maxLength="30"
                       defaultValue={state.recipe.title}
                       required
                     />

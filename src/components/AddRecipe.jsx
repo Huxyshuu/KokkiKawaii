@@ -183,7 +183,7 @@ export default function AddRecipe(prop) {
         
                 <div>
                   <p>Nimi*</p>
-                  <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" required/>
+                  <input id="submitRecipeName" type="text" placeholder="Reseptin nimi" minLength="3" maxLength="30" required/>
                 </div>
         
                 <div>
