@@ -38,8 +38,8 @@ function App() {
     }
 
     if (window.screen.orientation.type === 'landscape-primary' || window.screen.orientation.type === 'landscape-secondary') {
-      if (window.innerHeight < 670) {
-        setDisplayBlocked(false);
+      if (window.innerHeight < 300) {
+        setDisplayBlocked(true);
       }
     } else {
         setDisplayBlocked(false);
@@ -77,8 +77,9 @@ function App() {
           {
             displayBlocked ? 
             <div id="displayBlocked">
-              <h2>REC<span className='highlightColor'>LIB</span></h2>
+              <h2>Cozy<span className='highlightColor'>C</span></h2>
               <h3>Käännä laitteesi pystyasentoon, jotta näet sivuston oikein.</h3>
+              <h3>Tai hanki isompi puhelin wtf...</h3>
               <h3 id="displayBlockedThanks">Kiitos!</h3>
               <img id="displayBlockImage" src={require('./images/portraitPhone.png')} alt="Holding the phone in portrait"/>
             </div>

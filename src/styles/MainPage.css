@@ -7,12 +7,6 @@ font-family: 'Coiny', cursive;
 
 #mainPage {
     padding-top: var(--navBarHeight);
-    background-color: #ffe9ed;
-}
-
-#innerMain {
-    background-color: white;
-    padding-inline: 2rem;
 }
 
 #hero {
@@ -366,6 +360,8 @@ font-family: 'Coiny', cursive;
 @media screen and (min-width: 1250px) {
 
     #innerMain {
+        background-color: white;
+        padding-inline: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -373,6 +369,7 @@ font-family: 'Coiny', cursive;
     }
 
     #mainPage {
+        background-color: #ffe9ed;
         display: flex;
         flex-direction: column;
         justify-content: center;

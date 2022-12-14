@@ -70,7 +70,7 @@ font-family: 'Coiny', cursive;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: -2vh;
 }
 
 .menuButtons button {
@@ -82,7 +82,7 @@ font-family: 'Coiny', cursive;
     border: 0.1rem solid var(--highlightColor);
     align-self: center;
     width: 15rem;
-    margin-top: 3rem;
+    margin-top: 7vh;
 }
 
 .menuButtons button:hover {
@@ -133,5 +133,37 @@ font-family: 'Coiny', cursive;
         width: 18rem;
         bottom: 0;
         margin: 8rem 3rem;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .menuButtons button {
+        margin-top: 4vh;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .menuButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2vh;
+    }
+
+    .menuButtons button {
+        margin-inline: 2rem;
+    }
+}
+
+@media screen and (max-height: 400px) and (max-width: 850px) {
+    .menuButtons button {
+        font-size: 1.8rem;
+        width: 12rem;
+        margin-top: 3vh;
+    }
+
+    .menuButtons button {
+        margin-inline: 0.5rem;
     }
 }
