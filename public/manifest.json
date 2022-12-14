@@ -1,6 +1,6 @@
 {
-  "short_name": "KokkiK",
-  "name": "KokkiKawaii",
+  "short_name": "CozyC",
+  "name": "Cozy Cookery",
   "icons": [
     {
       "src": "coloredlogo64.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#EC3758",
+  "theme_color": "#ec5974",
   "background_color": "#ffffff"
 }
