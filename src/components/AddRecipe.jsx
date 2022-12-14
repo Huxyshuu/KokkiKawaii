@@ -262,7 +262,7 @@ export default function AddRecipe(prop) {
   } else if (recipeSuccess) {
     return (
       <div id="successRecipe">
-        <h2>Kokki<span className='highlightColor'>K</span></h2>
+        <h2>Cozy<span className='highlightColor'>C</span></h2>
         <h3>Resepti lisätty</h3>
         <h3 id="successRecipeThanks">Kiitos!</h3>
       </div>
@@ -270,11 +270,11 @@ export default function AddRecipe(prop) {
   } else {
     return (
       <div id="failedRecipe">
-        <h2>Kokki<span className='highlightColor'>K</span></h2>
+        <h2>Cozy<span className='highlightColor'>C</span></h2>
         <h3>Reseptin lisäys epäonnistui</h3>
         <h3 id="failedRecipeThanks">Yritä uudelleen...</h3>
         <p>Tarkista, että kaikki tiedot ovat oikein!<br/>Jos ongelma jatkuu, ota yhteyttä ylläpitäjään.</p>
-        <p id="failInfo" onClick={() => window.location = "mailto:hugotamm@hotmail.com?subject=Problem adding a recipe - KawaiiKokki"}>@: <span style={{textDecoration: "underline"}}>hugotamm@hotmail.com</span></p>
+        <p id="failInfo" onClick={() => window.location = "mailto:hugotamm@hotmail.com?subject=Problem adding a recipe - Cozy Cookery"}>@: <span style={{textDecoration: "underline"}}>hugotamm@hotmail.com</span></p>
       </div>
     )
   }

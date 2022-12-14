@@ -240,6 +240,11 @@ font-family: 'Coiny', cursive;
 }
 
 @media screen and (min-width: 1250px) {
+
+    #recipePage {
+        background: linear-gradient(#ffe9ed 40%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 100%);
+    }
+
     #recipeHero {
         max-width: 80rem;
         height: 35vw;

@@ -23,7 +23,7 @@ export default function MobileMenu(prop) {
     <div id="dropdownMenu">
       <div>
         <div id="ddmenu">
-          <h2 id="menuTitle">KokkiKawaii</h2>
+          <h2 id="menuTitle">Cozy Cookery</h2>
           <h2 id="menuMenu">MENU</h2>
         </div>
         <div id="menuSection">
@@ -37,7 +37,7 @@ export default function MobileMenu(prop) {
         {/* <div id="menuImage"></div> */}
       </div>
       <div id="menuFooter">
-        <small>Copyright &copy; 2022 KokkiKawaii. All Right Reserved</small>
+        <small>Copyright &copy; 2022 Cozy Cookery. All Right Reserved</small>
       </div>
     </div>
     

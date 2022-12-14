@@ -39,7 +39,7 @@ function App() {
 
     if (window.screen.orientation.type === 'landscape-primary' || window.screen.orientation.type === 'landscape-secondary') {
       if (window.innerHeight < 670) {
-        setDisplayBlocked(true);
+        setDisplayBlocked(false);
       }
     } else {
         setDisplayBlocked(false);

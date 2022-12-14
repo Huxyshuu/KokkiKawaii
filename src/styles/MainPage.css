@@ -7,15 +7,13 @@ font-family: 'Coiny', cursive;
 
 #mainPage {
     padding-top: var(--navBarHeight);
+    background-color: #ffe9ed;
 }
 
-/* #heroCover {
-    background-color: var(--highlightColor);
-    opacity: 0.25;
-    width: 100vw;
-    height: 6rem;
-    position: absolute;
-} */
+#innerMain {
+    background-color: white;
+    padding-inline: 2rem;
+}
 
 #hero {
     display: flex;
@@ -27,6 +25,13 @@ font-family: 'Coiny', cursive;
     background-size: cover;
     background-position: 100% 10%;
     background-color: var(--highlightColor);
+}
+
+.heroSmall {
+    color:white;
+    font-family: 'Arimo', sans-serif;
+    font-size: 1.8rem;
+    margin: 0.5rem;
 }
 
 #hero h1 {
@@ -161,6 +166,20 @@ font-family: 'Coiny', cursive;
     #hero h1 {
         font-size: 3rem;
     }
+
+    #innerMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mainPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     
     .section {
         margin-inline: 1rem;
@@ -197,6 +216,20 @@ font-family: 'Coiny', cursive;
 }
 
 @media screen and (min-width: 700px) {
+
+    #innerMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mainPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     #sideBySide {
         display: flex;
@@ -282,6 +315,20 @@ font-family: 'Coiny', cursive;
 
 @media screen and (min-width: 1000px) {
 
+    #innerMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mainPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     #sideBySide {
         margin-inline: 2rem;
     }
@@ -317,6 +364,13 @@ font-family: 'Coiny', cursive;
 }
 
 @media screen and (min-width: 1250px) {
+
+    #innerMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     #mainPage {
         display: flex;

@@ -50,7 +50,7 @@ export default function Recipe(prop) {
   if (state.isLoading) {
     return (
       <div id="loadingRecipe">
-        <h2>Kokki<span className='highlightColor'>K</span></h2>
+        <h2>Cozy<span className='highlightColor'>C</span></h2>
         <h3>Resepti latautuu</h3>
         <h3 id="loadingRecipeThanks">odota hetki...</h3>
         <div id="loadingSpinner"></div>
@@ -131,7 +131,7 @@ export default function Recipe(prop) {
     } else {
       return (
         <div id="invalidRecipe">
-          <h2>Kokki<span className='highlightColor'>K</span></h2>
+          <h2>Cozy<span className='highlightColor'>C</span></h2>
           <h3>Reseptiä ei löytynyt!</h3>
           <h3 id="invalidRecipeThanks">404</h3>
           <img id="invalidRecipeImage" src={require('../images/invalidRecipe.png')} alt="Exclamation mark"/>

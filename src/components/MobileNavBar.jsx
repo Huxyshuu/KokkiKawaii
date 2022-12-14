@@ -26,7 +26,7 @@ export default function MobileNavBar(prop) {
               smooth: true
             });
           }
-        }}><h2 id="mobileMenuLogo">K<span className="highlightColor">K</span></h2></Link>
+        }}><h2 id="mobileMenuLogo">C<span className="highlightColor">C</span></h2></Link>
         {
           isSmall ? 
           <>
