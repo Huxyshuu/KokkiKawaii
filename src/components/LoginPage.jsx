@@ -49,7 +49,7 @@ export default function LoginPage(prop) {
         <div id="loginOverlay"></div>
         <div id="loginStuff">
             <div id="loginTitle">
-                <h1>Cozy<span className="highlightColor">C</span></h1>
+                <h1>Kokki<span className="highlightColor">K</span></h1>
                 <div>
                     <h2>Kirjautuminen</h2>  
                 </div>

@@ -83,7 +83,7 @@ function App() {
           {
             displayBlocked ? 
             <div id="displayBlocked">
-              <h2>Cozy<span className='highlightColor'>C</span></h2>
+              <h2>Kokki<span className='highlightColor'>K</span></h2>
               <h3>Hanki isompi näyttö wtf...</h3>
               <h3 id="displayBlockedThanks">Kiitos!</h3>
               <img id="displayBlockImage" src={require('./images/portraitPhone.png')} alt="Holding the phone in portrait"/>

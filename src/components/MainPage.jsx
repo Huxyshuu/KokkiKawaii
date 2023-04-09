@@ -76,7 +76,7 @@ export default function MainPage(prop) {
     <div id="mainPage">
       <div id="hero">
         {/* <h2 class="heroSmall">the</h2> */}
-        <h1>Cozy Cookery</h1>
+        <h1>KokkiKawaii</h1>
         {/* <h2 class="heroSmall">recipe collection</h2> */}
       </div>
 

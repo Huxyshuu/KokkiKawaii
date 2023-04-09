@@ -348,7 +348,7 @@ export default function AddRecipe(prop) {
     return (
       <div id="successRecipe">
         <h2>
-          Cozy<span className="highlightColor">C</span>
+          Kokki<span className="highlightColor">K</span>
         </h2>
         <h3>Resepti muokattu</h3>
         <h3 id="successRecipeThanks">Kiitos!</h3>
@@ -358,7 +358,7 @@ export default function AddRecipe(prop) {
     return (
       <div id="failedRecipe">
         <h2>
-          Cozy<span className="highlightColor">C</span>
+          Kokki<span className="highlightColor">K</span>
         </h2>
         <h3>Reseptin muokkaus epäonnistui</h3>
         <h3 id="failedRecipeThanks">Yritä uudelleen...</h3>
@@ -371,7 +371,7 @@ export default function AddRecipe(prop) {
           id="failInfo"
           onClick={() =>
             (window.location =
-              "mailto:hugotamm@hotmail.com?subject=Problem adding a recipe - Cozy Cookery")
+              "mailto:hugotamm@hotmail.com?subject=Problem adding a recipe - KokkiKawaii")
           }
         >
           @:{" "}
