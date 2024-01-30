@@ -15,10 +15,6 @@ pick our favorite recipes that are certified to satisfy! 👨‍🍳😋
 - Recipe manager for deleting, viewing and editing recipes
 - A list view of all recipes below the initial landing page
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
-
 ## Tech
 
 KokkiKawaii is built with realtively simple stack
