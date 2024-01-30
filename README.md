@@ -18,7 +18,7 @@ pick our favorite recipes that are certified to satisfy! 👨‍🍳😋
 - Recipe manager for deleting, viewing and editing recipes
 - A list view of all recipes below the initial landing page
 
-## Tech
+## Tech ✨
 
 KokkiKawaii is built with realtively simple stack
 
