@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# KokkiKawaii
+### _Homemade recipe archive for the best delicacies_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Powered by Vercel](https://raw.githubusercontent.com/abumalick/powered-by-vercel/master/powered-by-vercel.svg)](https://vercel.com?utm_source=powered-by-vercel)
 
-## Available Scripts
+KokkiKawaii is a recipe website that I built for me and my partner to use as an archive to store delicious homemade recipes.
+Instead of hammering our heads against the wall trying to come up with something to eat, we can just open up the site and 
+pick our favorite recipes that are certified to satisfy! 👨‍🍳😋
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Newest recipe display on the landing page
+- A searchbar for instantly looking up recipes
+- Built-in UI for adding and editing recipes
+- Recipe manager for deleting, viewing and editing recipes
+- A list view of all recipes below the initial landing page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This text you see here is *actually- written in Markdown! To get a feel
+for Markdown's syntax, type some text into the left window and
+watch the results in the right.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech
 
-### `npm test`
+KokkiKawaii is built with realtively simple stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://react.dev/) - For rendering UI components and state management!
+- [MongoDB](https://www.mongodb.com/ja-jp) - For storing recipe data in a JSON format as well as the url for the high quality images.
+- [Cloudinary](https://cloudinary.com/) - An SaaS Image API for requesting and storing the actual recipe images uploaded on the site.
+- [NodeJs](https://nodejs.org/en) - Eventing I/O requests for the backend.
+- [Express](https://expressjs.com/) - Fast NodeJs network app framework for building a RESTFul API.
+- [NPM](https://www.npmjs.com/) - For package management
 
-### `npm run build`
+And of course KokkiKawaii itself is open source with a [public repository](https://github.com/Huxyshuu/reclib) on GitHub.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
+Opening KokkiKawaii website at [https://reclib.vercel.app/](https://reclib.vercel.app/) will bring you to the landing page
+![Landing Page](https://i.imgur.com/zQfHGlE.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Viewing a recipe
+Opening a recipe by searching for it through the searchbar or scrolling down for a more extensive list will open up the recipe page with details on what ingredients are required and what the cooking process involves.
+![Recipe page](https://i.imgur.com/ltvvn29.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Managing recipes
+Currently, recipes can only be added, edited and removed by logging in from the top right corner. In the future, the website could be scaled up to allow for individual users to create accounts and have their own specialized recipe archives online.
 
-### `npm run eject`
+Logging in bring you to the recipe management page from where you can add, edit, view and remove recipes. Removing a recipe requires the user to re-enter the login password for confirmation, after which a request is sent to the backend for removal. 
+![Management page](https://i.imgur.com/V4gOuXA.jpeg)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Adding and editing recipes
+Adding and editing a recipe is as simple as filling a form with all the required and optional information about ingredients, image, cooking time and etc. Properly filled forms will be updated to the database upon request.
+![Adding page](https://i.imgur.com/PAq6gix.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
