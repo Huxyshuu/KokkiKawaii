@@ -10,7 +10,7 @@ KokkiKawaii is a recipe website that I built for me and my partner to use as an 
 Instead of hammering our heads against the wall trying to come up with something to eat, we can just open up the site and 
 pick our favorite recipes that are certified to satisfy! 👨‍🍳😋
 
-## Features
+## Features 💡
 
 - Newest recipe display on the landing page
 - A searchbar for instantly looking up recipes
@@ -31,7 +31,7 @@ KokkiKawaii is built with realtively simple stack
 
 And of course KokkiKawaii itself is open source with a [public repository](https://github.com/Huxyshuu/reclib) on GitHub.
 
-## Usage
+## Usage 
 Opening KokkiKawaii website at [https://reclib.vercel.app/](https://reclib.vercel.app/) will bring you to the landing page
 ![Landing Page](https://i.imgur.com/zQfHGlE.png)
 
