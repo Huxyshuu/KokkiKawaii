@@ -20,7 +20,7 @@ pick our favorite recipes that are certified to satisfy! 👨‍🍳😋
 
 ## Tech ✨
 
-KokkiKawaii is built with realtively simple stack
+KokkiKawaii is built with relatively simple stack
 
 - [React](https://react.dev/) - For rendering UI components and state management!
 - [MongoDB](https://www.mongodb.com/ja-jp) - For storing recipe data in a JSON format as well as the url for the high quality images.
