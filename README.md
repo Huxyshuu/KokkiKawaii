@@ -1,5 +1,5 @@
 <img src="https://i.imgur.com/EHvPTjq.png" align="right"
-     alt="Size Limit logo by Anton Lovchikov" width="304" height="178">
+     alt="KokkiKawaii logo" width="304" height="178">
 
 # KokkiKawaii
 ### _Homemade recipe archive for the best delicacies_
