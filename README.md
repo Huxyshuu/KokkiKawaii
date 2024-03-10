@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/EHvPTjq.png" align="right"
+<img src="https://i.imgur.com/z8j7S8u.png" align="right"
      alt="KokkiKawaii logo" width="304" height="178">
 
 # KokkiKawaii
